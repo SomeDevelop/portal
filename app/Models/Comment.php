@@ -12,6 +12,8 @@ class Comment extends Model
         return $this->hasOne(Course::class);
     }
 
+
+
     public function author(){
         return $this->hasOne(User::class);
     }
