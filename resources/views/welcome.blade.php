@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>edPORTAL</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -78,18 +79,26 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card card-default">
+                                {{--<div class="card-header">Vue.JS SPA example</div>--}}
+
+                                <div class="card-body">
+                                    <h2>Welcome to edPORTAL</h2>
+                                    <a href="{{ route('login') }}">
+                                        <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="WeCode">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
             </div>
         </div>
     </body>
+
 </html>

@@ -30,6 +30,14 @@ class HomeController extends Controller
         //return auth()->user();
         return view('home');
     }
+    public function chat()
+    {
+//        return UserResource::collection(User::all());
+        //return new UserResource(auth()->user());
+        //return auth()->user();
+        return view('chat');
+    }
+
 
     public function getFriends(){
 

@@ -31,3 +31,9 @@ Route::post('/send/{session}','ChatController@send');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/chat', 'HomeController@chat')->name('chat');
+
+Route::get('/courses', 'CoursesController@index')->name('courses');
+
+
+
