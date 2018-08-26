@@ -52511,7 +52511,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ChatComponent.vue"
+Component.options.__file = "resources\\assets\\js\\components\\ChatComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -52520,9 +52520,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-ed7b4d44", Component.options)
+    hotAPI.createRecord("data-v-c0ce17c4", Component.options)
   } else {
-    hotAPI.reload("data-v-ed7b4d44", Component.options)
+    hotAPI.reload("data-v-c0ce17c4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52702,7 +52702,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/MessageComponent.vue"
+Component.options.__file = "resources\\assets\\js\\components\\MessageComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -52711,9 +52711,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-283a73ed", Component.options)
+    hotAPI.createRecord("data-v-9f063da6", Component.options)
   } else {
-    hotAPI.reload("data-v-283a73ed", Component.options)
+    hotAPI.reload("data-v-9f063da6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52734,13 +52734,13 @@ var content = __webpack_require__(47);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(49)("b35e76b0", content, false, {});
+var update = __webpack_require__(49)("1dc9ae32", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-283a73ed\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessageComponent.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-283a73ed\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessageComponent.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9f063da6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessageComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9f063da6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessageComponent.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -53508,7 +53508,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-283a73ed", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-9f063da6", module.exports)
   }
 }
 
@@ -53609,7 +53609,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-ed7b4d44", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-c0ce17c4", module.exports)
   }
 }
 

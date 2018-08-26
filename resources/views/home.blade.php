@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center">Home</h1>
+    <h1 class="text-center">Home | Chat</h1>
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="card-deck">
