@@ -31,7 +31,7 @@
                     <a href="{{ route('chat') }}">
                     <img class="card-img-top" src="https://via.placeholder.com/272x180" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Chat</h5>
+                        <h5 class="card-title text-center">Massenger</h5>
                     </div>
                     </a>
                     <div class="card-footer">

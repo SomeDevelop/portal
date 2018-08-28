@@ -35,5 +35,12 @@ Route::get('/chat', 'HomeController@chat')->name('chat');
 
 Route::get('/courses', 'CoursesController@index')->name('courses');
 
+Route::resource('users', 'UserController');
+Route::resource('roles', 'RoleController');
+Route::resource('permissions', 'PermissionController');
+
+
+
+
 
 

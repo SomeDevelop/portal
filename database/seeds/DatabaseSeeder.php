@@ -12,23 +12,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        factory(User::class)->create([
-            'email' => 'kolya@mail.com',
-            'name' => 'Коля',
-            'password' => bcrypt('kolya@mail.com')
-        ]);
-        factory(User::class)->create([
-            'email' => 'anna@mail.com',
-            'name' => 'Аня',
-            'password' => bcrypt('anna@mail.com')
-
-        ]);
-        factory(User::class)->create([
-            'email' => 'vall@mail.com',
-            'name' => 'Валєра',
-            'password' => bcrypt('vall@mail.com')
-
-        ]);
+        $this->call(RolesTableSeeder::class);
+//        factory(User::class)->create([
+//            'email' => 'kolya@mail.com',
+//            'name' => 'Коля',
+//            'password' => bcrypt('kolya@mail.com')
+//        ]);
+//        factory(User::class)->create([
+//            'email' => 'anna@mail.com',
+//            'name' => 'Аня',
+//            'password' => bcrypt('anna@mail.com')
+//
+//        ]);
+//        factory(User::class)->create([
+//            'email' => 'vall@mail.com',
+//            'name' => 'Валєра',
+//            'password' => bcrypt('vall@mail.com')
+//
+//        ]);
     }
 }
