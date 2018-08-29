@@ -9,8 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 //
 {
-    use Notifiable;
-//    use EntrustUserTrait;
+//    use Notifiable;
+    use EntrustUserTrait;
 
     /**
      * The attributes that are mass assignable.

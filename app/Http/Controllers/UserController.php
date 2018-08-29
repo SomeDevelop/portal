@@ -8,8 +8,11 @@ namespace App\Http\Controllers;
     use Auth;
 
 //Importing laravel-permission models
-    use Spatie\Permission\Models\Role;
-    use Spatie\Permission\Models\Permission;
+//    use Spatie\Permission\Models\Role;
+use App\Role;
+
+//    use Spatie\Permission\Models\Permission;
+use App\Permission;
 
 //Enables us to output flash messaging
     use Session;
@@ -17,7 +20,7 @@ namespace App\Http\Controllers;
 class UserController extends Controller {
 
     public function __construct() {
-        $this->middleware(['auth', 'isAdmin']); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+//        $this->middleware(['auth', 'isAdmin']); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
     /**
@@ -64,13 +67,15 @@ class UserController extends Controller {
 
             foreach ($roles as $role) {
                 $role_r = Role::where('id', '=', $role)->firstOrFail();
-                $user->assignRole($role_r); //Assigning role to user
+                $user->attachRole($role_r); //Assigning role to user
             }
         }
         //Redirect to the users.index view and display message
-        return redirect()->route('users.index')
-            ->with('flash_message',
-                'User successfully added.');
+//        return redirect()->route('users.index')
+//            ->with('flash_message',
+//                'User successfully added.');
+        flash('User '. $user->name.' successfully added! ')->important();
+        return redirect()->route('users.index');
     }
 
     /**
@@ -123,9 +128,11 @@ class UserController extends Controller {
         else {
             $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
         }
-        return redirect()->route('users.index')
-            ->with('flash_message',
-                'User successfully edited.');
+//        return redirect()->route('users.index')
+//            ->with('flash_message',
+//                'User successfully edited.');
+        flash('User '. $user->name.' successfully updated! ')->important();
+        return redirect()->route('users.index');
     }
 
     /**
@@ -139,9 +146,12 @@ class UserController extends Controller {
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')
-            ->with('flash_message',
-                'User successfully deleted.');
+//        return redirect()->route('users.index')
+//            ->with('flash_message',
+//                'User successfully deleted.');
+
+        flash('User '. $user->name.' successfully deleted! ')->important();
+        return redirect()->route('users.index');
     }
 
 }
