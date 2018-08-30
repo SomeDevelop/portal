@@ -41,16 +41,18 @@
 
                 <div class="justify-content-center">
                     <ul class="nav">
-                    @if (!Auth::guest())
+                    {{--@if (!Auth::guest())--}}
                         {{--<li><a href="{{ route('posts.create') }}">New Article</a></li>--}}
+                        @role('Admin')
                         <li><a class="nav-link" href="#">New Article</a></li>
 
 
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('permissions.index') }}">Permissions</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('permissions.index') }}">Permissions</a>
 
-                    </li>
+                        </li>
+                        @endrole
                     {{--<li class="nav-item">--}}
                         {{--<a class="nav-link" href="{{ route('roles.index') }}">Roles</a>--}}
 
@@ -59,7 +61,7 @@
                         {{--<a class="nav-link" href="{{ route('users.index') }}">Users</a>--}}
 
                     {{--</li>--}}
-                    @endif
+                    {{--@endif--}}
 
 
                 </ul>

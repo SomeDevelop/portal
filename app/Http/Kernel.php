@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'roles' => \Zizaco\Entrust\Middleware\EntrustRole::class,
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        'rolespermissionsverifier' => \App\Http\Middleware\RolesPermissionsVerifier::class,
     ];
 }
