@@ -62,6 +62,9 @@ class Handler extends ExceptionHandler
                 case 403:
                     return response()->view('errors.403',[],403);
                     break;
+                case 500:
+                    return response()->view('errors.500',[],500);
+                    break;
                 default:
                     return $this->renderHttpException($e);
                     break;
