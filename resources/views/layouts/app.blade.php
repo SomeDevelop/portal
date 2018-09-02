@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Fonts -->
@@ -63,11 +64,17 @@
                     {{--</li>--}}
                     {{--@endif--}}
                         <ul class="nav">
-                            <li class="nav-link"><a href="{{ url('setlocale/en') }}">EN</a></li>
-                            <li class="nav-link"><a href="{{ url('setlocale/ua') }}">UA</a></li>
+                            <li class="nav-link"><a href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a></li>
+                            <li class="nav-link"><a href="{{ route('language.locale', ['locale' => 'ua']) }}">UA</a></li>
 
 
                         </ul>
+                        {{--<form action="{{url('/language/')}}" method="post">--}}
+                            {{--<select name="locale" id="languageSwitcher" class="form-control">--}}
+                                {{--<option value="en" >English</option>--}}
+                                {{--<option value="ua">Українська</option>--}}
+                            {{--</select>--}}
+                        {{--</form>--}}
 
 
 
@@ -130,5 +137,6 @@
 
     </main>
 </div>
+
 </body>
 </html>

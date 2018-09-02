@@ -10511,3 +10511,16 @@ a.text-dark:focus {
   margin: 20px 0;
   display: inline-block;}
 .contant_box_404{ margin-top:-50px;}
+
+/*-------------------------------------------------------*/
+/*                Start page                            */
+/*-----------------------------------------------------*/
+
+a {
+  color: #636b6f;
+
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}

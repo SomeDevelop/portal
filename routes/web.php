@@ -81,6 +81,7 @@ Route::middleware(['ability:Admin,Delete'])->group(function (){
 //
 //});
 
-Route::get('setlocale/{locale}', 'LanguageController@changeLanguage');
+Route::get('/language/{locale}', 'LanguageController@changeLanguage')->name('language.locale');
+
 
 

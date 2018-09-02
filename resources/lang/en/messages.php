@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'msg' => 'English',
     'ed_portal' => 'EDUCATION PORTAL',
     'welcome' => 'Welcome to edPortal',
     'Edit User' => 'Edit User',

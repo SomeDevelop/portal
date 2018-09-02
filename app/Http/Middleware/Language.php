@@ -10,7 +10,7 @@ use App;
 use Config;
 
 
-class Locale
+class Language
 {
     /**
      * Handle an incoming request.
@@ -26,21 +26,14 @@ class Locale
 
     public function handle($request, Closure $next)
     {
-        $locale = collect(request()->segments())->last();
-//        dd($locale);
-        if (in_array($locale, Config::get('app.locales')) && $locale != 'ua') {
-            App::setLocale('en');
 
-//            dd($locale);
-            $locale = null;
-        } else if (in_array($locale, Config::get('app.locales')) && $locale === 'ua'){
-            App::setLocale('ua');
-//            dd($locale);
-            $locale = null;
+        $raw_locale = session()->get('locale');
+//        if($currentLocale) app()->setLocale($currentLocale);
+        if(in_array($raw_locale, Config::get('app.locales'))) {
+            $locale = $raw_locale;
+        } else $locale = Config::get('app.locale');
 
-        }
-//            App::setLocale('ua');
-
+        App::setLocale($locale);
         return $next($request);
     }
 }

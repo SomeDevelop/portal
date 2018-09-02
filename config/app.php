@@ -69,7 +69,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Application Language Configuration
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used
@@ -83,7 +83,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Fallback Locale
+    | Application Fallback Language
     |--------------------------------------------------------------------------
     |
     | The fallback locale determines the locale to use when the current one
