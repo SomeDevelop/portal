@@ -44,12 +44,12 @@
                     {{--@if (!Auth::guest())--}}
                         {{--<li><a href="{{ route('posts.create') }}">New Article</a></li>--}}
                         @role('Admin')
-                        <li><a class="nav-link" href="#">New Article</a></li>
+                        <li><a class="nav-link" href="#">{{__('messages.new_course')}}</a></li>
 
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('permissions.index') }}">Permissions</a>
+                            <a class="nav-link" href="{{ route('permissions.index') }}">{{__('messages.permissions')}}</a>
 
                         </li>
                         @endrole
@@ -62,6 +62,13 @@
 
                     {{--</li>--}}
                     {{--@endif--}}
+                        <ul class="nav">
+                            <li class="nav-link"><a href="{{ url('setlocale/en') }}">EN</a></li>
+                            <li class="nav-link"><a href="{{ url('setlocale/ua') }}">UA</a></li>
+
+
+                        </ul>
+
 
 
                 </ul>
@@ -71,10 +78,10 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
                         </li>
                     @else
                         <li class="nav-item dropdown">
@@ -87,7 +94,7 @@
                                 <a class="dropdown-item text-info" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('messages.logout') }}
                                 </a>
                             </div>
 

@@ -2,19 +2,19 @@
 
 @extends('layouts.app')
 
-@section('title', '| Edit User')
+@section('title', '| '.__("messages.Edit User"))
 
 @section('content')
 
     <div class='col-lg-4 col-lg-offset-4'>
 
-        <h1><i class='fa fa-user-plus'></i> Edit {{$user->name}}</h1>
+        <h1><i class='fa fa-user-plus'></i> {{__("messages.Edit")}} {{$user->name}}</h1>
         <hr>
 
         {{ Form::model($user, array('route' => array('users.update', $user->id), 'method' => 'PUT')) }}{{-- Form model binding to automatically populate our fields with user data --}}
 
         <div class="form-group">
-            {{ Form::label('name', 'Name') }}
+            {{ Form::label('name', __('messages.Name')) }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}
         </div>
 
