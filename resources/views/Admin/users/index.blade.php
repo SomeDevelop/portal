@@ -1,9 +1,10 @@
-{{-- \resources\views\users\index.blade.php --}}
+{{-- \resources\views\users\layout.blade.php --}}
 @extends('Admin.layout')
 
 @section('title', '| Users')
 
 @section('content')
+    <div class="content-wrapper">
 
     <div class="col-lg-10 col-lg-offset-1">
         <h1><i class="fa fa-users"></i> User Administration <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a>
@@ -48,5 +49,5 @@
         <a href="{{ route('users.create') }}" class="btn btn-success">Add User</a>
 
     </div>
-
+    </div>
 @endsection

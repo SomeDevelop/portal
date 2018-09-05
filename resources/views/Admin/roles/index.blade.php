@@ -1,9 +1,10 @@
-{{-- \resources\views\roles\index.blade.php --}}
+{{-- \resources\views\roles\layout.blade.php --}}
 @extends('Admin.layout')
 
 @section('title', '| Roles')
 
 @section('content')
+    <div class="content-wrapper">
 
     <div class="col-lg-10 col-lg-offset-1">
         <h1><i class="fa fa-key"></i> Roles
@@ -46,5 +47,5 @@
         <a href="{{ URL::to('roles/create') }}" class="btn btn-success">Add Role</a>
 
     </div>
-
+    </div>
 @endsection

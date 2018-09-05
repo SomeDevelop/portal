@@ -1,10 +1,10 @@
-{{-- \resources\views\permissions\index.blade.php --}}
+{{-- \resources\views\permissions\layout.blade.php --}}
 @extends('Admin.layout')
 
 @section('title', '| Permissions')
 
 @section('content')
-
+<div class="content-wrapper">
     <div class="col-lg-10 col-lg-offset-1">
         <h1><i class="fa fa-key"></i>{{__('messages.available_permissions')}}
 
@@ -41,5 +41,6 @@
         <a href="{{ URL::to('permissions/create') }}" class="btn btn-success">{{__('messages.add')}}</a>
 
     </div>
+</div>
 
 @endsection

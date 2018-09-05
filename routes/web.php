@@ -45,15 +45,15 @@ Route::get('/chat', 'HomeController@chat')->name('chat');
 Route::get('/courses', 'CoursesController@index')->name('courses');
 
 
-Route::middleware(['ability:Admin,Delete'])->group(function (){
 
+Route::middleware(['ability:Admin,Delete'])->group(function (){
+    Route::resource('cat','CatController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');
+    Route::resource('categories','CategoryController');
     Route::get('/admin', 'AdminController@index')->name('admin');
-
-
-
+    Route::resource('products','ProductController');
 
 });
 //

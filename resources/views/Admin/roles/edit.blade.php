@@ -3,6 +3,7 @@
 @section('title', '| Edit Role')
 
 @section('content')
+    <div class="content-wrapper">
 
     <div class='col-lg-4 col-lg-offset-4'>
         <h1><i class='fa fa-key'></i> Edit Role: {{$role->name}}</h1>
@@ -27,5 +28,5 @@
 
         {{ Form::close() }}
     </div>
-
+    </div>
 @endsection
