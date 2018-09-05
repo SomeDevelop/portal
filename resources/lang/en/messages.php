@@ -25,6 +25,7 @@ return array(
     'remember_me' => 'Remember Me',
     'please_sign_in' => 'Please sign in',
     'forgot_your_password' => 'Forgot Your Password?',
+    'admin_panel' => 'Admin Panel',
 
 
 

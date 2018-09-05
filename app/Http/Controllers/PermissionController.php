@@ -26,7 +26,7 @@ class PermissionController extends Controller {
     public function index() {
         $permissions = Permission::all(); //Get all permissions
 
-        return view('permissions.index')->with('permissions', $permissions);
+        return view('Admin.permissions.index')->with('permissions', $permissions);
     }
 
     /**
@@ -37,7 +37,7 @@ class PermissionController extends Controller {
     public function create() {
         $roles = Role::get(); //Get all roles
 
-        return view('permissions.create')->with('roles', $roles);
+        return view('Admin.permissions.create')->with('roles', $roles);
     }
 
     /**
@@ -83,7 +83,7 @@ class PermissionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return redirect('permissions');
+        return redirect('Admin.permissions.index');
     }
 
     /**
@@ -95,7 +95,7 @@ class PermissionController extends Controller {
     public function edit($id) {
         $permission = Permission::findOrFail($id);
 
-        return view('permissions.edit', compact('permission'));
+        return view('Admin.permissions.edit', compact('permission'));
 //        flash('Permission '.$permission->name.'  edited! ')->important();
 //        return redirect()->route('permissions.index');
     }
@@ -131,8 +131,8 @@ class PermissionController extends Controller {
         $permission = Permission::findOrFail($id);
 
         //Make it impossible to delete this specific permission
-        if ($permission->name == "Administer roles & permissions") {
-            return redirect()->route('permissions.index')
+        if ($permission->name == "Admin") {
+            return redirect()->route('Admin.permissions.index')
                 ->with('flash_message',
                     'Cannot delete this Permission!');
         }

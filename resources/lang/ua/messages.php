@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'msg' => 'Українська',
     'ed_portal' => 'ПОРТАЛ ЗНАНЬ',
     'welcome' => 'Вітаємо Вас на edPortal (і)',
@@ -26,6 +25,8 @@ return [
     'remember_me' => 'Запам\'ятати мене',
     'please_sign_in' => 'Будь ласка, увійдіть',
     'forgot_your_password' => 'Забули свій пароль?',
+    'admin_panel' => 'Адмін Панель',
+
 
 
 

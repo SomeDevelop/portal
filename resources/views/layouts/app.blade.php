@@ -46,14 +46,11 @@
                     {{--@if (!Auth::guest())--}}
                         {{--<li><a href="{{ route('posts.create') }}">New Article</a></li>--}}
                         @role('Admin')
-                        <li><a class="nav-link" href="#">{{__('messages.new_course')}}</a></li>
+                        <li><a class="nav-link" href="{{ route('admin') }}">{{__('messages.admin_panel')}}</a></li>
 
 
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('permissions.index') }}">{{__('messages.permissions')}}</a>
 
-                        </li>
                         @endrole
                     {{--<li class="nav-item">--}}
                         {{--<a class="nav-link" href="{{ route('roles.index') }}">Roles</a>--}}
@@ -120,20 +117,7 @@
     </nav>
 
     <main class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    @include('flash::message')
-                    @if ($errors->any())
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li class="text-danger">{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-            </div>
-        </div>
+
         @yield('content')
 
     </main>
