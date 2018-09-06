@@ -10,8 +10,9 @@
     <li><a href="{{ route('roles.index') }}"><i class="fa fa-sticky-note-o"></i> <span>{{__('messages.roles')}}</span></a></li>
 
     <li><a href="{{ route('users.index') }}"><i class="fa fa fa-users"></i> <span>{{__('messages.users')}}</span></a></li>
+    <li><a href="{{ route('courses.index') }}"><i class="fa fa-list-ul"></i> <span>Курси</span></a></li>
+
     <li><a href="{{ route('categories.index') }}"><i class="fa fa-list-ul"></i> <span>Категорії</span></a></li>
-    <li><a href="#"><i class="fa fa-list-ul"></i> <span>Категорії (Альбоми)</span></a></li>
 
     <li><a href="#"><i class="fa fa-tags"></i> <span>Теги (Блог)</span></a></li>
     <li>

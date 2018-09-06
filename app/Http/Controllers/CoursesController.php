@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Course;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -11,16 +13,19 @@ class CoursesController extends Controller
 //        return UserResource::collection(User::all());
         //return new UserResource(auth()->user());
         //return auth()->user();
-        return view('courses');
+        $courses = Course::all();
+//        dd($courses);
+        return view('courses.index', ['courses'=>$courses]);
     }
     public function create()
     {
         $categories = Category::pluck('title', 'id')->all();
-        $tags = Tag::pluck('title', 'id')->all();
+//        dd($categories);
+//        $tags = Tag::pluck('title', 'id')->all();
 
-        return view('admin.posts.create', compact(
-            'categories',
-            'tags'
+        return view('courses.create', compact(
+            'categories'
+//            ,'tags'
         ));
     }
 
@@ -39,14 +44,14 @@ class CoursesController extends Controller
             'image' =>  'nullable|image'
         ]);
 
-        $post = Post::add($request->all());
-        $post->uploadImage($request->file('image'));
-        $post->setCategory($request->get('category_id'));
-        $post->setTags($request->get('tags'));
-        $post->toggleStatus($request->get('status'));
-        $post->toggleFeatured($request->get('is_featured'));
-
-        return redirect()->route('posts.index');
+        $course = Course::add($request->all());
+        $course->uploadImage($request->file('image'));
+        $course->setCategory($request->get('category_id'));
+//        $course->setTags($request->get('tags'));
+        $course->toggleStatus($request->get('status'));
+        $course->toggleFeatured($request->get('is_featured'));
+        $course->setIsFree($request->get('is_free'));
+        return redirect()->route('courses.index');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use CKSource\CKFinder\Image;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
@@ -12,8 +13,9 @@ class Course extends Model
     use Sluggable;
 
     const IS_DRAFT = 0;
+    const IS_FREE = 0;
     const IS_PUBLIC = 1;
-    protected $fillable = ['title','content', 'date', 'description'];
+    protected $fillable = ['title','content', 'date'];
 
 //    public function category()
 //    {
@@ -84,9 +86,23 @@ class Course extends Model
 
         $this->removeImage();
         $filename = str_random(10) . '.' . $image->extension();
-        $image->storeAs('uploads', $filename);
-        $this->image = $filename;
-        $this->save();
+//        $image->storeAs('uploads', $filename);
+//        $this->image = $filename;
+//        $this->save();
+
+
+
+
+            $path = public_path(). '/uploads/';
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+//            Image::make($image->getRealPath())->resize(200)->save($path);
+            $image->move($path, $filename);
+
+            $this->image = $filename;
+            $this->save();
+
+
+
     }
     public function getImage()
     {
@@ -94,7 +110,7 @@ class Course extends Model
         {
             return '/img/no-image.png';
         }
-
+//            dd($this->image);
         return '/uploads/' . $this->image;
 
     }
@@ -114,6 +130,17 @@ class Course extends Model
     public function setDraft()
     {
         $this->status = Course::IS_DRAFT;
+        $this->save();
+    }
+
+    public function setFree()
+    {
+        $this->is_free = Course::IS_DRAFT;
+        $this->save();
+    }
+    public function setNotFree()
+    {
+        $this->is_free = Course::IS_PUBLIC;
         $this->save();
     }
 
@@ -137,6 +164,16 @@ class Course extends Model
     {
         $this->is_featured = 1;
         $this->save();
+    }
+
+    public function setIsFree($val)
+    {
+        if($val == null)
+        {
+            return $this->setFree();
+        }
+
+        return $this->setNotFree();
     }
 
     public function setStandart()
@@ -170,8 +207,10 @@ class Course extends Model
 
     public function getCategoryTitle()
     {
-        return ($this->category != null)
-            ?   $this->category->title
+        $title = Category::find($this->category_id);
+//        dd($title->title);
+        return ($this->category_id != null)
+            ?   $title->title
             :   'Без категорії';
     }
 
@@ -232,5 +271,8 @@ class Course extends Model
     public function getComments()
     {
         return $this->comments()->where('status', 1)->get();
+    }
+    public function is_free(){
+        return($this->is_free == 1) ? 'Платный' : 'Безплатний';
     }
 }

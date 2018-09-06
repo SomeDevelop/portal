@@ -47,7 +47,7 @@ Route::get('/courses', 'CoursesController@index')->name('courses');
 
 
 Route::middleware(['ability:Admin,Delete'])->group(function (){
-    Route::resource('cat','CatController');
+    Route::resource('courses','CoursesController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');
