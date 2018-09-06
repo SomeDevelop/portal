@@ -2,11 +2,14 @@
 
 namespace App;
 
-use CKSource\CKFinder\Image;
+
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 
 class Course extends Model
 {
@@ -82,28 +85,48 @@ class Course extends Model
     }
     public function uploadImage($image)
     {
+
         if($image == null) { return; }
 
-        $this->removeImage();
-        $filename = str_random(10) . '.' . $image->extension();
-//        $image->storeAs('uploads', $filename);
-//        $this->image = $filename;
-//        $this->save();
+//        $this->removeImage();
+//        $path = public_path(). '/uploads/';
+//        $filename = time() . '.' . $image->getClientOriginalExtension();
+//
+//        $image->move($path, $filename);
+//        dd($image->getRealPath());
+//        $destinationPath = public_path(). '/imas/';
+//        $img = Image::make($image->getRealPath());
+//        $img->resize(100, 100, function ($constraint) {
+//            $constraint->aspectRatio();
+//        })->save($destinationPath.$filename);
+//
+////        $img->response();
+////        $img->save($path.'$filename', 60);
+////
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+//        $filename = $input['imagename'];
+
+        $destinationPath = public_path('imas');
+        $img = Image::make($image->getRealPath());
 
 
+        $img->resize(null, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['imagename']);
+//        dd($img);
+
+        $destinationPath = public_path('/uploads');
+        $image->move($destinationPath, $input['imagename']);
 
 
-            $path = public_path(). '/uploads/';
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-//            Image::make($image->getRealPath())->resize(200)->save($path);
-            $image->move($path, $filename);
-
-            $this->image = $filename;
-            $this->save();
-
-
-
+//        $this->postImage->add($input);
+        $this->image = $input['imagename'];
+        $this->save();
     }
+
+
+
+
     public function getImage()
     {
         if($this->image == null)
@@ -111,7 +134,7 @@ class Course extends Model
             return '/img/no-image.png';
         }
 //            dd($this->image);
-        return '/uploads/' . $this->image;
+        return '/imas/' . $this->image;
 
     }
     public function setCategory($id)
