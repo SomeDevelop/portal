@@ -14,7 +14,7 @@
     <title>edPORTAL</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Fonts -->
@@ -25,6 +25,11 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    {{--<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />--}}
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/card.css" />
+    <link rel="stylesheet" type="text/css" href="css/pattern.css" />
 
 </head>
 <body>
@@ -123,6 +128,13 @@
 
     </main>
 </div>
+<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/vendors/trianglify.min.js') }}" defer></script>
+<script src="{{ asset('js/vendors/TweenMax.min.js') }}" defer></script>
+<script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>
+<script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>
+<script src="{{ asset('js/Card-polygon.js') }}" defer></script>
+<script src="{{ asset('js/demo.js') }}" defer></script>
 
 </body>
 </html>

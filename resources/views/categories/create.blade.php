@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -35,6 +36,7 @@
                     @endif
                 </div>
                 <div class="box-body">
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Назва</label>

@@ -132,7 +132,16 @@ class Course extends Model
         $this->save();
     }
 
+    public function getFullImage()
+    {
+        if($this->image == null)
+        {
+            return '/img/no-image.png';
+        }
+//            dd($this->image);
+        return '/uploads/' . $this->image;
 
+    }
 
 
     public function getImage()
