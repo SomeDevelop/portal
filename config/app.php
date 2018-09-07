@@ -151,6 +151,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
 
 
+
         /*
          * Package Service Providers...
          */
@@ -164,7 +165,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*

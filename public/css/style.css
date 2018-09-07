@@ -44,3 +44,24 @@ a {
     text-decoration: none;
     text-transform: uppercase;
 }
+.navbar-laravel{
+    background-color: #3c8dbc;
+}
+
+.navbar-laravel a{
+    color: #fff;
+}
+
+.bg-dark{
+    background-color: #1a2226 !important;
+    color: #fff !important;
+}
+
+
+
+
+
+
+
+
+

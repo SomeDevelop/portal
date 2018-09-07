@@ -403,18 +403,15 @@
 
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="{{ asset('js/admin.js') }}" defer></script>
-<script src="{{ asset('plugins/ckeditor/ckeditor.js') }}" defer></script>
-<script src="{{ asset('plugins/ckfinder/ckfinder.js') }}" defer></script>
-
+<script src="/js/admin.js"></script>
+<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 
 <script>
-    // $(document).ready(function(){
-    //     var editor = CKEDITOR.replaceAll();
-    //     CKFinder.setupCKEditor( editor );
-    // })
+
+    CKEDITOR.replace( 'summary-ckeditor' );
 
 </script>
+
 
 </body>
 

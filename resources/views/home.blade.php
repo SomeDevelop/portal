@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="card-deck">
                 <div class="card">
-                    <a href="{{ route('courses') }}">
+                    <a href="{{ route('publiccourses') }}">
                         <img class="card-img-top" src="https://via.placeholder.com/272x180" alt="Card image cap">
 
                         <div class="card-body">

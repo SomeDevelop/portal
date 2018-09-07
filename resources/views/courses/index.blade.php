@@ -54,15 +54,15 @@
                                 <td>{{$course->is_free()}}</td>
 
                                 <td>
-{{--                                    <a href="{{route('courses.edit', $course->id)}}" class="fa fa-pencil"></a>--}}
-                                    <a href="#" class="fa fa-pencil"></a>
+                                    <a href="{{route('courses.edit', $course->id)}}" class="fa fa-pencil"></a>
+                                    {{--<a href="{{route('courses.edit')}}" class="fa fa-delete"></a>--}}
 
-                                    {{--{{Form::open(['route'=>['posts.destroy', $course->id], 'method'=>'delete'])}}--}}
-                                    {{--<button onclick="return confirm('are you sure?')" type="submit" class="delete">--}}
-                                        {{--<i class="fa fa-remove"></i>--}}
-                                    {{--</button>--}}
+                                    {{Form::open(['route'=>['courses.destroy', $course->id], 'method'=>'delete'])}}
+                                    <button onclick="return confirm('are you sure?')" type="submit" class="delete">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
 
-                                    {{--{{Form::close()}}--}}
+                                    {{Form::close()}}
                                 </td>
                             </tr>
                         @endforeach

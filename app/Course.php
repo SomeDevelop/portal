@@ -6,6 +6,7 @@ namespace App;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -80,7 +81,13 @@ class Course extends Model
     {
         if($this->image != null)
         {
-            Storage::delete('uploads/' . $this->image);
+
+            File::delete('uploads/' . $this->image);
+            File::delete('uploads/200px/' . $this->image);
+
+//            Storage::delete('uploads/' . $this->image);
+//            Storage::delete('uploads/200px/' . $this->image);
+
         }
     }
     public function uploadImage($image)
@@ -94,7 +101,7 @@ class Course extends Model
 //
 //        $image->move($path, $filename);
 //        dd($image->getRealPath());
-//        $destinationPath = public_path(). '/imas/';
+//        $destinationPath = public_path(). '/200px/';
 //        $img = Image::make($image->getRealPath());
 //        $img->resize(100, 100, function ($constraint) {
 //            $constraint->aspectRatio();
@@ -103,19 +110,20 @@ class Course extends Model
 ////        $img->response();
 ////        $img->save($path.'$filename', 60);
 ////
+         $this->removeImage();
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
 //        $filename = $input['imagename'];
 
-        $destinationPath = public_path('imas');
+        $destinationPath = public_path('uploads/200px');
         $img = Image::make($image->getRealPath());
 
 
-        $img->resize(null, 100, function ($constraint) {
+        $img->resize(null, 200, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$input['imagename']);
 //        dd($img);
 
-        $destinationPath = public_path('/uploads');
+        $destinationPath = public_path('uploads');
         $image->move($destinationPath, $input['imagename']);
 
 
@@ -134,7 +142,7 @@ class Course extends Model
             return '/img/no-image.png';
         }
 //            dd($this->image);
-        return '/imas/' . $this->image;
+        return '/uploads/200px/' . $this->image;
 
     }
     public function setCategory($id)

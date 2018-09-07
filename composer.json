@@ -14,6 +14,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
         "pusher/pusher-php-server": "~3.2",
+        "unisharp/laravel-ckeditor": "^4.7",
         "zizaco/entrust": "5.2.x-dev"
     },
     "require-dev": {

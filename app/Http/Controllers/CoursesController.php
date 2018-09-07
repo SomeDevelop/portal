@@ -17,6 +17,11 @@ class CoursesController extends Controller
 //        dd($courses);
         return view('courses.index', ['courses'=>$courses]);
     }
+    public function show(){
+        $courses = Course::all();
+//        dd($courses);
+        return view('pubcourses.index', ['courses'=>$courses]);
+    }
     public function create()
     {
         $categories = Category::pluck('title', 'id')->all();
@@ -62,16 +67,17 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        $categories = Category::pluck('title', 'id')->all();
-        $tags = Tag::pluck('title', 'id')->all();
-        $selectedTags = $post->tags->pluck('id')->all();
 
-        return view('admin.posts.edit', compact(
+        $course = Course::find($id);
+        $categories = Category::pluck('title', 'id')->all();
+
+//        $tags = Tag::pluck('title', 'id')->all();
+//        $selectedTags = $post->tags->pluck('id')->all();
+
+        return view('courses.edit', compact(
             'categories',
-            'tags',
-            'post',
-            'selectedTags'
+            'course'
+//            'selectedTags'
         ));
 
     }
@@ -92,15 +98,16 @@ class CoursesController extends Controller
             'image' =>  'nullable|image'
         ]);
 
-        $post = Post::find($id);
-        $post->edit($request->all());
-        $post->uploadImage($request->file('image'));
-        $post->setCategory($request->get('category_id'));
-        $post->setTags($request->get('tags'));
-        $post->toggleStatus($request->get('status'));
-        $post->toggleFeatured($request->get('is_featured'));
+        $course = Course::find($id);
+        $course->edit($request->all());
+        $course->uploadImage($request->file('image'));
+        $course->setCategory($request->get('category_id'));
+//        $post->setTags($request->get('tags'));
+        $course->toggleStatus($request->get('status'));
+        $course->toggleFeatured($request->get('is_featured'));
+        $course->setIsFree($request->get('is_free'));
 
-        return redirect()->route('posts.index');
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -111,7 +118,8 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->remove();
-        return redirect()->route('posts.index');
+
+        Course::find($id)->remove();
+        return redirect()->route('courses.index');
     }
 }
