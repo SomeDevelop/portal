@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
     <!-- Styles -->
-{{--    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">--}}
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -61,20 +61,20 @@
 
                 <div class="justify-content-center">
                     <ul class="nav">
-                    {{--@if (!Auth::guest())--}}
+                        {{--@if (!Auth::guest())--}}
                         {{--<li><a href="{{ route('posts.create') }}">New Article</a></li>--}}
                         @role('Admin')
                         <li><a class="nav-link" href="{{ route('admin') }}">{{__('messages.admin_panel')}}</a></li>
                         @endrole
 
                         @role('Owner')
-                        <li><a class="nav-link" href="{{ route('owner') }}">{{__('messages.teacher_panel')}}</a></li>
+                        <li><a class="nav-link" href="{{ route('owner_courses.index') }}">{{__('messages.teacher_panel')}}</a></li>
                         @endrole
 
                         @role('Student')
                         <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.student_panel')}}</a></li>
                         @endrole
-                </ul>
+                    </ul>
                 </div>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -99,7 +99,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @role('Student')
-                                    <a class="dropdown-item text-info" href="{{ url('my_favorites') }}">{{ __('messages.my_favorites') }}</a>
+                                <a class="dropdown-item text-info" href="{{ url('my_favorites') }}">{{ __('messages.my_favorites') }}</a>
                                 @endrole
 
                                 @role('Admin')
@@ -107,7 +107,7 @@
                                 @endrole
 
                                 @role('Owner')
-                                    <a class="dropdown-item text-info" href="{{ url('owner') }}">{{ __('messages.teacher_panel') }}</a>
+                                <a class="dropdown-item text-info" href="{{ url('owner') }}">{{ __('messages.teacher_panel') }}</a>
                                 @endrole
 
                                 <a class="dropdown-item text-info" href="{{ route('logout') }}"
@@ -117,9 +117,9 @@
                                 </a>
                             </div>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     @endguest
                 </ul>
@@ -145,13 +145,13 @@
 
 {{--<script src="js/cbpFWTabs.js"></script>--}}
 {{--<script>--}}
-    {{--(function() {--}}
+{{--(function() {--}}
 
-        {{--[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {--}}
-            {{--new CBPFWTabs( el );--}}
-        {{--});--}}
+{{--[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {--}}
+{{--new CBPFWTabs( el );--}}
+{{--});--}}
 
-    {{--})();--}}
+{{--})();--}}
 {{--</script>--}}
 
 <? }?>

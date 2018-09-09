@@ -9,11 +9,12 @@
                 <nav>
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="icon icon-home active"  href="{{route('owner')}}" role="tab" aria-controls="pills-home" aria-selected="true"><span>Home</span></a>
+                            <a class="icon icon-home"  href="{{route('owner_courses.index')}}" role="tab" aria-controls="pills-profile" aria-selected="false"><span>My Courses</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="icon icon-coffee"  href="{{route('owner_courses')}}" role="tab" aria-controls="pills-profile" aria-selected="false"><span>My Courses</span></a>
+                            <a class="icon icon-box active"  href="{{route('owner')}}" role="tab" aria-controls="pills-home" aria-selected="true"><span>Profile</span></a>
                         </li>
+
                         <li class="nav-item">
                             <a class="icon icon-upload"  href="#" role="tab" aria-controls="pills-contact" aria-selected="false"><span>Upload</span></a>
                         </li>
