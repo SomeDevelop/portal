@@ -26,6 +26,13 @@ return array(
     'please_sign_in' => 'Please sign in',
     'forgot_your_password' => 'Forgot Your Password?',
     'admin_panel' => 'Admin Panel',
+    'my_favorites' => 'My Courses',
+    'student_panel' => 'student Card',
+    'teacher_panel' => 'Teacher Panel',
+    'admin' => 'administrator',
+    'teacher' => 'teacher',
+    'student' => 'student',
+
 
 
 

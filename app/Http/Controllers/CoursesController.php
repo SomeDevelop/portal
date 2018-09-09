@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CoursesController extends Controller
 {
@@ -18,7 +19,7 @@ class CoursesController extends Controller
         return view('courses.index', ['courses'=>$courses]);
     }
     public function show(){
-        $courses = Course::all();
+        $courses = Course::paginate(6);
 //        dd($courses);
         return view('pubcourses.index', ['courses'=>$courses]);
     }
@@ -121,5 +122,26 @@ class CoursesController extends Controller
 
         Course::find($id)->remove();
         return redirect()->route('courses.index');
+    }
+
+    public function favoriteCourse(Course $course)
+    {
+//        dd('1');
+        Auth::user()->favorites()->attach($course->id);
+
+        return back();
+    }
+
+    /**
+     * Unfavorite a particular post
+     *
+     * @param  Post $post
+     * @return Response
+     */
+    public function unFavoriteCourse(Course $course)
+    {
+        Auth::user()->favorites()->detach($course->id);
+
+        return back();
     }
 }

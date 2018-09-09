@@ -26,6 +26,13 @@ return [
     'please_sign_in' => 'Будь ласка, увійдіть',
     'forgot_your_password' => 'Забули свій пароль?',
     'admin_panel' => 'Адмін Панель',
+    'my_favorites' => 'Мої Курси',
+    'student_panel' => 'Карта Студента',
+    'teacher_panel' => 'Карта Викладача',
+    'admin' => 'адміністратор',
+    'teacher' => 'викладач',
+    'student' => 'студент',
+
 
 
 

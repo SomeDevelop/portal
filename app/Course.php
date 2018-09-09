@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
+use Illuminate\Support\Facades\Auth;
+
 
 class Course extends Model
 {
@@ -314,5 +316,11 @@ class Course extends Model
     }
     public function is_free(){
         return($this->is_free == 1) ? 'Платный' : 'Безплатний';
+    }
+    public function favorited()
+    {
+        return (bool) Favorite::where('user_id', Auth::id())
+            ->where('course_id', $this->id)
+            ->first();
     }
 }

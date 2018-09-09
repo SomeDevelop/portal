@@ -17,6 +17,8 @@ Vue.use(require('vue-chat-scroll'));
  */
 
 Vue.component('chat-component', require('./components/ChatComponent.vue'));
+Vue.component('favorite', require('./components/Favorite.vue'));
+
 
 const app = new Vue({
     el: '#app'

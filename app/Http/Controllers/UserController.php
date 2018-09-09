@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
     use Illuminate\Http\Request;
 
     use App\User;
+//    use Illuminate\Support\Facades\Auth;
+
     use Auth;
 
 //Importing laravel-permission models
@@ -42,6 +44,7 @@ class UserController extends Controller {
     public function create() {
         //Get all roles and pass it to the view
         $roles = Role::get();
+
         return view('Admin.users.create', ['roles'=>$roles]);
     }
 
@@ -153,5 +156,19 @@ class UserController extends Controller {
         flash('User '. $user->name.' successfully deleted! ')->important();
         return redirect()->route('users.index');
     }
+//    public function myFavorites()
+//    {
+//        $myFavorites = Auth::user()->favorites;
+//
+////        dd($myFavorites);
+//        return view('users.my_favorites', compact('myFavorites'));
+//    }
+
+//    public function myFavorites()
+//    {
+//        $myFavorites = Auth::user()->favorites;
+//
+//        return view('users.my_favorites', compact('myFavorites'));
+//    }
 
 }

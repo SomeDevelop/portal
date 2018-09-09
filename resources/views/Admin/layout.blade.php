@@ -123,7 +123,7 @@
 
                     </li>
                     <li>
-                        <a class="text-danger"href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a>
+                        <a class="text-danger" href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a>
                     </li>
                     <li class="dropdown user user-menu">
 
@@ -183,7 +183,7 @@
                     <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Віталій Бєльський</p>
+                    <p>{{ Auth::user()->name }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
