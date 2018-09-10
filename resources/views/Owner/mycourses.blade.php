@@ -14,7 +14,9 @@
                     <div class="card mb-4 shadow-sm">
                         <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{$cours->getImage()}}" data-holder-rendered="true">
                         <div class="card-body">
+                            <small class="text-muted float-right text-blue">{{$cours->is_free()}}</small>
                             <h3>{{$cours->title}}</h3>
+
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
@@ -28,9 +30,10 @@
                                     </a>
 
                                 </div>
-                                <small class="text-muted">{{$cours->is_free()}}</small>
-                                <small class="text-muted">{{$cours->date}}</small>
+                                <small class="text-muted float-right">{{$cours->date}}</small>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

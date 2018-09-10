@@ -29,6 +29,14 @@ Route::post('/send/{session}','ChatController@send');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/chat', 'HomeController@chat')->name('chat');
 Route::get('/publiccourses', 'CoursesController@show')->name('publiccourses');
+Route::get('/lesson/{id}', 'LessonController@index');
+Route::post('/favorite/{course}', 'CoursesController@favoriteCourse');
+Route::post('/unfavorite/{course}', 'CoursesController@unFavoriteCourse');
+Route::get('/my_favorite/{course}', 'UsersController@openCourse')->name('my_favorite.course');
+Route::get('/my_favorites', 'UsersController@myFavorites')->middleware('auth');
+
+
+
 Route::middleware(['ability:Owner,Create'])->group(function (){
 //    Route::resource('courses','CoursesController');
 //    Route::resource('users', 'UserController');
@@ -58,9 +66,7 @@ Route::middleware(['ability:Admin,'])->group(function (){
     Route::get('/admin', 'AdminController@index')->name('admin');
     Route::resource('products','ProductController');
 });
-Route::post('/favorite/{course}', 'CoursesController@favoriteCourse');
-Route::post('/unfavorite/{course}', 'CoursesController@unFavoriteCourse');
-Route::get('/my_favorites', 'UsersController@myFavorites')->middleware('auth');
+
 //
 //Route::get('setlocale/{locale}', function ($locale) {
 //    if (in_array($locale, \Config::get('app.locales'))) {   # Проверяем, что у пользователя выбран доступный язык

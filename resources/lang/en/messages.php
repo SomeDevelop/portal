@@ -28,7 +28,7 @@ return array(
     'admin_panel' => 'Admin Panel',
     'my_favorites' => 'My Courses',
     'student_panel' => 'student Card',
-    'teacher_panel' => 'Teacher Panel',
+    'teacher_panel' => 'Teacher Card',
     'admin' => 'administrator',
     'teacher' => 'teacher',
     'student' => 'student',

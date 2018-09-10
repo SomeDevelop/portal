@@ -29,10 +29,11 @@
     <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
     ){?>
+    <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/card.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/pattern.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="css/card.css" />
-    <link rel="stylesheet" type="text/css" href="css/pattern.css" />
+
     <? }?>
 
     <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
