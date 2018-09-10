@@ -65,6 +65,8 @@ class OwnerController extends Controller
         $course->toggleStatus($request->get('status'));
         $course->toggleFeatured($request->get('is_featured'));
         $course->setIsFree($request->get('is_free'));
+        flash('Курс '. $course->title.' успішно добавлено! ')->important();
+
         return redirect()->route('owner_courses.index');
     }
 //
@@ -113,6 +115,8 @@ class OwnerController extends Controller
         $course->toggleFeatured($request->get('is_featured'));
         $course->setIsFree($request->get('is_free'));
 
+        flash('Курс '. $course->title.' успішно оновлено! ')->important();
+
         return redirect()->route('owner_courses.index');
     }
 //    /**
@@ -124,7 +128,11 @@ class OwnerController extends Controller
     public function destroy($id)
     {
 //        dd('7');
+        $course = Course::findOrFail($id);
+
         Course::find($id)->remove();
+        flash('Курс '. $course->title.' видалено! ')->important();
+
         return redirect()->route('owner_courses.index');
     }
 

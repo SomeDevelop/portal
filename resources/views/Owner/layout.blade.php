@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
 
         <section>
@@ -25,6 +26,19 @@
                             <a class="icon icon icon-config"  href="#" role="tab" aria-controls="pills-settings" aria-selected="false"><span>Settings</span></a>
                         </li>
                     </ul>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <br>
+                            @include('flash::message')
+                            @if ($errors->any())
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li class="text-danger">{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                    </div>
                     <div class="tab-content" id="pills-tabContent">
                         @yield('content-1')
                     </div>
