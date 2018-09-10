@@ -17,9 +17,15 @@
                             <h3>{{$cours->title}}</h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+
+
+                                    <a href="{{route('owner_courses.edit', $cours->id)}}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                    <a>
+                                    {{Form::open(['route'=>['owner_courses.destroy', $cours->id], 'method'=>'delete'])}}
+                                        <button onclick="return confirm('are you sure?')" type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    {{Form::close()}}
+                                    </a>
 
                                 </div>
                                 <small class="text-muted">{{$cours->is_free()}}</small>
