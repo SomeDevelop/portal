@@ -79,3 +79,12 @@ a {
 a.add-course{
     font-size: 15px;
 }
+
+h5 {
+    color: #de6551;
+}
+
+.main-color {
+    color: #3c8dbc;
+    /*font-weight: normal;*/
+}

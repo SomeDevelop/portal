@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center">{{$course->title}}</h1>
 
+    <h1 class="text-center">{{$course->title}}</h1>
+    <header class="codrops-header">
+
+        <a style="font-size: 40px;" href="{{ url('my_favorites') }}" title="Back"><span><i
+                        class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+        </a>
+        <p>Мої Курси</p>
+
+
+    </header>
     <main role="main">
 
 

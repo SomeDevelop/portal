@@ -102,7 +102,7 @@
                                 <div class="card-body">
                                     <h1>{{__('messages.ed_portal')}}</h1>
 
-                                    <a href="{{ route('home') }}">
+                                    <a href="{{ route('publiccourses') }}">
                                         <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="WeCode">
                                     </a>
                                     <h4>{{__('messages.welcome')}}</h4>

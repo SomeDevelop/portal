@@ -27,7 +27,9 @@
 
     {{--<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />--}}
     <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+    preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/my_favorite/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+
     ){?>
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/card.css') }}" rel="stylesheet">
@@ -100,10 +102,6 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @role('Student')
-                                <a class="dropdown-item text-info" href="{{ url('my_favorites') }}">{{ __('messages.my_favorites') }}</a>
-                                @endrole
-
-                                @role('Admin')
                                 <a class="dropdown-item text-info" href="{{ url('my_favorites') }}">{{ __('messages.my_favorites') }}</a>
                                 @endrole
 

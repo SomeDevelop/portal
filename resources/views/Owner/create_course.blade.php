@@ -18,7 +18,8 @@
         <!-- Default box -->
             <div class="box text-center">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Що будемо постити?</h3>
+                    {{--<h3 class="box-title">Що будемо постити?</h3>--}}
+                    <h5 class="box-title">Створи щось надзвичайне</h5>
                     @include('admin.errors')
                 </div>
                 <div class="row justify-content-center">
@@ -109,7 +110,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
 
-                    <button class="btn btn-success pull-right">Добавити</button>
+                    <button class="btn btn-info pull-right mb-4">Добавити</button>
                 </div>
                 <!-- /.box-footer-->
             </div>

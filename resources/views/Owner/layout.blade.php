@@ -17,13 +17,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="icon icon-upload"  href="#" role="tab" aria-controls="pills-contact" aria-selected="false"><span>Upload</span></a>
+                            <a class="icon icon-upload"  href="#" role="tab" aria-controls="pills-contact" aria-selected="false"><span>Upload (Скоро)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="icon icon-upload"  href="#" role="tab" aria-controls="pills-students" aria-selected="false"><span>Students</span></a>
+                            <a class="icon icon-upload"  href="#" role="tab" aria-controls="pills-students" aria-selected="false"><span>Students (Скоро)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="icon icon icon-config"  href="#" role="tab" aria-controls="pills-settings" aria-selected="false"><span>Settings</span></a>
+                            <a class="icon icon icon-config"  href="#" role="tab" aria-controls="pills-settings" aria-selected="false"><span>Settings (Скоро)</span></a>
                         </li>
                     </ul>
                     <div class="row">

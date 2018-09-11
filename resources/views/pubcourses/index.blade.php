@@ -5,16 +5,19 @@
 
     <div class="container">
         <header class="codrops-header">
-            <div>
-                <a style="font-size: 40px;" href="{{route('home')}}" title="Back"><span><i
-                                class="fa fa-arrow-circle-left" aria-hidden="true"></i></span></a>
+            @if (Auth::check())
+                <div>
+                    <a style="font-size: 40px;" href="{{route('home')}}" title="Back"><span><i
+                                    class="fa fa-arrow-circle-left" aria-hidden="true"></i></span></a>
 
-            </div>
-            <h1>Front End <span>Courses</span></h1>
+                </div>
+            @endif
+
+            <h1 class="main-color">All <span>Courses</span></h1>
             <nav class="codrops-demos">
-                <a href="#">All</a>
+                <a class="current-demo" href="#">All</a>
                 <a href="#">Web Design</a>
-                <a class="current-demo" href="#">Front End</a>
+                <a href="#">Front End</a>
                 <a href="#">Back End</a>
                 <a href="#">Photoshop</a>
                 <a href="#">Різне</a>
@@ -56,15 +59,19 @@
                                                             :favorited={{ $course->favorited() ? 'true' : 'false' }}
                                             ></favorite>
                                         </div>
+                                    @else
+                                        <div class="card__subtitle float-right">
+                                            <a href="{{ route('login') }}">Записатися</a>
+                                        </div>
                                     @endif
                                     <p class="card__subtitle" style="color: rgba(0,0,0,.6);">{{$course->getCategoryTitle()}}</p>
                                     <br>
-                                    <p class="card__subtitle" style="color: rgba(0,0,0,.6);">{{$course->date}}</p>
+                                    {{--<p class="card__subtitle" style="color: rgba(0,0,0,.6);">{{$course->date}}</p>--}}
                                 </div>
 
                                 <div class="card__copy">
                                     <div class="meta">
-                                        <img class="meta__avatar" src="/img/authors/1.png" alt="author01"/>
+                                        <img class="rounded-circle text-center" src="/img/admin.jpg" alt="Generic placeholder image" width="75" height="75">
                                         <span class="meta__author">{{$course->getAuthorName()}}</span>
                                         <span class="meta__date">{{$course->date}}</span>
                                     </div>

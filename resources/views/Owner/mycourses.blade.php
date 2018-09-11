@@ -19,7 +19,7 @@
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                                    {{--<a href="#"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>--}}
 
 
                                     <a href="{{route('owner_courses.edit', $cours->id)}}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
