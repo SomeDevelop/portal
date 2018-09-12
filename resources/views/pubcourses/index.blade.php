@@ -51,7 +51,7 @@
                                 <i class="card__btn-close fa fa-times"></i>
 
                                 <div class="card__caption" style="background-color: rgba(255,255,255,.7);">
-                                    <h2 class="card__title" style="color: black">{{$course->title}}</h2>
+                                    <h4 class="card__title" style="color: black">{{$course->title}}</h4>
                                     @if (Auth::check())
                                         <div class="card__subtitle float-right">
                                             <favorite

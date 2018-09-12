@@ -85,6 +85,17 @@ h5 {
 }
 
 .main-color {
-    color: #3c8dbc;
+    color: #3c8dbc !important;
     /*font-weight: normal;*/
+}
+.main-size{
+    font-size: 10px;
+}
+
+.main-bg{
+    background: rgba(40,44,42,0) !important;
+}
+
+.next-bg {
+    background: rgba(255,255,255,.5);
 }

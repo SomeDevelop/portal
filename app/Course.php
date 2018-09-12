@@ -20,7 +20,7 @@ class Course extends Model
     const IS_DRAFT = 0;
     const IS_FREE = 0;
     const IS_PUBLIC = 1;
-    protected $fillable = ['title','content', 'date'];
+        protected $fillable = ['title','content', 'date'];
 //    public function category()
 //    {
 //

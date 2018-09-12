@@ -17,9 +17,9 @@ class CreateLessonsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->text('description');
             $table->text('content');
             $table->integer('course_id')->nullable();
-            $table->integer('user_id')->nullable();
             $table->integer('open')->default(0);
 //            $table->integer('is_free')->default(0);
 

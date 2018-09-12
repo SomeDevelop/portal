@@ -38,11 +38,15 @@
 
     <? }?>
 
-    <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+    <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+            preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
     ){?>
     <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
 
     <? }?>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
 </head>
 <body>
@@ -142,18 +146,21 @@
 <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 ){?>
 
-{{--<script src="js/cbpFWTabs.js"></script>--}}
-{{--<script>--}}
-{{--(function() {--}}
-
-{{--[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {--}}
-{{--new CBPFWTabs( el );--}}
-{{--});--}}
-
-{{--})();--}}
-{{--</script>--}}
 
 <? }?>
+
+
+<script>
+
+    ClassicEditor
+        .create( document.querySelector( '#summary-ckeditor' ) )
+        .then( editor => {
+            console.log( editor );
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 
 </body>

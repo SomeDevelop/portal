@@ -43,6 +43,9 @@ Route::middleware(['ability:Owner,Create'])->group(function (){
 //    Route::resource('roles', 'RoleController');
 //    Route::resource('permissions', 'PermissionController');
 //    Route::resource('categories','CategoryController');
+    Route::get('/course_lessons/{course}','LessonController@index')->name('course_lessons.course');
+    Route::resource('lessons','LessonController');
+
     Route::resource('owner_courses','OwnerController');
     Route::get('/owner', 'OwnerController@courses')->name('owner');
     Route::get('/info', 'OwnerController@info')->name('info');
