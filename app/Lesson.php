@@ -44,4 +44,15 @@ class Lesson extends Model
         $lesson->save();
         return $lesson;
     }
+    public function edit($fields)
+    {
+        $this->fill($fields);
+        $this->save();
+    }
+
+    public function remove()
+    {
+
+        $this->delete();
+    }
 }

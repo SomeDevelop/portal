@@ -9,6 +9,7 @@
 
         </div>
         <div class="row">
+
             @forelse($courses as $cours)
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">

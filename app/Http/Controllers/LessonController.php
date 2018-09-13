@@ -24,8 +24,9 @@ class LessonController extends Controller
     public function show($slug){
 //        dd($slug);
         $lesson = Lesson::whereSlug($slug)->first();
-//        dd($lesson);
-        return view('owner.lesson.show', ['lesson'=>$lesson]);
+        $course = Course::find($lesson->course_id);
+
+        return view('owner.lesson.show', ['lesson'=>$lesson, 'course'=>$course]);
     }
     public function create(Request $request)
     {
@@ -68,15 +69,13 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $course = Course::find($id);
-        $categories = Category::pluck('title', 'id')->all();
-//        $tags = Tag::pluck('title', 'id')->all();
-//        $selectedTags = $post->tags->pluck('id')->all();
-        return view('courses.edit', compact(
-            'categories',
-            'course'
+        $lesson = Lesson::whereSlug($slug)->first();
+
+//        dd($lesson);
+        return view('owner.lesson.edit', compact(
+            'lesson'
 //            'selectedTags'
         ));
     }
@@ -87,23 +86,19 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
         $this->validate($request, [
             'title' =>'required',
-            'content'   =>  'required',
-            'date'  =>  'required',
-            'image' =>  'nullable|image'
+            'description'   =>  'required',
+            'content'   =>  'required'
+
         ]);
-        $course = Course::find($id);
-        $course->edit($request->all());
-        $course->uploadImage($request->file('image'));
-        $course->setCategory($request->get('category_id'));
-//        $post->setTags($request->get('tags'));
-        $course->toggleStatus($request->get('status'));
-        $course->toggleFeatured($request->get('is_featured'));
-        $course->setIsFree($request->get('is_free'));
-        return redirect()->route('courses.index');
+        $lesson = Lesson::whereSlug($slug)->first();
+//
+        $lesson->edit($request->all());
+//        dd($lesson);
+        return redirect()->route('course_lessons.course', ['course' => $lesson->course_id]);
     }
     /**
      * Remove the specified resource from storage.
@@ -111,21 +106,14 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        Course::find($id)->remove();
-        return redirect()->route('courses.index');
+        $lesson = Lesson::whereSlug($slug)->first();
+//        dd('44');
+
+        $lesson->remove();
+        return redirect()->route('course_lessons.course', ['course' => $lesson->course_id]);
+
     }
-    public function favoriteCourse(Course $course)
-    {
-//        dd('1');
-        Auth::user()->favorites()->attach($course->id);
-        return back();
-    }
-    /**
-     * Unfavorite a particular post
-     *
-     * @param  Post $post
-     * @return Response
-     */
+
 }

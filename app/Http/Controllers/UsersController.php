@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,21 @@ class UsersController extends Controller
 
     public function openCourse($id)
     {
+
         $course = Course::find($id);
 
-        return view('users.course', compact('course'));
+        $lessons = Lesson::all()->where('course_id',$id);
+
+
+        return view('users.course', ['course'=>$course, 'lessons'=>$lessons]);
+    }
+    public function openLesson($slug)
+    {
+
+        $lesson = Lesson::whereSlug($slug)->first();
+        $course = Course::find($lesson->course_id);
+
+
+        return view('users.lesson', ['lesson'=>$lesson, 'course'=>$course]);
     }
 }

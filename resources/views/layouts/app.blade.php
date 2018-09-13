@@ -28,7 +28,9 @@
     {{--<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />--}}
     <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/my_favorite/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+    preg_match('/my_favorite/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/course_lesson/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/student/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 
     ){?>
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
@@ -46,7 +48,7 @@
 
     <? }?>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+
 
 </head>
 <body>
@@ -142,13 +144,13 @@
 <script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>
 <script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>
 <script src="{{ asset('js/Card-polygon.js') }}" defer></script>
-<script src="{{ asset('js/demo.js') }}" defer></script>
+<script src="{{ asset('js/demo-2.js') }}" defer></script>
 <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 ){?>
 
 
 <? }?>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
 <script>
 

@@ -32,8 +32,7 @@ Route::get('/publiccourses', 'CoursesController@show')->name('publiccourses');
 Route::get('/lesson/{id}', 'LessonController@index');
 Route::post('/favorite/{course}', 'CoursesController@favoriteCourse');
 Route::post('/unfavorite/{course}', 'CoursesController@unFavoriteCourse');
-Route::get('/my_favorite/{course}', 'UsersController@openCourse')->name('my_favorite.course');
-Route::get('/my_favorites', 'UsersController@myFavorites')->middleware('auth');
+
 
 
 
@@ -53,11 +52,16 @@ Route::middleware(['ability:Owner,Create'])->group(function (){
 //    Route::resource('products','ProductController');
 });
 Route::middleware(['ability:Student,'])->group(function (){
+
+
+    Route::get('/my_favorite/{course}', 'UsersController@openCourse')->name('my_favorite.course');
+    Route::get('/my_favorites', 'UsersController@myFavorites');
+    Route::get('/course_lesson/{lesson}', 'UsersController@openLesson')->name('course_lesson.lesson');
 //    Route::resource('users', 'UserController');
 //    Route::resource('roles', 'RoleController');
 //    Route::resource('permissions', 'PermissionController');
 //    Route::resource('categories','CategoryController');
-    Route::get('/student', 'StudentController@index')->name('student');
+    Route::get('/student', 'UsersController@myFavorites')->name('student');
 //    Route::resource('products','ProductController');
 });
 Route::middleware(['ability:Admin,'])->group(function (){
