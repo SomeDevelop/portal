@@ -38,9 +38,10 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Повный текст</label>
-                            <textarea name="content" id="summaryckeditor" class="form-control" cols="30" rows="20"></textarea>
+                            <textarea name="content" id="summernote"></textarea>
                         </div>
                     </div>
+
                     <input name="course_id" type="hidden" value="{{$course->id}}">
                 </div>
                 <!-- /.box-body -->
@@ -54,6 +55,7 @@
         </section>
         <!-- /.content -->
     </div>
+
 
 
 @endsection

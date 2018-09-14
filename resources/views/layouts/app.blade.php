@@ -18,14 +18,25 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
     <!-- Styles -->
-    {{--    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">--}}
+        <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+    ){?>
+
+    <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+    <? }?>
+
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
-    {{--<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />--}}
     <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/my_favorite/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
@@ -40,13 +51,7 @@
 
     <? }?>
 
-    <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-            preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
-    ){?>
-    <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
 
-    <? }?>
 
 
 
@@ -138,31 +143,52 @@
 
     </main>
 </div>
+
+
+
 <script src="{{ asset('js/app.js') }}" defer></script>
+<?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+){?>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+
+<script>
+    $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 100
+    });
+</script>
+<? }?>
 <script src="{{ asset('js/vendors/trianglify.min.js') }}" defer></script>
 <script src="{{ asset('js/vendors/TweenMax.min.js') }}" defer></script>
 <script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>
-<script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>
-<script src="{{ asset('js/Card-polygon.js') }}" defer></script>
-<script src="{{ asset('js/demo-2.js') }}" defer></script>
-<?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+
+<?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 ){?>
 
+<script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>
 
 <? }?>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
-<script>
 
-    ClassicEditor
-        .create( document.querySelector( '#summary-ckeditor' ) )
-        .then( editor => {
-            console.log( editor );
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
+<script src="{{ asset('js/Card-polygon.js') }}" defer></script>
+<script src="{{ asset('js/demo-2.js') }}" defer></script>
+
+
+
+{{--<script>--}}
+
+
+    {{--ClassicEditor--}}
+        {{--.create( document.querySelector( '#editor' ) )--}}
+        {{--.catch( error => {--}}
+            {{--console.error( error );--}}
+        {{--} );--}}
+{{--</script>--}}
 
 
 </body>

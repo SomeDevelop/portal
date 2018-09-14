@@ -37,9 +37,9 @@
 
                             <hr>
                             <br>
-                            <div>
-                                {{ $lesson->content }}
-                            </div>
+
+                                <div>{!!$lesson->content!!}</div>
+
                             {{--                        {{dd($myFavorite->id)}}--}}
                             {{--                        <a href="{{route('/my_favorites/', $myFavorite->id)}}">Відкрити</a>--}}
 

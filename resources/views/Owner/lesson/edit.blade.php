@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Повний текст</label>
-                            <textarea name="content" id="summary2" class="form-control">{{$lesson->content}}</textarea>
+                            <textarea name="content" id="summernote" class="form-control">{{$lesson->content}}</textarea>
                         </div>
                     </div>
                 </div>

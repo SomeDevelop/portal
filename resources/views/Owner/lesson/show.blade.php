@@ -25,7 +25,7 @@
                             <div>{{$lesson->description}}</div>
                             <br>
                             <br>
-                            <div>{{$lesson->content}}</div>
+                            <div>{!!$lesson->content!!}</div>
                         </div>
                     </div>
                 </div>

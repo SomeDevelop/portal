@@ -53,8 +53,35 @@ class LessonController extends Controller
             'content'   =>  'required',
             'description'  =>  'required'
         ]);
-//        dd($request->all());
-        $lesson = Lesson::add($request->all());
+//        dd($request);
+        $dom = new \domdocument();
+        $dom->loadHtml($request->content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+        $images = $dom->getelementsbytagname('img');
+
+        foreach($images as $k => $img){
+            $data = $img->getattribute('src');
+
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
+
+            $data = base64_decode($data);
+            $image_name= time().$k.'.png';
+            $path = public_path() .'/img/lessons/'. $image_name;
+
+            file_put_contents($path, $data);
+
+            $img->removeattribute('src');
+            $img->setattribute('src', '/img/lessons/'. $image_name);
+        }
+
+        $detail = $dom->savehtml();
+
+
+
+
+
+        Lesson::add($request->all(),$detail);
 //
 //        $course->setCategory($request->get('category_id'));
 //        $course->setTags($request->get('tags'));

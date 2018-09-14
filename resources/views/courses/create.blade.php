@@ -103,7 +103,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Повный текст</label>
-                            <textarea name="content" id="summary-ckeditor" class="form-control"></textarea>
+                            <textarea name="content" id="summernote" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>

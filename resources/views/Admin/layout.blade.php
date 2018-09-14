@@ -9,6 +9,9 @@
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <style>
         table.table form{
@@ -180,7 +183,7 @@
             <div class="user-panel">
 
                 <div class="pull-left image">
-                    <img src="/img/admin.jpg" height="75" class="img-circle" alt="User Image">
+                    <img src="/img/admin.jpg" width="75" height="75" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
@@ -403,13 +406,17 @@
 
     <div class="control-sidebar-bg"></div>
 </div>
+
 <script src="/js/admin.js"></script>
-<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+{{--<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
 
 <script>
-
-    CKEDITOR.replace( 'summary-ckeditor' );
-
+    $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 100
+    });
 </script>
 
 

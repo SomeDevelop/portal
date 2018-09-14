@@ -34,12 +34,14 @@ class Lesson extends Model
             :   'Без курса';
     }
 
-    public static function add($fields)
+    public static function add($fields, $detail)
     {
 //        dd($fields["course_id"]);
+
         $lesson = new static;
 
         $lesson->fill($fields);
+        $lesson->content = $detail;
         $lesson->course_id =$fields["course_id"];
         $lesson->save();
         return $lesson;
