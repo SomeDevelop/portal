@@ -142,11 +142,16 @@
         @yield('content')
 
     </main>
+    <?php if (preg_match('/home/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) != 1
+    ){?>
+
     <hr>
     <footer class="container">
         <p class="float-right"><a href="#">Вгору <i class="fa fa-arrow-up" aria-hidden="true"></i></a></p>
         <p>©2018 edPortal · <a href="#">Bohdanovskyi</a> · </p>
     </footer>
+    <? }?>
+
 </div>
 
 
