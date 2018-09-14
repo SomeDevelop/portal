@@ -26,9 +26,10 @@
 
             <!-- START THE FEATURETTES -->
 
-            <hr class="featurette-divider">
+
             <?php $i = 1?>
             @forelse($lessons as $lesson)
+                <hr class="featurette-divider">
             <div class="row featurette">
                 <div class="col-md-7">
                     <a href="{{route('course_lesson.lesson', $lesson->slug)}}"><h2 class="featurette-heading">Урок {!! $i++ !!}</h2></a>
@@ -40,7 +41,7 @@
                 </div>
             </div>
 
-            <hr class="featurette-divider">
+
             @empty
                 <p>В цьому курсі ще не має уроків</p>
             @endforelse
@@ -52,11 +53,8 @@
 
         </div><!-- /.container -->
 
-
+        <hr>
         <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-right"><a href="#">Вгору <i class="fa fa-arrow-up" aria-hidden="true"></i></a></p>
-            <p>©2018 edPortal · <a href="#">Bohdanovskyi</a> · </p>
-        </footer>
+
     </main>
 @endsection

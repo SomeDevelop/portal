@@ -49,7 +49,9 @@
                     <p>Ви ще не записалися ні на один курс</p>
                 @endforelse
             </div>
+
         </div>
+
         </div>
     </div>
 @endsection
