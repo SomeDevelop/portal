@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Http\Resources\UserResource;
 use App\User;
 use Illuminate\Http\Request;
@@ -44,6 +45,16 @@ class HomeController extends Controller
         return UserResource::collection(User::where('id', '!=', auth()->id())->get());
 
 
+    }
+
+    public function ajaxRequest(Request $request){
+
+
+        $post = Course::find($request->id);
+        $response = auth()->user()->toggleLike($post);
+
+
+        return response()->json(['success'=>$response]);
     }
 
 

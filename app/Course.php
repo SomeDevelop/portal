@@ -12,11 +12,16 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 use Illuminate\Support\Facades\Auth;
+use Overtrue\LaravelFollow\Traits\CanBeBookmarked;
+use Overtrue\LaravelFollow\Traits\CanBeFavorited;
+use Overtrue\LaravelFollow\Traits\CanBeLiked;
+use Overtrue\LaravelFollow\Traits\CanBeVoted;
+
 
 
 class Course extends Model
 {
-    use Sluggable;
+    use CanBeLiked;
     const IS_DRAFT = 0;
     const IS_FREE = 0;
     const IS_PUBLIC = 1;
@@ -43,6 +48,8 @@ class Course extends Model
             'tag_id'
         );
     }
+
+
     public function sluggable()
     {
         return [

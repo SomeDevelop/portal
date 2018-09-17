@@ -32,7 +32,7 @@ Route::get('/publiccourses', 'CoursesController@show')->name('publiccourses');
 Route::get('/lesson/{id}', 'LessonController@index');
 Route::post('/favorite/{course}', 'CoursesController@favoriteCourse');
 Route::post('/unfavorite/{course}', 'CoursesController@unFavoriteCourse');
-
+Route::post('ajaxRequest', 'HomeController@ajaxRequest')->name('ajaxRequest');
 
 
 

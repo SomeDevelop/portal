@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Course;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,11 @@ class CoursesController extends Controller
     }
     public function show(){
         $courses = Course::orderBy('date', 'desc')->get();
-//        dd($courses);
+        $course1 = Course::find(112);
+//        $posts = Post::find(3);
+//        dd($posts->likers()->get()->count());
+//        dd($course1->likers);
+
         return view('pubcourses.index', ['courses'=>$courses]);
     }
     public function create()
@@ -129,4 +134,14 @@ class CoursesController extends Controller
         Auth::user()->favorites()->detach($course->id);
         return back();
     }
+
+//    public function ajaxRequest(Request $request){
+//
+////        dd($request->all());
+//        $post = Course::find($request->id);
+//        $response = auth()->user()->toggleLike($post);
+//
+////        dd($request->all());
+//        return response()->json(['success'=>$response]);
+//    }
 }

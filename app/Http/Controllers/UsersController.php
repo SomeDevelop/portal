@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Lesson;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,5 +36,11 @@ class UsersController extends Controller
 
 
         return view('users.lesson', ['lesson'=>$lesson, 'course'=>$course]);
+    }
+    public function toggle(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $data= auth()->user()->toggleFollow($user);
+        return response()->json(['success'=>$data]);
     }
 }

@@ -9,7 +9,7 @@
     </script>
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
     <title>edPORTAL</title>
     <!-- Scripts -->
@@ -22,6 +22,12 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    {{--<script--}}
+            {{--src="https://code.jquery.com/jquery-3.3.1.min.js"--}}
+            {{--integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="--}}
+            {{--crossorigin="anonymous"></script>--}}
 
     <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
@@ -29,14 +35,22 @@
     ){?>
 
     <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
     <? }?>
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+<?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+){?>
+    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
+    {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--}}
 
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
+<? }?>
     <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/my_favorite/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
@@ -47,9 +61,11 @@
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/card.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pattern.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons.css') }}" rel="stylesheet">
 
 
-    <? }?>
+
+<? }?>
 
 
 
@@ -157,6 +173,7 @@
 
 
 <script src="{{ asset('js/app.js') }}" defer></script>
+
 <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
 preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
 preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
@@ -179,27 +196,65 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
 
 <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 ){?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>
-
-<? }?>
-
-
+<script src="{{ asset('js/mo.min.js') }}" defer></script>
 <script src="{{ asset('js/Card-polygon.js') }}" defer></script>
 <script src="{{ asset('js/demo-2.js') }}" defer></script>
+{{--<script src="{{ asset('js/like.js') }}" defer></script>--}}
+
+<script type="text/javascript">
+    var $jq = jQuery.noConflict();
+    $jq(document).ready(function() {
+
+        $jq.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $jq('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $jq('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){
+            console.log('click');
+            var id = $jq(this).parents(".card").data('id');
+            var c = $jq('#'+this.id+'-bs3').html();
+            console.log('C => '+c);
+
+
+            var cObjId = this.id;
+            var cObj = $(this);
+            // console.log(cObjId);
+            // console.log(" ");
+            // console.log(cObj);
 
 
 
-{{--<script>--}}
+            $jq.ajax({
+                type:'POST',
+                url:'/ajaxRequest',
+                data:{id:id},
+                success: function (data) {
+                    if (jQuery.isEmptyObject(data.success.attached)) {
+                        $('#' + cObjId + '-bs3').html(parseInt(c) - 1);
+                        console.log('#' + cObjId + '-bs3');
+                        $(cObj).removeClass("like-course");
+                    } else {
+                        $('#' + cObjId + '-bs3').html(parseInt(c) + 1);
+                        console.log('#' + cObjId + '-bs3');
 
+                        $(cObj).addClass("like-course");
 
-    {{--ClassicEditor--}}
-        {{--.create( document.querySelector( '#editor' ) )--}}
-        {{--.catch( error => {--}}
-            {{--console.error( error );--}}
-        {{--} );--}}
-{{--</script>--}}
+                    }
+                }
+            });
+        });
+        $jq(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+            event.preventDefault();
+            $jq(this).ekkoLightbox();
+            console.log('ok');
 
-
+        });
+    });
+</script>
+<? }?>
 </body>
 </html>
