@@ -65,7 +65,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $role = Role::where('name', '=', "Student")->firstOrFail();;
+        $role1 = Role::where('name', '=', "Student")->firstOrFail();
+        $role2 = Role::where('name', '=', "Owner")->firstOrFail();
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -73,7 +75,9 @@ class RegisterController extends Controller
         ]);
 
 //        dd(attachRole($roles));
-        $user->attachRole($role);
+        $user->attachRole($role1);
+        $user->attachRole($role2);
+
         return $user;
     }
 
