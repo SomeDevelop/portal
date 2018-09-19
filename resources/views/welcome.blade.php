@@ -93,12 +93,10 @@
             @endif
 
             <div class="content">
-
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="card card-default">
                                 {{--<div class="card-header">Vue.JS SPA example</div>--}}
-
                                 <div class="card-body">
                                     <h1>{{__('messages.ed_portal')}}</h1>
 
@@ -110,7 +108,6 @@
                             </div>
                         </div>
                     </div>
-
             </div>
         </div>
     </body>

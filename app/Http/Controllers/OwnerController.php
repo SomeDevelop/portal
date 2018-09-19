@@ -54,9 +54,9 @@ class OwnerController extends Controller
             'date'  =>  'required',
             'image' =>  'nullable|image'
         ]);
-
+//        dd('111');
         $course = Course::add($request->all());
-//        dd('tt2');
+//        dd('Exelent');
 
 
         $course->uploadImage($request->file('image'));

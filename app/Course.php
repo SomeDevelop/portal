@@ -21,7 +21,7 @@ use Overtrue\LaravelFollow\Traits\CanBeVoted;
 
 class Course extends Model
 {
-    use CanBeLiked;
+    use CanBeLiked, Sluggable;
     const IS_DRAFT = 0;
     const IS_FREE = 0;
     const IS_PUBLIC = 1;
@@ -62,6 +62,7 @@ class Course extends Model
     {
         $post = new static;
         $post->fill($fields);
+
         $post->user_id = Auth()->user()->getAuthIdentifier();
 
         $post->save();
