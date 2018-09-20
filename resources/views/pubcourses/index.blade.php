@@ -58,12 +58,14 @@
 
                                     <h4 class="card__title" style="color: black">{{$course->title}}</h4>
                                     @if (Auth::check())
-                                        <div class="card__subtitle float-right">
-                                            <favorite
-                                                    :course={{$course->id}}
-                                                            :favorited={{ $course->favorited() ? 'true' : 'false' }}
-                                            ></favorite>
-                                        </div>
+                                        @role('Owner','Student','Admin')
+                                            <div class="card__subtitle float-right">
+                                                <favorite
+                                                        :course={{$course->id}}
+                                                                :favorited={{ $course->favorited() ? 'true' : 'false' }}
+                                                ></favorite>
+                                            </div>
+                                        @endrole
                                     @else
                                         <div class="card__subtitle float-right">
                                             <a href="{{ route('login') }}">Записатися</a>
@@ -93,9 +95,9 @@
                                         {{--</ol>--}}
 
                                         {{--</div>--}}
-                                        @if (Auth::check())
-
-                                            <div class="panel-footer">
+                                        @if (Auth::check() )
+                                            @role('Owner','Student','Admin')
+                                                <div class="panel-footer">
                                                 {{--<h4><a href="#" title="Nature Portfolio">{{ $course->title }}</a></h4>--}}
                                                 <span class="pull-right">
                                                 <span class="like-btn">
@@ -110,6 +112,8 @@
                                                     {{$course->liker}}
                                                 </div>
                                             </div>
+                                            @endrole
+
                                             @else
                                             <div class="panel-footer">
                                                 {{--<h4><a href="#" title="Nature Portfolio">{{ $course->title }}</a></h4>--}}

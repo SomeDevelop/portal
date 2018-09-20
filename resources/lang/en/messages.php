@@ -14,6 +14,8 @@ return array(
     'permissions' => 'Permissions',
     'add' => 'Add',
     'available_permissions' => 'Available Permissions',
+    'to_home' => 'GO TO HOME',
+
     'operation' => 'Operation',
     'roles' => 'Roles',
     'users' => 'Users',
@@ -27,11 +29,15 @@ return array(
     'forgot_your_password' => 'Forgot Your Password?',
     'admin_panel' => 'Admin Panel',
     'my_favorites' => 'My Courses',
-    'student_panel' => 'student Card',
+    'student_panel' => 'Student Card',
     'teacher_panel' => 'Teacher Card',
     'admin' => 'administrator',
     'teacher' => 'teacher',
     'student' => 'student',
+    'moderator_panel' => 'Moderator',
+    'look_like_you_re_lost' => 'Look like you\'re lost',
+    'the page you are looking for not avaible' => 'the page you are looking for not avaible',
+
 
 
 

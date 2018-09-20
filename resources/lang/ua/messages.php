@@ -15,6 +15,7 @@ return [
     'add' => 'Додати',
     'available_permissions' => 'Доступні права доступу',
     'operation' => 'Дії',
+    'to_home' => 'На головну',
     'roles' => 'Ролі',
     'users' => 'Користувачі',
     'delete' => 'Видалити',
@@ -32,6 +33,11 @@ return [
     'admin' => 'адміністратор',
     'teacher' => 'викладач',
     'student' => 'студент',
+    'moderator_panel' => 'Модератор',
+    'look_like_you_re_lost' => 'Похоже, що Ви заблукали',
+    'the page you are looking for not avaible' => 'сторынка, яку ви шукаєте - не існує',
+
+
 
 
 

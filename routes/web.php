@@ -64,6 +64,13 @@ Route::middleware(['ability:Student,'])->group(function (){
     Route::get('/student', 'UsersController@myFavorites')->name('student');
 //    Route::resource('products','ProductController');
 });
+
+Route::middleware(['ability:Moderator,'])->group(function (){
+
+    Route::get('/moderator', 'ModeratorController@index')->name('moderator');
+
+});
+
 Route::middleware(['ability:Admin,'])->group(function (){
     Route::resource('courses','CoursesController');
     Route::resource('users', 'UserController');

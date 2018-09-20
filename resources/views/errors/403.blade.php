@@ -14,14 +14,22 @@
 
                         <div class="contant_box_404">
                             <h3 class="h2">
-                                Look like you're lost
+                                {{__("messages.look_like_you_re_lost")}}
+                                {{--Look like you're lost--}}
 
                             </h3>
 
 
-                            <p>the page you are looking for not avaible!</p>
+                            <h5>
+                                {{--the page you are looking for not avaible!--}}
+                                {{__("messages.the page you are looking for not avaible")}}
 
-                            <a href="{{ url('/') }}" class="link_404">Go to Home</a>
+                            </h5>
+
+                            <a href="{{ url('/') }}" class="link_404">
+                                {{__("messages.to_home")}}
+
+                            </a>
                         </div>
                     </div>
                 </div>

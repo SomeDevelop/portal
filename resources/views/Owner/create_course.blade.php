@@ -100,10 +100,13 @@
                     {{--<textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>--}}
                     {{--</div>--}}
                     {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                    {{--<div name="content" id="summernote"></div>--}}
+                    {{--</div>--}}
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Повный текст</label>
-                            <textarea name="content" id="summernote-1" class="form-control" rows="17"></textarea>
+                            <textarea name="content" id="summernote" rows="17"></textarea>
                         </div>
                     </div>
                 </div>

@@ -109,7 +109,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Повний текст</label>
-                            <textarea name="content" id="summary-ckeditor" class="form-control">{{$course->content}}</textarea>
+                            <textarea name="content" id="summernote" class="form-control">{{$course->content}}</textarea>
                         </div>
                     </div>
                 </div>

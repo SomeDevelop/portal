@@ -30,15 +30,22 @@
             {{--crossorigin="anonymous"></script>--}}
 
     <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/owner_courses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+
     preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
     ){?>
 
     <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
     {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
-    <? }?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+
+<? }?>
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
@@ -103,6 +110,10 @@
 
                         @role('Student')
                         <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.student_panel')}}</a></li>
+                        @endrole
+
+                        @role('Moderator')
+                        <li><a class="nav-link" href="{{ route('moderator') }}">{{__('messages.moderator_panel')}}</a></li>
                         @endrole
                     </ul>
                 </div>
@@ -171,25 +182,26 @@
 </div>
 
 
-
 <script src="{{ asset('js/app.js') }}" defer></script>
 
+
 <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/owner_courses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
 preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
 preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 ){?>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
-
 <script>
-    $('#summernote').summernote({
-        placeholder: 'Hello stand alone ui',
+    var $jq = jQuery.noConflict();
+    $jq('#summernote').summernote({
+        placeholder: 'Hello bootstrap 4',
         tabsize: 2,
         height: 100
     });
 </script>
 <? }?>
+
+
 <script src="{{ asset('js/vendors/trianglify.min.js') }}" defer></script>
 <script src="{{ asset('js/vendors/TweenMax.min.js') }}" defer></script>
 <script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>
@@ -256,5 +268,6 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
     });
 </script>
 <? }?>
+
 </body>
 </html>
