@@ -228,6 +228,14 @@ class Course extends Model
             ?   $title->title
             :   'Без категорії';
     }
+    public function getCategorySluge()
+    {
+        $slug = Category::find($this->category_id);
+//        dd($slug->title);
+        return ($this->category_id != null)
+            ?   $slug->slug
+            :   '________';
+    }
     public function getTagsTitles()
     {
         return (!$this->tags->isEmpty())

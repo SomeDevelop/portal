@@ -5,12 +5,15 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 col-md-offset-2">
+                <div class="col-lg-8 col-md-offset-2">
+                    <article class="post">
+
                     <div class="page-header">
-                        <h3 class="text-center">{{$lesson->getCourseTitle()}}</h3>
+
                         <header class="codrops-header">
+                            <h3 class="text-center">{{$lesson->getCourseTitle()}}</h3>
                             <div>
-                                <a style="font-size: 40px;" href="{{route('my_favorite.course', ['course' => $course->id])}}" title="Back"><span><i
+                                <a style="font-size: 40px;" href="{{route('course.course', ['course' => $course->slug])}}" title="Back"><span><i
                                                 class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
 
                                 </a>
@@ -22,32 +25,26 @@
                     </div>
 
 
-                        <div class="panel panel-default">
+                    <div class="panel panel-default post-content">
 
 
 
-                            <div class="panel-heading">
-                                <h5 class="text-center">{{ $lesson->title }}</h5>
-                            </div>
-
-
-                            <div class="panel-body">
-                                {{ $lesson->description }}
-                            </div>
-
-                            <hr>
-                            <br>
-
-                                <div>{!!$lesson->content!!}</div>
-
-                            {{--                        {{dd($myFavorite->id)}}--}}
-                            {{--                        <a href="{{route('/my_favorites/', $myFavorite->id)}}">Відкрити</a>--}}
-
-
-
+                        <div class="panel-heading">
+                            <h5 class="text-center">{{ $lesson->title }}</h5>
                         </div>
 
+
+                        <div class="panel-body">
+                            {{ $lesson->description }}
+                            <hr>
+                            <br>
+                            <div>{!!$lesson->content!!}</div>
+                        </div>
+
+                    </div>
+                    </article>
                 </div>
+                @include('users._sidebar')
             </div>
 
         </div>

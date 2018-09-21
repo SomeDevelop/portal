@@ -47,9 +47,9 @@
 
 <? }?>
 
+
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-<?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
-){?>
+
     {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
@@ -57,11 +57,13 @@
 
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
-<? }?>
+
     <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/my_favorites/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/my_favorite/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/course_lesson/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/moderator/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+        preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+
     preg_match('/student/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 
     ){?>
@@ -206,29 +208,34 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
 <script src="{{ asset('js/vendors/TweenMax.min.js') }}" defer></script>
 <script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>
 
-<?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+
+
+
+<?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+
 ){?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>
+{{--<script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>--}}
 <script src="{{ asset('js/mo.min.js') }}" defer></script>
 <script src="{{ asset('js/Card-polygon.js') }}" defer></script>
 <script src="{{ asset('js/demo-2.js') }}" defer></script>
 {{--<script src="{{ asset('js/like.js') }}" defer></script>--}}
 
 <script type="text/javascript">
-    var $jq = jQuery.noConflict();
-    $jq(document).ready(function() {
+    $(document).ready(function() {
 
-        $jq.ajaxSetup({
+        $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $jq('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $jq('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){
+        $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){
             console.log('click');
-            var id = $jq(this).parents(".card").data('id');
-            var c = $jq('#'+this.id+'-bs3').html();
+            var id = $(this).parents(".cart").data('id');
+            console.log(id);
+            var c = $('#'+this.id+'-bs3').html();
             console.log('C => '+c);
 
 
@@ -240,18 +247,18 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
 
 
 
-            $jq.ajax({
+            $.ajax({
                 type:'POST',
                 url:'/ajaxRequest',
                 data:{id:id},
                 success: function (data) {
                     if (jQuery.isEmptyObject(data.success.attached)) {
                         $('#' + cObjId + '-bs3').html(parseInt(c) - 1);
-                        console.log('#' + cObjId + '-bs3');
+                        // console.log('#' + cObjId + '-bs3');
                         $(cObj).removeClass("like-course");
                     } else {
                         $('#' + cObjId + '-bs3').html(parseInt(c) + 1);
-                        console.log('#' + cObjId + '-bs3');
+                        // console.log('#' + cObjId + '-bs3');
 
                         $(cObj).addClass("like-course");
 
@@ -259,15 +266,16 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
                 }
             });
         });
-        $jq(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
             event.preventDefault();
-            $jq(this).ekkoLightbox();
+            $(this).ekkoLightbox();
             console.log('ok');
 
         });
     });
 </script>
 <? }?>
+
 
 </body>
 </html>

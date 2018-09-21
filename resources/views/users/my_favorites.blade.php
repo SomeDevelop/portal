@@ -4,40 +4,46 @@
     <div class="container">
 
         <div class="container">
-            <div class="row justify-content-center">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="page-header">
-                    <h3 class="text-center">Мої Курси</h3>
-                    <header class="codrops-header">
-                        <div>
-                            <a style="font-size: 40px;" href="{{route('publiccourses')}}" title="Back"><span><i
-                                            class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+            <header class="codrops-header">
+                <h3 class="text-center">{{__('messages.student_panel')}}</h3>
 
-                            </a>
-                            <p>Всі Курси</p>
+                <div>
+                    <a style="font-size: 40px;" href="{{route('publiccourses')}}" title="Back"><span><i
+                                    class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
 
-                        </div>
+                    </a>
+                    <p>Всі Курси</p>
 
-                    </header>
                 </div>
-                <hr>
-                @forelse ($myFavorites as $myFavorite)
+
+            </header>
+            <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-offset-2">
+                <article class="post">
+                    <div class="container marketing">
+                <div class="page-header mt-3">
+
+                </div>
+
+                        <br>
+
+                        <h4 class="text-center">Список подписок </h4>
+                        <br>
+                    @forelse ($myFavorites as $myFavorite)
                     <div class="panel panel-default">
                         @role('Student')
-                            <a class="float-right" href="{{route('my_favorite.course', ['course' => $myFavorite->id])}}">Відкрити</a>
+                            <a class="float-right" href="{{route('course.course', ['course' => $myFavorite->slug])}}">Відкрити</a>
                         @endrole
 
 
                         <div class="panel-heading">
-                            {{ $myFavorite->title }}
+                            <h5>{{ $myFavorite->title }}</h5>
                         </div>
 
 
-                        <div class="panel-body">
-                            {{ $myFavorite->date }}
-                        </div>
 
-                        <hr>
+
+
                         <br>
 {{--                        {{dd($myFavorite->id)}}--}}
 {{--                        <a href="{{route('/my_favorites/', $myFavorite->id)}}">Відкрити</a>--}}
@@ -46,9 +52,15 @@
 
                     </div>
                 @empty
+                            <hr>
                     <p>Ви ще не записалися ні на один курс</p>
                 @endforelse
+                        <br>
+                        <br>
+                    </div>
+                </article>
             </div>
+                @include('users._sidebar')
 
         </div>
 

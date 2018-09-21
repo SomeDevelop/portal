@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Course;
 use App\Http\Resources\UserResource;
 use App\User;
@@ -55,6 +56,18 @@ class HomeController extends Controller
 
 
         return response()->json(['success'=>$response]);
+    }
+
+    public function category($slug){
+//        dd('jjj');
+        $categories = Category::get();
+        $category = Category::where('slug',$slug)->firstOrFail();
+        $allcourses = Course::all();
+        $courses = $category->courses()->where('status', 0)->paginate(6);
+//        dd($courses);
+
+        $cat = $category;
+        return view('pubcourses.list',['courses' => $courses,'categories'=>$categories, 'cat' => $cat, 'allcourses' => $allcourses]);
     }
 
 

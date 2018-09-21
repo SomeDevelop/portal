@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Course;
 use App\Lesson;
 use App\User;
@@ -12,30 +13,35 @@ class UsersController extends Controller
 {
     public function myFavorites()
     {
-
+        $categories = Category::all();
         $myFavorites = Auth::user()->favorites;
 //        dd('3');
-        return view('users.my_favorites', compact('myFavorites'));
+        return view('users.my_favorites', ['myFavorites'=>$myFavorites, 'categories' => $categories]);
     }
 
-    public function openCourse($id)
+    public function openCourse($slug)
     {
 
-        $course = Course::find($id);
+        $course = Course::whereSlug($slug)->first();
+//        dd($course);
+        $categories = Category::all();
 
-        $lessons = Lesson::all()->where('course_id',$id);
+        $lessons = Lesson::all()->where('course_id',$course->id);
 
-
-        return view('users.course', ['course'=>$course, 'lessons'=>$lessons]);
+//        dd($lessons);
+        return view('users.course', ['course'=>$course, 'lessons'=>$lessons, 'categories' => $categories]);
     }
     public function openLesson($slug)
     {
-
+        $categories = Category::all();
         $lesson = Lesson::whereSlug($slug)->first();
+
         $course = Course::find($lesson->course_id);
+//        dd($course);
 
 
-        return view('users.lesson', ['lesson'=>$lesson, 'course'=>$course]);
+
+        return view('users.lesson', ['lesson'=>$lesson, 'course'=>$course, 'categories' => $categories]);
     }
     public function toggle(Request $request)
     {
