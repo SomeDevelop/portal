@@ -59,10 +59,23 @@
                         <br>
                     </div>
                 </article>
-            </div>
-                @include('users._sidebar')
+                <article class="post">
+                    <h4 class="text-center">Тести</h4>
 
-        </div>
+                </article>
+                <article class="post">
+                    <h4 class="text-center">Мої Сертифікати</h4>
+
+                </article>
+            </div>
+
+
+                {{--<div class="col-lg-8 col-md-offset-2">--}}
+                {{--</div>--}}
+
+                @include('users._sidebar')
+            </div>
+
 
         </div>
     </div>

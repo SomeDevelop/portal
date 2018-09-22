@@ -37,6 +37,9 @@ return array(
     'look_like_you_re_lost' => 'Look like you\'re lost',
     'the page you are looking for not avaible' => 'the page you are looking for not avaible',
     'View Course' => 'View Course',
+    'become a teacher' => 'become a teacher',
+
+
 
 
 

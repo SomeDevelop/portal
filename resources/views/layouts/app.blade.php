@@ -125,6 +125,8 @@
 
                         @role('Student')
                         <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.student_panel')}}</a></li>
+                        <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.become a teacher')}}</a></li>
+
                         @endrole
 
                         @role('Moderator')
@@ -186,19 +188,19 @@
             <div class="menu-bg js-blur"></div>
             <nav class="menu-items">
                 <a href="{{route('publiccourses')}}" class="menu-item">
-                    <span class="js-blur">Все Курси</span>
+                    <span class="js-blur">Всі Курси</span>
                 </a>
                 <a href="{{route('publiccourses')}}" class="menu-item">
-                <span class="js-blur">Категории</span>
+                <span class="js-blur">Категорії</span>
                 </a>
                 <a href="#" class="menu-item">
-                    <span class="js-blur">Clients</span>
+                    <span class="js-blur">Викладачі</span>
                 </a>
                 <a href="#" class="menu-item">
-                    <span class="js-blur">Blog</span>
+                    <span class="js-blur">Студенти</span>
                 </a>
                 <a href="#" class="menu-item">
-                    <span class="js-blur">Contact</span>
+                    <span class="js-blur">Про проект</span>
                 </a>
             </nav>
         </div>

@@ -37,6 +37,8 @@ return [
     'look_like_you_re_lost' => 'Похоже, що Ви заблукали',
     'the page you are looking for not avaible' => 'сторынка, яку ви шукаєте - не існує',
     'View Course' => 'Про курс',
+    'become a teacher' => 'стати викладачем',
+
 
 
 

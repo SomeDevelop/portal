@@ -6,6 +6,7 @@
 	line-height: 100vh;
 	width: 350px;
 	-webkit-filter: url("#blur");
+	z-index: 2000;
 }
 
 .menu-bg {
@@ -41,7 +42,7 @@
 	position: fixed;
 	top: 100px;
 	left: 0;
-	z-index: 100;
+	z-index: 2001;
 	display: block;
 	width: 40px;
 	height: 40px;

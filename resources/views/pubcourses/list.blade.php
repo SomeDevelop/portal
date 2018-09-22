@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
                             <h3>
-                                <a href="{{route('home')}}">Главная</a>
+                                <a href="{{route('home')}}">Головна</a>
                                 <span class="castom-a"> > {{$cat->title}}</span>
                             </h3>
                         </div>
@@ -18,7 +18,7 @@
                             <header class="codrops-header">
                                 <h4 class="main-color">{{$cat->title}}</h4><span>Курсы</span>
                                 <nav class="codrops-demos m-2">
-                                    <a href="{{route('publiccourses')}}">All <span class="course-count pull-right"> ({{$allcourses->count()}})</span></a>
+                                    <a href="{{route('publiccourses')}}">ВСІ КУРСИ <span class="course-count pull-right"> ({{$allcourses->count()}})</span></a>
                                     @forelse ($categories as $category)
 
                                         <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}
@@ -102,7 +102,7 @@
                                                     <span class="float-right text-capitalize">{{$course->date}}</span>
                                                 </div>
                                                 @if (Auth::check())
-                                                    @role('Owner','Student','Admin')
+                                                    @role('Student')
                                                     <div class="card__subtitle float-right">
                                                         <favorite
                                                                 :course={{$course->id}}

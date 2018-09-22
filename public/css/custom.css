@@ -1900,3 +1900,17 @@ span.castom-a {
 .owner-card-header{
     height: 50px;
 }
+.nav-link:hover{
+    color: #474d5b !important;
+}
+nav.menu-items a:hover{
+    color: #3c8dbc !important;
+    text-decoration: none;
+}
+.nav-item a{
+    color: #fff !important;
+}
+
+.dropdown-menu.dropdown-menu-right.show a{
+ color: black !important;
+}
