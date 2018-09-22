@@ -35,6 +35,8 @@ Route::post('/unfavorite/{course}', 'CoursesController@unFavoriteCourse');
 Route::post('ajaxRequest', 'HomeController@ajaxRequest')->name('ajaxRequest');
 Route::get('/category/{slug}', 'HomeController@category')->name('category.slug');
 
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 
 Route::middleware(['ability:Owner,Create'])->group(function (){
