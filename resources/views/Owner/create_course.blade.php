@@ -77,14 +77,14 @@
                         </div>
 
                         <!-- checkbox -->
-                        <div class="form-group text-left">
-                            <label>
-                                <input type="checkbox" class="minimal" name="status">
-                            </label>
-                            <label>
-                                Чорновик
-                            </label>
-                        </div>
+                        {{--<div class="form-group text-left">--}}
+                            {{--<label>--}}
+                                {{--<input type="checkbox" class="minimal" name="status">--}}
+                            {{--</label>--}}
+                            {{--<label>--}}
+                                {{--Чорновик--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
                         <div class="form-group text-left">
                             <label>
                                 <input type="checkbox" class="minimal" name="is_free">

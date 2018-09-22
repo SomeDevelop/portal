@@ -37,13 +37,13 @@
     ){?>
 
     <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
-    {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">--}}
+    {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>--}}
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>--}}
+    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>--}}
 
 <? }?>
 
@@ -63,6 +63,9 @@
     preg_match('/course_lesson/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
     preg_match('/moderator/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
         preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/home/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+//    preg_match('/chat/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+
 
     preg_match('/student/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 
@@ -76,15 +79,25 @@
 
 <? }?>
 
+    <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
 
 
 
 
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+    <defs>
+        <filter id="blur" x="-20%" y="0" width="140%" height="100%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+        </filter>
+    </defs>
+</svg>
 <div id="app">
+
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
+
             <a class="navbar-brand" href="{{ url('/home') }}">
                 <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="" width="35" height="35">
                 edPORTAL
@@ -169,6 +182,27 @@
     <main class="py-4">
 
         @yield('content')
+        <div class="menu">
+            <div class="menu-bg js-blur"></div>
+            <nav class="menu-items">
+                <a href="{{route('publiccourses')}}" class="menu-item">
+                    <span class="js-blur">Все Курси</span>
+                </a>
+                <a href="{{route('publiccourses')}}" class="menu-item">
+                <span class="js-blur">Категории</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="js-blur">Clients</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="js-blur">Blog</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="js-blur">Contact</span>
+                </a>
+            </nav>
+        </div>
+        <button class="menu-toggle"><span>Open Menu</span></button>
 
     </main>
     <?php if (preg_match('/home/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) != 1
@@ -193,20 +227,20 @@ preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPT
 preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 ){?>
 
-<script>
-    var $jq = jQuery.noConflict();
-    $jq('#summernote').summernote({
-        placeholder: 'Hello bootstrap 4',
-        tabsize: 2,
-        height: 100
-    });
-</script>
+{{--<script>--}}
+    {{--var $ = jQuery.noConflict();--}}
+    {{--$jq('#summernote').summernote({--}}
+        {{--placeholder: 'Hello bootstrap 4',--}}
+        {{--tabsize: 2,--}}
+        {{--height: 100--}}
+    {{--});--}}
+{{--</script>--}}
 <? }?>
 
 
-<script src="{{ asset('js/vendors/trianglify.min.js') }}" defer></script>
+{{--<script src="{{ asset('js/vendors/trianglify.min.js') }}" defer></script>--}}
 <script src="{{ asset('js/vendors/TweenMax.min.js') }}" defer></script>
-<script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>
+{{--<script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>--}}
 
 
 
@@ -218,9 +252,9 @@ preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) =
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 {{--<script src="{{ asset('js/vendors/cash.min.js') }}" defer></script>--}}
-<script src="{{ asset('js/mo.min.js') }}" defer></script>
-<script src="{{ asset('js/Card-polygon.js') }}" defer></script>
-<script src="{{ asset('js/demo-2.js') }}" defer></script>
+{{--<script src="{{ asset('js/mo.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('js/Card-polygon.js') }}" defer></script>--}}
+{{--<script src="{{ asset('js/demo-2.js') }}" defer></script>--}}
 {{--<script src="{{ asset('js/like.js') }}" defer></script>--}}
 
 <script type="text/javascript">
@@ -275,7 +309,7 @@ preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) =
     });
 </script>
 <? }?>
-
-
+<script src="{{ asset('js/motionblur.js') }}" defer></script>
+<script src="{{ asset('js/menu.js') }}" defer></script>
 </body>
 </html>

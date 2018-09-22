@@ -2,7 +2,8 @@
 
 @section('content')
     <h1 class="text-center">Home | Chat</h1>
-    <div class="container text-center">
+    <div class="container">
+
         <div class="row justify-content-center">
             <div class="card-deck">
                 <div class="card">

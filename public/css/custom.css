@@ -45,7 +45,7 @@ body {
 }
 
 span, p, input {
-    font-family: 'Merriweather', serif;
+    /*font-family: 'Merriweather', serif;*/
     line-height: 26px;
 }
 
@@ -342,7 +342,7 @@ a.more-link:hover {
 
 .post {
     background: #fff;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
 }
 
 .post-content {
@@ -1804,4 +1804,99 @@ h2 {
 }
 h1.entry-title{
     height: 60px;
+}
+
+.icon-to{
+    font-size: 20px !important;
+}
+.menu-item span {
+    font-family: Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+span.castom-a {
+    font-family: Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+.castom-card-header{
+    background-color: white !important;
+}
+.card-header{
+    background-color: whitesmoke;
+}
+
+
+@media (min-width: 320px){
+    .courses:nth-child(n){
+        padding-right: 0 !important;
+
+    }
+}
+
+
+
+
+@media (min-width: 768px){
+    .courses:nth-child(n){
+        padding-right: 15px !important;
+
+    }
+    .courses:nth-child(4n){
+        padding-right: 0 !important;
+
+    }
+    .courses:nth-child(6n) {
+        padding-right: 0 !important;
+    }
+}
+
+@media (min-width: 992px){
+
+    .courses:nth-child(4n) {
+        padding-right: 15px !important;
+    }
+    .courses:nth-child(6n) {
+        padding-right: 15px !important;
+    }
+    .courses:nth-child(5) {
+        padding-right: 0 !important;
+    }
+    .courses:nth-child(8) {
+        padding-right: 0 !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .courses:nth-child(5) {
+        padding-right: 15px !important;
+    }
+    .courses:nth-child(8) {
+        padding-right: 15px !important;
+    }
+    .courses:nth-child(6) {
+        padding-right: 0 !important;
+    }
+    .courses:nth-child(10) {
+        padding-right: 0 !important;
+    }
+
+}
+.castom-card-header {
+    /*border: 1px solid rgba(0, 0, 0, 0.125);*/
+}
+
+.entry-content{
+    padding: 15px 15px 0 15px;
+}
+
+.hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.owner-card-header{
+    height: 50px;
 }

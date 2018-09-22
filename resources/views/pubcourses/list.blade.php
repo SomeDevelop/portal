@@ -2,43 +2,46 @@
 
 @section('content')
 
-
     <div class="container">
 
         <div class="container">
             <div class="row justify-content-center">
                 <div>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                            <h3>
+                                <a href="{{route('home')}}">Главная</a>
+                                <span class="castom-a"> > {{$cat->title}}</span>
+                            </h3>
+                        </div>
+                        <div class="col-lg-12 bg-white mb-3">
                             <header class="codrops-header">
-                                @if (Auth::check())
-                                    <div>
-                                        <a style="font-size: 40px;" href="{{route('home')}}" title="Back"><span><i
-                                                        class="fa fa-arrow-circle-left" aria-hidden="true"></i></span></a>
-
-                                    </div>
-                                @endif
-
-                                    <h1 class="main-color">{{$cat->title}} <span>Courses</span></h1>
-                                <nav class="codrops-demos">
+                                <h4 class="main-color">{{$cat->title}}</h4><span>Курсы</span>
+                                <nav class="codrops-demos m-2">
                                     <a href="{{route('publiccourses')}}">All <span class="course-count pull-right"> ({{$allcourses->count()}})</span></a>
                                     @forelse ($categories as $category)
 
-                                        <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}<span class="course-count pull-right"> ({{$category->courses()->count()}})</span></a>
+                                        <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}
+                                            <span class="course-count pull-right"> ({{$category->courses()->count()}})</span></a>
 
                                     @empty
-                                        <p>No category created.</p>
+                                        <div class="col-lg-12 col-md-12 cart">
+                                            <div class="cart">
+
+                                                <p>No course created.</p>
+                                            </div>
+                                        </div>
 
                                     @endforelse
                                 </nav>
                             </header>
                         </div>
                         @forelse ($courses as $course)
-                            <div class="col-lg-4 col-md-6 cart">
+                            <div class="col-lg-3 col-md-6 p-0 pr-3 cart">
                                 <div class="cart" data-id="{{ $course->id }}">
                                     <article class="post post-grid">
                                         <div class="post-thumb">
-                                            <a href="#"><img src="{{$course->getFullImage()}}" alt="" height="200"></a>
+                                            <a href="#"><img src="{{$course->getFullImage()}}" alt="" height="150"></a>
 
                                             <a href="#" class="post-thumb-overlay text-center">
                                                 <div class="text-uppercase text-center">{{__('messages.View Course')}}</div>
@@ -82,9 +85,9 @@
 
                                         {{--@endif--}}
 
-                                        <div class="post-content">
+                                        <div class="post-content p-0">
 
-                                            <header class="entry-header text-center card-header">
+                                            <header class="entry-header text-center card-header castom-card-header m-0">
 
                                                 <h6><a href="{{route('category.slug', $course->getCategorySluge())}}">{{$course->getCategoryTitle()}}</a></h6>
 
@@ -132,7 +135,12 @@
                                 </div>
                             </div>
                         @empty
+                            <div class="col-lg-12 col-md-12 cart">
+                                <div class="cart">
+
                             <p>No course created.</p>
+                                </div>
+                            </div>
 
                         @endforelse
 

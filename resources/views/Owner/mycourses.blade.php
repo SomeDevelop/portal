@@ -2,40 +2,50 @@
 
 @section('content-1')
     <div class="container">
-        <div class="row">
-            <div class="col-md-2 mb-3">
-                <a class="btn btn-md btn-pinterest add-course" href="{{route('owner_courses.create')}}">Новий курс</a>
-            </div>
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <a class="btn btn-md btn-info add-course" href="{{route('owner_courses.create')}}">Новий курс</a>
+                </div>
 
-        </div>
+            </div>
         <div class="row">
 
             @forelse($courses as $cours)
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{$cours->getImage()}}" data-holder-rendered="true">
-                        <div class="card-body">
-                            <small class="text-muted float-right text-blue">{{$cours->is_free()}}</small>
-                            <h3>{{$cours->title}}</h3>
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="{{route('course_lessons.course', ['course' => $cours->id])}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 p-0 pr-3 cart courses">
+                    <div class="cart">
+                        <article class="post post-grid">
+                            <div class="post-thumb">
+                                <a href="#"><img src="{{$cours->getImage()}}" alt="" height="150"></a>
 
 
-                                    <a href="{{route('owner_courses.edit', $cours->id)}}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
-                                    <a>
-                                    {{Form::open(['route'=>['owner_courses.destroy', $cours->id], 'method'=>'delete'])}}
-                                        <button onclick="return confirm('are you sure?')" type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
-                                    {{Form::close()}}
-                                    </a>
+                            <div class="post-content p-0">
 
+                                <header class="entry-header text-center card-header castom-card-header owner-card-header m-0">
+
+                                    <h6>{{$cours->title}}</h6>
+
+
+                                </header>
+
+                                <div class="d-flex justify-content-between align-items-center bg-white">
+                                    <div class="btn-group pl-3 pb-2">
+                                        <a href="{{route('course_lessons.course', ['course' => $cours->id])}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+
+
+                                        <a href="{{route('owner_courses.edit', $cours->id)}}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                        <a>
+                                            {{Form::open(['route'=>['owner_courses.destroy', $cours->id], 'method'=>'delete'])}}
+                                            <button onclick="return confirm('are you sure?')" type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                            {{Form::close()}}
+                                        </a>
+
+                                    </div>
+                                    <span class="text-muted text-right pr-3">{{$cours->date}}</span>
                                 </div>
-                                <small class="text-muted float-right">{{$cours->date}}</small>
                             </div>
-
-
-                        </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             @empty
