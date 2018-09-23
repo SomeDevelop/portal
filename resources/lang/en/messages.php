@@ -4,10 +4,12 @@ return array(
     'msg' => 'English',
     'ed_portal' => 'EDUCATION PORTAL',
     'welcome' => 'Welcome to edPortal',
+    'HOME' => 'HOME',
     'Edit User' => 'Edit User',
     'Edit' => 'Edit',
     'Name' => 'Name',
-    'Courses' => 'Courses',
+    'Courses' => 'ALL COURSES',
+    'Categories' => 'Categories',
     'Students' => 'Students',
     'Messenger' => 'Messenger',
     'new_course' => 'New Course',
@@ -32,12 +34,19 @@ return array(
     'teacher_panel' => 'Teacher Card',
     'admin' => 'administrator',
     'teacher' => 'teacher',
+    'teachers' => 'teachers',
+    'about' => 'about',
     'student' => 'student',
     'moderator_panel' => 'Moderator',
     'look_like_you_re_lost' => 'Look like you\'re lost',
     'the page you are looking for not avaible' => 'the page you are looking for not avaible',
     'View Course' => 'View Course',
     'become a teacher' => 'become a teacher',
+    'ADD' => 'Add course',
+    'in list' => 'in list',
+
+
+
 
 
 

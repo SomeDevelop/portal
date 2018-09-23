@@ -1914,3 +1914,11 @@ nav.menu-items a:hover{
 .dropdown-menu.dropdown-menu-right.show a{
  color: black !important;
 }
+.castom-item a{
+    color: #74777b !important;
+    text-decoration: none;
+}
+
+.castom-item a:hover{
+    color: #3c8dbc !important;
+}

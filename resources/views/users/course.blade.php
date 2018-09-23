@@ -5,21 +5,19 @@
     <div class="container">
 
         <div class="container">
-            <div class="page-header">
-
-                <header class="codrops-header">
-                    <h3 class="text-center">{{$course->title}}</h3>
-                    <div>
-                        <a style="font-size: 40px;" href="{{route('student')}}" title="Back"><span><i
-                                        class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
-
-                        </a>
-                        <p>НАЗАД</p>
-
-                    </div>
-
-                </header>
+            <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                <h3>
+                    <a href="{{route('main')}}">{{ __('messages.HOME') }}</a> <span class="castom-a"> > </span>
+                    <a href="{{ route('student') }}">{{ __('messages.student_panel') }}</a>
+                    <span class="castom-a"> > {{$course->title}}</span>
+                </h3>
             </div>
+            <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                <h4 class="text-center">
+                    {{$course->title}}
+                </h4>
+            </div>
+
             <div class="row justify-content-center">
 
                 <div class="col-lg-8 col-md-offset-2">

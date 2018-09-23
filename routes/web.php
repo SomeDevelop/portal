@@ -14,10 +14,11 @@
 //use Illuminate\Support\Facades\Config;
 //use Session;
 use Illuminate\Support\Facades\App;
-Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
+Auth::routes();
 Route::post('/getFriends','HomeController@getFriends');
 Route::post('/session/create','SessionController@create');
 Route::post('/session/{session}/chats','ChatController@chats');

@@ -2,7 +2,7 @@
 
      <span>
         <a href="#" v-if="isFavorited" @click.prevent="unFavorite(course)">
-            В списку
+            Ви Записані
             <!--<i class="fa fa-plus-square" aria-hidden="true"></i>-->
         </a>
         <a href="#" v-else @click.prevent="favorite(course)">

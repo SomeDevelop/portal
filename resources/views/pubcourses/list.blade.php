@@ -10,15 +10,15 @@
                     <div class="row">
                         <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
                             <h3>
-                                <a href="{{route('home')}}">Головна</a>
+                                <a href="{{route('main')}}">{{ __('messages.HOME') }}</a>
                                 <span class="castom-a"> > {{$cat->title}}</span>
                             </h3>
                         </div>
                         <div class="col-lg-12 bg-white mb-3">
                             <header class="codrops-header">
-                                <h4 class="main-color">{{$cat->title}}</h4><span>Курсы</span>
+                                <h4 class="main-color">{{$cat->title}}</h4>
                                 <nav class="codrops-demos m-2">
-                                    <a href="{{route('publiccourses')}}">ВСІ КУРСИ <span class="course-count pull-right"> ({{$allcourses->count()}})</span></a>
+                                    <a href="{{route('publiccourses')}}">{{ __('messages.Courses') }} <span class="course-count pull-right"> ({{$allcourses->count()}})</span></a>
                                     @forelse ($categories as $category)
 
                                         <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}

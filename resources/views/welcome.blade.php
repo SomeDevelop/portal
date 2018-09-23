@@ -75,7 +75,7 @@
                     @auth
                         <a href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a>
                         <a href="{{ route('language.locale', ['locale' => 'ua']) }}">UA</a>
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/publiccourses') }}">Home</a>
 
                     @else
 

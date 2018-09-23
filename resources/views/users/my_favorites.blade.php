@@ -4,31 +4,23 @@
     <div class="container">
 
         <div class="container">
-            <header class="codrops-header">
-                <h3 class="text-center">{{__('messages.student_panel')}}</h3>
-
-                <div>
-                    <a style="font-size: 40px;" href="{{route('publiccourses')}}" title="Back"><span><i
-                                    class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
-
-                    </a>
-                    <p>Всі Курси</p>
-
-                </div>
-
-            </header>
+            <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                <h3>
+                    <a href="{{route('main')}}">{{ __('messages.HOME') }}</a>
+                    <span class="castom-a"> > {{ __('messages.student_panel') }}</span>
+                </h3>
+            </div>
             <div class="row justify-content-center">
             <div class="col-lg-8 col-md-offset-2">
                 <article class="post">
                     <div class="container marketing">
-                <div class="page-header mt-3">
+                <div class="page-header mt-4">
 
                 </div>
+                        <h4 class="text-center">Ваші курси</h4>
 
-                        <br>
 
-                        <h4 class="text-center">Список подписок </h4>
-                        <br>
+                        <hr>
                     @forelse ($myFavorites as $myFavorite)
                     <div class="panel panel-default">
                         @role('Student')
@@ -52,7 +44,7 @@
 
                     </div>
                 @empty
-                            <hr>
+
                     <p>Ви ще не записалися ні на один курс</p>
                 @endforelse
                         <br>
@@ -60,12 +52,14 @@
                     </div>
                 </article>
                 <article class="post">
-                    <h4 class="text-center">Тести</h4>
+                    <h4 class="text-center mt-4">Тести</h4>
 
+                    <hr>
                 </article>
                 <article class="post">
-                    <h4 class="text-center">Мої Сертифікати</h4>
+                    <h4 class="text-center mt-4">Мої Сертифікати</h4>
 
+                    <hr>
                 </article>
             </div>
 

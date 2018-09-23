@@ -3,11 +3,13 @@
 return [
     'msg' => 'Українська',
     'ed_portal' => 'ПОРТАЛ ЗНАНЬ',
-    'welcome' => 'Вітаємо Вас на edPortal (і)',
+    'welcome' => 'Вітаємо Вас на edPortal(і)',
+    'HOME' => 'головна',
     'Edit User' => 'Редагувати дані користувача',
     'Edit' => 'Редагувати',
     'Name' => 'Ім\'я',
-    'Courses' => 'Курси',
+    'Courses' => 'ВСІ КУРСИ',
+    'Categories' => 'Категорії',
     'Students' => 'Студенти',
     'Messenger' => 'Месенджер',
     'new_course' => 'Новий Курс',
@@ -32,12 +34,16 @@ return [
     'teacher_panel' => 'Карта Викладача',
     'admin' => 'адміністратор',
     'teacher' => 'викладач',
+    'teachers' => 'викладачі',
+    'about' => 'Про проект',
     'student' => 'студент',
     'moderator_panel' => 'Модератор',
     'look_like_you_re_lost' => 'Похоже, що Ви заблукали',
     'the page you are looking for not avaible' => 'сторынка, яку ви шукаєте - не існує',
     'View Course' => 'Про курс',
     'become a teacher' => 'стати викладачем',
+    'ADD' => 'Записатися',
+    'in list' => 'Ви записані',
 
 
 

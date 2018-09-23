@@ -98,7 +98,7 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
 
-            <a class="navbar-brand" href="{{ url('/home') }}">
+            <a class="navbar-brand" href="{{ route('main') }}">
                 <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="" width="35" height="35">
                 edPORTAL
 
@@ -188,19 +188,19 @@
             <div class="menu-bg js-blur"></div>
             <nav class="menu-items">
                 <a href="{{route('publiccourses')}}" class="menu-item">
-                    <span class="js-blur">Всі Курси</span>
+                    <span class="js-blur">{{ __('messages.Courses') }}</span>
                 </a>
                 <a href="{{route('publiccourses')}}" class="menu-item">
-                <span class="js-blur">Категорії</span>
+                <span class="js-blur">{{ __('messages.Categories') }}</span>
                 </a>
                 <a href="#" class="menu-item">
-                    <span class="js-blur">Викладачі</span>
+                    <span class="js-blur">{{ __('messages.teachers') }}</span>
                 </a>
                 <a href="#" class="menu-item">
-                    <span class="js-blur">Студенти</span>
+                    <span class="js-blur">{{ __('messages.Students') }}</span>
                 </a>
                 <a href="#" class="menu-item">
-                    <span class="js-blur">Про проект</span>
+                    <span class="js-blur">{{ __('messages.about') }}</span>
                 </a>
             </nav>
         </div>
