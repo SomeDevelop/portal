@@ -43,7 +43,7 @@
                                         <div class="post-thumb">
                                             <a href="#"><img src="{{$course->getFullImage()}}" alt="" height="150"></a>
 
-                                            <a href="#" class="post-thumb-overlay text-center">
+                                            <a href="{{route('show_course.slug', $course->slug)}}" class="post-thumb-overlay text-center">
                                                 <div class="text-uppercase text-center">{{__('messages.View Course')}}</div>
                                             </a>
                                         </div>

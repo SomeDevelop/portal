@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Course;
 use App\Http\Resources\UserResource;
+use App\Lesson;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -40,7 +41,19 @@ class HomeController extends Controller
         return view('chat');
     }
 
-
+    public function show($slug)
+    {
+        $course = Course::where('slug',$slug)->first();
+//        dd($course->id);
+        $courses = Course::latest()->paginate(3);
+//        dd($courses);
+        $lessons = Lesson::all()->where('course_id',$course->id);
+        $categories = Category::all();
+//        return UserResource::collection(User::all());
+        //return new UserResource(auth()->user());
+        //return auth()->user();
+        return view('pubcourses.view_course',['course' => $course, 'lessons' => $lessons, 'categories' => $categories, 'courses' => $courses]);
+    }
     public function getFriends(){
 
         return UserResource::collection(User::where('id', '!=', auth()->id())->get());
@@ -58,17 +71,7 @@ class HomeController extends Controller
         return response()->json(['success'=>$response]);
     }
 
-    public function category($slug){
-//        dd('jjj');
-        $categories = Category::get();
-        $category = Category::where('slug',$slug)->firstOrFail();
-        $allcourses = Course::all();
-        $courses = $category->courses()->where('status', 0)->paginate(6);
-//        dd($courses);
 
-        $cat = $category;
-        return view('pubcourses.list',['courses' => $courses,'categories'=>$categories, 'cat' => $cat, 'allcourses' => $allcourses]);
-    }
 
 
 }

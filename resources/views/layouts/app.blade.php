@@ -7,7 +7,7 @@
     <script>
         window.auth = {!!auth()->user()!!}
     </script>
-
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
@@ -198,6 +198,9 @@
                 </a>
                 <a href="#" class="menu-item">
                     <span class="js-blur">{{ __('messages.Students') }}</span>
+                </a>
+                <a href="{{ route('chat') }}" class="menu-item">
+                    <span class="js-blur">Messenger (Pre-Alpha)</span>
                 </a>
                 <a href="#" class="menu-item">
                     <span class="js-blur">{{ __('messages.about') }}</span>

@@ -34,7 +34,8 @@ Route::get('/lesson/{id}', 'LessonController@index');
 Route::post('/favorite/{course}', 'CoursesController@favoriteCourse');
 Route::post('/unfavorite/{course}', 'CoursesController@unFavoriteCourse');
 Route::post('ajaxRequest', 'HomeController@ajaxRequest')->name('ajaxRequest');
-Route::get('/category/{slug}', 'HomeController@category')->name('category.slug');
+Route::get('/category/{slug}', 'CategoryController@category')->name('category.slug');
+Route::get('/show_course/{slug}', 'HomeController@show')->name('show_course.slug');
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');

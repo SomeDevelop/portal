@@ -44,6 +44,9 @@ return array(
     'become a teacher' => 'become a teacher',
     'ADD' => 'Add course',
     'in list' => 'in list',
+    'POPULAR POSTS' => 'POPULAR courses',
+    'Recent Posts' => 'Recent courses',
+
 
 
 

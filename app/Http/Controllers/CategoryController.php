@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Course;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -54,5 +55,16 @@ class CategoryController extends Controller
         flash('Category '.$category->title.' was deleted! ')->important();
         return redirect()->route('categories.index');
 
+    }
+    public function category($slug){
+
+        $categories = Category::get();
+        $category = Category::where('slug',$slug)->firstOrFail();
+        $allcourses = Course::all();
+        $courses = $category->courses()->paginate(8);
+//        dd($courses);
+
+        $cat = $category;
+        return view('pubcourses.list',['courses' => $courses,'categories'=>$categories, 'cat' => $cat, 'allcourses' => $allcourses]);
     }
 }
