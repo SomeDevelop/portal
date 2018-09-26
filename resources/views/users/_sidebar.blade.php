@@ -1,49 +1,57 @@
-<div class="col-lg-4 col-lg-offset-2" data-sticky_column>
+<div class="col-lg-4" data-sticky_column>
+    <div class="primary-sidebar">
 
-    <aside class="widget">
-        <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
+        <aside class="widget">
+            <h3 class="widget-title text-uppercase text-center">{{__('messages.POPULAR POSTS')}}</h3>
 
-
-
-
-
-        <div>
-
-            <a href="#" class="popular-img"><img src="../assets/images/p1.jpg" alt="">
-
-                <div class="p-overlay"></div>
-            </a>
-
-            <div class="p-content">
-                <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                <span class="p-date">February 15, 2016</span>
-            </div>
-        </div>
-        <div class="popular-post">
-
-
-            <a href="#" class="popular-img"><img src="../assets/images/p1.jpg" alt="">
-
-                <div class="p-overlay"></div>
-            </a>
-
-            <div class="p-content">
-                <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                <span class="p-date">February 15, 2016</span>
-            </div>
-        </div>
-    </aside>
-    <aside class="widget border pos-padding">
-        <h3 class="widget-title text-uppercase text-center">Categories</h3>
-        <ul>
-            @forelse($categories as $category)
-                <li>
-                    <a href="#">{{$category->title}}</a>
-                    <span class="post-count pull-right"> {{$category->courses()->count()}}</span>
-                </li>
+            @forelse($populars as $popular)
+                <div class="popular-post">
+                    <div class="p-content">
+                        <a href="{{route('show_course.slug', $popular->followable->slug)}}" class="text-uppercase">{{ $popular->followable->title }}</a>
+                        <span class="p-date">Рейтинг: {{$popular->count}}</span>
+                    </div>
+                </div>
             @empty
-                <p>No category created.</p>
+                <p>No course created.</p>
             @endforelse
-        </ul>
-    </aside>
+        </aside>
+
+        <aside class="widget pos-padding">
+            <h3 class="widget-title text-uppercase text-center">{{__('messages.Recent Posts')}}</h3>
+
+            <div class="thumb-latest-posts">
+                @forelse($courses as $course)
+                    <div class="media text-c">
+
+                        <div class="p-content">
+                            <a href="{{route('show_course.slug', $course->slug)}}"
+                               class="text-uppercase">{{$course->title}}</a>
+                            <span class="p-date">{{$course->created_at->format('d/m/Y')}}</span>
+                        </div>
+
+                    </div>
+
+                    <span class="pull-right">{{$course->getAuthorName()}}</span>
+                    <br>
+                    <hr>
+                @empty
+                    <p>No course created.</p>
+                @endforelse
+            </div>
+
+        </aside>
+        <aside class="widget border pos-padding">
+            <h3 class="widget-title text-uppercase text-center">{{__('messages.Categories')}}</h3>
+            <ul>
+                @foreach($categories as $category)
+                    <li>
+                        <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}</a>
+                        <span class="post-count pull-right"> {{$category->courses()->count()}}</span>
+                    </li>
+                @endforeach
+
+            </ul>
+        </aside>
+
+    </div>
 </div>

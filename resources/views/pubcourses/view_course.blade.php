@@ -19,7 +19,14 @@
                         <img src="{{$course->getFullImage()}}" alt="">
                     </div>
                     <div class="post-content">
+                        <div>
+                            <span class="social-share-title text-capitalize pl-3">Автор: {{$course->getAuthorName()}}</span>
+                            <p class="pull-right"><span class="pr-3">{{$course->date}}</span></p>
+                        </div>
                         <header class="entry-header text-center text-uppercase">
+
+
+
                             <h6>
                                 <a href="{{route('category.slug', $course->getCategorySluge())}}"> {{$course->getCategoryTitle()}}</a>
                             </h6>
@@ -126,18 +133,7 @@
                         {{--<a href="#" class="btn btn-default">Decoration</a>--}}
                         {{--</div>--}}
 
-                        <div class="social-share">
-							<span
-                                    class="social-share-title pull-left text-capitalize pl-3">Автор: {{$course->getAuthorName()}}</span>
-                            <span class="float-right pr-3">{{$course->date}}</span>
-                            {{--<ul class="text-center pull-right">--}}
-                            {{--<li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>--}}
-                            {{--<li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>--}}
-                            {{--<li><a class="s-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>--}}
-                            {{--<li><a class="s-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>--}}
-                            {{--<li><a class="s-instagram" href="#"><i class="fa fa-instagram"></i></a></li>--}}
-                            {{--</ul>--}}
-                        </div>
+
                     </div>
                 </article>
                 <div class="top-comment"><!--top comment-->
