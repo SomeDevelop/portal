@@ -47,43 +47,7 @@
                                                 <div class="text-uppercase text-center">{{__('messages.View Course')}}</div>
                                             </a>
                                         </div>
-                                        {{--@if (Auth::check() )--}}
-                                        {{--@role('Student')--}}
-                                        {{--<div class="panel-footer">--}}
-                                        {{--<h4><a href="#" title="Nature Portfolio">{{ $course->title }}</a></h4>--}}
-                                        {{--<span class="pull-right">--}}
-                                        {{--<button class="like-btn">--}}
-                                        {{--<i id="like{{$course->id}}"--}}
-                                        {{--class="fa fa-thumbs-up glyphicon glyphicon-thumbs-up {{ auth()->user()->hasLiked($course) ? 'like-course' : '' }}"></i>--}}
-                                        {{--</button>--}}
-                                        {{--<span--}}
-                                        {{--id="like{{$course->id}}-bs3">{{ $course->likers()->get()->count() }}--}}
-                                        {{--</span>--}}
-                                        {{--</span>--}}
-                                        {{--<div>--}}
-                                        {{--{{$course->liker}}--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--@endrole--}}
 
-
-
-
-                                        {{--@else--}}
-                                        {{--<div class="panel-footer">--}}
-
-                                        {{--<span class="pull-right">--}}
-                                        {{--<span class="like-btn">--}}
-                                        {{--<i class="fa fa-thumbs-up"></i>--}}
-                                        {{--<button--}}
-                                        {{--id="like{{$course->id}}-bs3">{{ " ".$course->likers()->get()->count() }}--}}
-                                        {{--</button>--}}
-                                        {{--</span>--}}
-                                        {{--</span>--}}
-
-                                        {{--</div>--}}
-
-                                        {{--@endif--}}
 
                                         <div class="post-content p-0">
 
@@ -91,7 +55,7 @@
 
                                                 <h6><a href="{{route('category.slug', $course->getCategorySluge())}}">{{$course->getCategoryTitle()}}</a></h6>
 
-                                                <h1 class="entry-title"><a href="#">{{$course->title}}</a></h1>
+                                                <h1 class="entry-title"><a href="{{route('show_course.slug', $course->slug)}}">{{$course->title}}</a></h1>
 
 
                                             </header>
@@ -101,32 +65,6 @@
                                                     <span class="social-share-title pull-left text-capitalize">Автор: {{$course->getAuthorName()}}</span>
                                                     <span class="float-right text-capitalize">{{$course->date}}</span>
                                                 </div>
-                                                @if (Auth::check())
-                                                    @role('Student')
-                                                    <div class="card__subtitle float-right">
-                                                        <favorite
-                                                                :course={{$course->id}}
-                                                                        :favorited={{ $course->favorited() ? 'true' : 'false' }}
-                                                        ></favorite>
-                                                    </div>
-                                                    @endrole
-                                                @else
-                                                    <div class="card__subtitle float-right">
-                                                        <a href="{{ route('login') }}">Записатися</a>
-                                                    </div>
-                                                @endif
-                                                {{--<div class="float-left">--}}
-                                                {{--<h4><a href="#" title="Nature Portfolio">{{ $course->title }}</a></h4>--}}
-                                                {{--<span class="pull-right">--}}
-                                                {{--<span class="like-btn">--}}
-                                                {{--<i class="fa fa-thumbs-up"></i>--}}
-                                                {{--<span--}}
-                                                {{--id="like{{$course->id}}-bs3">{{ " ".$course->likers()->get()->count() }}--}}
-                                                {{--</span>--}}
-                                                {{--</span>--}}
-                                                {{--</span>--}}
-
-                                                {{--</div>--}}
 
                                             </div>
                                         </div>

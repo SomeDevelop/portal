@@ -251,7 +251,8 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
 
 
 <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
 
 ){?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -272,7 +273,7 @@ preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) =
         });
         $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){
             console.log('click');
-            var id = $(this).parents(".cart").data('id');
+            var id = $(this).parents(".post").data('id');
             console.log(id);
             var c = $('#'+this.id+'-bs3').html();
             console.log('C => '+c);

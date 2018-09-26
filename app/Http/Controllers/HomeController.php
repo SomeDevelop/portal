@@ -8,6 +8,7 @@ use App\Http\Resources\UserResource;
 use App\Lesson;
 use App\User;
 use Illuminate\Http\Request;
+use Overtrue\LaravelFollow\FollowRelation;
 
 class HomeController extends Controller
 {
@@ -43,16 +44,24 @@ class HomeController extends Controller
 
     public function show($slug)
     {
+//                dd($slug);
+
         $course = Course::where('slug',$slug)->first();
-//        dd($course->id);
         $courses = Course::latest()->paginate(3);
-//        dd($courses);
+        $populars = FollowRelation::popular('course')->paginate(3)->items();
+//dd($populars);
         $lessons = Lesson::all()->where('course_id',$course->id);
         $categories = Category::all();
 //        return UserResource::collection(User::all());
         //return new UserResource(auth()->user());
         //return auth()->user();
-        return view('pubcourses.view_course',['course' => $course, 'lessons' => $lessons, 'categories' => $categories, 'courses' => $courses]);
+        return view('pubcourses.view_course',[
+            'course' => $course,
+            'lessons' => $lessons,
+            'categories' => $categories,
+            'courses' => $courses,
+            'populars' => $populars
+        ]);
     }
     public function getFriends(){
 

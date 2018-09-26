@@ -44,7 +44,7 @@ return [
     'become a teacher' => 'стати викладачем',
     'ADD' => 'Записатися',
     'in list' => 'Ви записані',
-    'POPULAR POSTS' => 'Популярны курси',
+    'POPULAR POSTS' => 'Популярні курси',
     'Recent Posts' => 'недавно добавлені',
 
 
