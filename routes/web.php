@@ -43,6 +43,7 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::post('/profile', 'ProfileController@store');
+    Route::post('/comment', 'CommentsController@store');
 
 });
 

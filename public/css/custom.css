@@ -1182,8 +1182,8 @@ blog css
 
 .bottom-comment {
     background: #fff;
-    padding: 20px;
-    margin: 50px 0;
+    padding: 10px 20px;
+    margin: 20px 0;
     color: #212121;
     overflow: hidden;
 }
@@ -1200,9 +1200,11 @@ blog css
     margin-bottom: 10px;
 
 }
-
+span.comment-date{
+    color: grey;
+}
 .bottom-comment .comment-img {
-    padding: 10px 15px 100px;
+    padding: 10px 15px;
     float: left;
 }
 
