@@ -13,7 +13,7 @@
                                 {{session('status')}}
                             </div>
                         @endif
-                        <h3 class="text-uppercase">My profile</h3>
+                        <h3 class="text-uppercase">Мій Профіль</h3>
                         @include('admin.errors')
                         <br>
                         <img src="{{$user->getAvatar()}}" alt="" class="profile-image">
@@ -34,10 +34,15 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="password" class="form-control" id="password" name="password"
-                                           >
+                                           value="">
                                 </div>
                             </div>
-
+                            {{--<div class="form-group">--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{{ Form::label('password', 'Password') }}<br>--}}
+                                    {{--{{ Form::password('password', array('class' => 'form-control')) }}--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="file" class="form-control" id="image" name="avatar">

@@ -64,13 +64,12 @@ class User extends Authenticatable
 
     public function generatePassword($password)
     {
-        if($password != null)
-        {
-//            dd('password: '.$password);
-//            $this->password = bcrypt($password);
-
-            $this->save();
-        }
+//        if($password != null)
+//        {
+////            dd('password: '.$password);
+////            $this->password = bcrypt($password);
+//            $this->save();
+//        }
     }
 
     public function uploadAvatar($image)

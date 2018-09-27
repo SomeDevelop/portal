@@ -37,13 +37,19 @@ class ProfileController extends Controller
                 'email',
                 Rule::unique('users')->ignore(Auth::user()->id),
             ],
-//        'email' => 'required|email|unique:users',
-//            'password' => 'required',
+
             'avatar' => 'nullable| mimes:jpeg,jpg,png | max:1000'
         ]);
         $user = Auth::user();
-        $user ->edit($request->all());
-        $user->generatePassword($request->get('password'));
+        $input = $request->only(['name', 'email']);
+        $user->fill($input)->save();
+        if($request->get('password') != null){
+
+//            dd('dddd');
+            $user->password = $request->get('password');
+            $user->save();
+        }
+
         $user->uploadAvatar($request->file('avatar'));
 
         return redirect()->back()->with('status', 'Профіль успішно оновлено');
