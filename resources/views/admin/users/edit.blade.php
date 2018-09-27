@@ -1,6 +1,6 @@
 {{-- \resources\views\users\edit.blade.php --}}
 
-@extends('Admin.layout')
+@extends('admin.layout')
 
 @section('title', '| '.__("messages.Edit User"))
 

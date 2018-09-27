@@ -28,7 +28,7 @@ return array(
     'remember_me' => 'Remember Me',
     'please_sign_in' => 'Please sign in',
     'forgot_your_password' => 'Forgot Your Password?',
-    'admin_panel' => 'Admin Panel',
+    'admin_panel' => 'admin Panel',
     'my_favorites' => 'My Courses',
     'student_panel' => 'Student Card',
     'teacher_panel' => 'Teacher Card',
@@ -37,7 +37,7 @@ return array(
     'teachers' => 'teachers',
     'about' => 'about',
     'student' => 'student',
-    'moderator_panel' => 'Moderator',
+    'moderator_panel' => 'moderator',
     'look_like_you_re_lost' => 'Look like you\'re lost',
     'the page you are looking for not avaible' => 'the page you are looking for not avaible',
     'View Course' => 'View Course',
@@ -46,6 +46,8 @@ return array(
     'in list' => 'in list',
     'POPULAR POSTS' => 'POPULAR courses',
     'Recent Posts' => 'Recent courses',
+    'Profile' => 'Profile',
+
 
 
 

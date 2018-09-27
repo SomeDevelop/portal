@@ -137,7 +137,7 @@
                     </div>
                 </article>
                 <div class="top-comment"><!--top comment-->
-                    <img src="assets/images/comment.jpg" class="pull-left img-circle" alt="">
+                    <img src="{{$course->getAuthorAvatar()}}" class="pull-left rounded-circle" alt="" height="50">
                     <h4>{{$course->getAuthorName()}}</h4>
 
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor

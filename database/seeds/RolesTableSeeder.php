@@ -13,16 +13,16 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         DB::table('roles')->insert([
-            'name' => "Admin",
-            'display_name' => "Admin Role",
-            'description' => "Admin Role",
+            'name' => "admin",
+            'display_name' => "admin Role",
+            'description' => "admin Role",
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
 
         DB::table('roles')->insert([
             'name' => "Client",
-            'display_name' => "Admin Role",
+            'display_name' => "admin Role",
             'description' => "Client Role",
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),

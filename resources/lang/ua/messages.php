@@ -46,6 +46,7 @@ return [
     'in list' => 'Ви записані',
     'POPULAR POSTS' => 'Популярні курси',
     'Recent Posts' => 'недавно добавлені',
+    'Profile' => 'Профіль',
 
 
 

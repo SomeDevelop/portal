@@ -156,13 +156,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @role('Student')
-                                <a class="dropdown-item text-info" href="{{ url('my_favorites') }}">{{ __('messages.my_favorites') }}</a>
-                                @endrole
+                                <a class="dropdown-item text-info" href="{{route('profile')}}">{{ __('messages.Profile') }}</a>
 
-                                @role('Owner')
-                                <a class="dropdown-item text-info" href="{{ url('owner') }}">{{ __('messages.teacher_panel') }}</a>
-                                @endrole
+
 
                                 <a class="dropdown-item text-info" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -199,9 +195,11 @@
                 <a href="#" class="menu-item">
                     <span class="js-blur">{{ __('messages.Students') }}</span>
                 </a>
+                @if (!Auth::guest())
                 <a href="{{ route('chat') }}" class="menu-item">
                     <span class="js-blur">Messenger (Pre-Alpha)</span>
                 </a>
+                @endif
                 <a href="#" class="menu-item">
                     <span class="js-blur">{{ __('messages.about') }}</span>
                 </a>

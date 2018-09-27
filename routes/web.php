@@ -40,9 +40,13 @@ Route::get('/show_course/{slug}', 'HomeController@show')->name('show_course.slug
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::post('/profile', 'ProfileController@store');
 
-Route::middleware(['ability:Owner,Create'])->group(function (){
+});
 
+Route::middleware(['ability:Owner,'])->group(function (){
     Route::get('/course_lessons/{course}','LessonController@index')->name('course_lessons.course');
     Route::resource('lessons','LessonController');
     Route::resource('owner_courses','OwnerController');
@@ -51,8 +55,6 @@ Route::middleware(['ability:Owner,Create'])->group(function (){
 
 });
 Route::middleware(['ability:Student,'])->group(function (){
-
-
     Route::get('/course/{course}', 'UsersController@openCourse')->name('course.course');
     Route::get('/my_favorites', 'UsersController@myFavorites');
     Route::get('/course_lesson/{lesson}', 'UsersController@openLesson')->name('course_lesson.lesson');

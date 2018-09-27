@@ -220,6 +220,14 @@ class Course extends Model
             ?   $name->name
             :   '--?';
     }
+    public function getAuthorAvatar(){
+        $name = User::find($this->user_id);
+//        dd($name->avatar);
+        return ($this->category_id != null)
+            ?   '/uploads/avatar/200px/'.$name->avatar
+            :   '--?';
+    }
+
     public function getCategoryTitle()
     {
         $title = Category::find($this->category_id);

@@ -1643,7 +1643,7 @@ p.go-back-home a:hover {
 
 img.profile-image
 {
-    width: 50%;
+    /*width: 50%;*/
     margin: 0px auto 20px;
     display: block;
 }

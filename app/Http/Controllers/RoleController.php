@@ -27,7 +27,7 @@ class RoleController extends Controller
     public function index() {
         $roles = Role::all();//Get all roles
 
-        return view('Admin.roles.index')->with('roles', $roles);
+        return view('admin.roles.index')->with('roles', $roles);
     }
 
     /**
@@ -38,7 +38,7 @@ class RoleController extends Controller
     public function create() {
         $permissions = Permission::all();//Get all permissions
 
-        return view('Admin.roles.create', ['permissions'=>$permissions]);
+        return view('admin.roles.create', ['permissions'=>$permissions]);
     }
 
     /**
@@ -85,7 +85,7 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return redirect('Admin.roles.index');
+        return redirect('admin.roles.index');
     }
 
     /**
@@ -98,7 +98,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         $permissions = Permission::all();
 
-        return view('Admin.roles.edit', compact('role', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**

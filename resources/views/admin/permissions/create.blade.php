@@ -1,5 +1,5 @@
 {{-- \resources\views\permissions\create.blade.php --}}
-@extends('Admin.layout')
+@extends('admin.layout')
 
 @section('title', '| Create Permission')
 

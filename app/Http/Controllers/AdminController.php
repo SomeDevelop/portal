@@ -9,6 +9,6 @@ class AdminController extends Controller
     public function index() {
 //        $roles = Role::all();//Get all roles
 
-        return view('Admin.index');
+        return view('admin.index');
     }
 }
