@@ -20,7 +20,7 @@ class CoursesController extends Controller
         return view('courses.index', ['courses'=>$courses]);
     }
     public function show(){
-        $courses = Course::orderBy('date', 'desc')->get();
+        $courses = Course::orderBy('date', 'desc')->where('status',1)->get();
         $course1 = Course::find(112);
 //        $posts = Post::find(3);
 //        dd($posts->likers()->get()->count());
@@ -117,6 +117,11 @@ class CoursesController extends Controller
         Course::find($id)->remove();
         return redirect()->route('courses.index');
     }
+    public function destr($id)
+    {
+        Course::find($id)->remove();
+        return redirect()->back();
+    }
     public function favoriteCourse(Course $course)
     {
 //        dd('1');
@@ -144,4 +149,13 @@ class CoursesController extends Controller
 ////        dd($request->all());
 //        return response()->json(['success'=>$response]);
 //    }
+
+    public function toggle($id){
+//        dd($id);
+        $course = Course::find($id);
+
+        $course->togStatus();
+
+        return redirect()->back();
+    }
 }

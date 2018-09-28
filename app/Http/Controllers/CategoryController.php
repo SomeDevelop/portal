@@ -60,8 +60,8 @@ class CategoryController extends Controller
 
         $categories = Category::get();
         $category = Category::where('slug',$slug)->firstOrFail();
-        $allcourses = Course::all();
-        $courses = $category->courses()->paginate(8);
+        $allcourses = Course::where('status',1)->get();
+        $courses = $category->courses()->where('status',1)->paginate(8);
 //        dd($courses);
 
         $cat = $category;

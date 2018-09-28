@@ -22,7 +22,7 @@
                                     @forelse ($categories as $category)
 
                                         <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}
-                                            <span class="course-count pull-right"> ({{$category->courses()->count()}})</span></a>
+                                            <span class="course-count pull-right"> ({{$category->courses()->where('status',1)->count()}})</span></a>
 
                                     @empty
                                         <div class="col-lg-12 col-md-12 cart">

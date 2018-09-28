@@ -19,7 +19,11 @@
                     <a class="nav-link " href="{{route('moderator')}}">Преподаватели</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('new-courses')}}">Курсы</a>
+                    <a class="nav-link" href="{{route('new-courses')}}">Курсы
+                        @if($courses->where('status',0)->count() > 0)
+                            <span class="badge badge-secondary">{{$courses->where('status',0)->count()}}</span>
+                        @endif
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('new-comments')}}">Коментарии
