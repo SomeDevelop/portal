@@ -22,6 +22,12 @@ class Comment extends Model
         $this->save();
     }
 
+    public function getAuthorName(){
+        $name = User::find($this->user_id);
+        return ($this->course_id != null)
+            ?   $name->name
+            :   '--?';
+    }
     public function disAllow()
     {
         $this->status = 0;

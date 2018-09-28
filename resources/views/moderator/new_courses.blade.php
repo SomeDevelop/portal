@@ -38,8 +38,8 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Текст</th>
+                            <th>Автор</th>
+                            <th>Курс</th>
                             <th>Действия</th>
                         </tr>
                         </thead>
@@ -49,7 +49,7 @@
 
                                 <td>
 
-                                    {{$course->id}}
+                                    {{$course->AuthorName()}}
 
                                 </td>
                                 <td>{{$course->title}}

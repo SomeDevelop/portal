@@ -38,7 +38,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Автор</th>
                             <th>Текст</th>
                             <th>Действия</th>
                         </tr>
@@ -49,7 +49,7 @@
 
                             <td>
 
-                                {{$comment->id}}
+                                {{$comment->getAuthorName()}}
 
                             </td>
                             <td>{{$comment->text}}

@@ -224,6 +224,12 @@ class Course extends Model
             ?   $name->name
             :   '--?';
     }
+    public function AuthorName(){
+        $name = User::find($this->user_id);
+        return ($this->comments != null)
+            ?   $name->name
+            :   '--?';
+    }
     public function getAuthorAvatar(){
         $name = User::find($this->user_id);
 //        dd($name->avatar);
