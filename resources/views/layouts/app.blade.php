@@ -246,8 +246,6 @@ preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) ==
 {{--<script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>--}}
 
 
-
-
 <?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
 preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
 preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1

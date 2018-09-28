@@ -1924,3 +1924,27 @@ nav.menu-items a:hover{
 .castom-item a:hover{
     color: #3c8dbc !important;
 }
+
+#pills-tab.moderator a{
+    font-size: 16px;
+    color: #3c8dbc !important;
+    padding-left: 30px;
+}
+
+#pills-tab.moderator a:hover{
+    /*background-color: rgba(0,0,0,.03);*/
+    color: black !important;
+}
+
+#pills-tab.moderator a:active{
+    color: #e74c3c !important;
+}
+.moderator-btn{
+    margin-top: -13px;
+}
+.moderator-new{
+
+    margin-top: -13px;
+    color: #e74c3c;
+
+}

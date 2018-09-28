@@ -150,7 +150,7 @@
                         invidunt ut labore et dolore magna aliquyam erat.</p>
                 </div><!--top comment end-->
                 @if(!$course->comments->isEmpty())
-                    @foreach($course->comments as $comment)
+                    @foreach($course->getComments() as $comment)
                     <div class="bottom-comment"><!--bottom comment-->
 
                         <div class="comment-img">
@@ -159,7 +159,7 @@
 
                         <div class="comment-text">
                             <span class="comment-date pull-right text-grey">
-                                {{$comment->created_at->diffForHumans()}}
+                                Time {{$comment->created_at->diffForHumans()}}
                             </span>
                             <h5>{{$comment->author->name}}</h5>
 

@@ -67,6 +67,8 @@ Route::middleware(['ability:Moderator,'])->group(function (){
     Route::get('/moderator/teachers', 'ModeratorController@index')->name('moderator');
     Route::get('/moderator/courses', 'ModeratorController@courses')->name('new-courses');
     Route::get('/moderator/comments', 'ModeratorController@comments')->name('new-comments');
+    Route::get('/moderator/comments/toggle/{id}', 'CommentsController@toggle');
+    Route::delete('/comments/{id}/destroy', 'CommentsController@destroy')->name('comments.destroy');
 
 });
 

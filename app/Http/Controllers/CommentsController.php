@@ -22,4 +22,18 @@ class CommentsController extends Controller
 
         return redirect()->back()->with('status', 'Ваш комент буде скоро добавлений');
     }
+
+    public function toggle($id){
+
+        $comment = Comment::find($id);
+        $comment->toggleStatus();
+
+        return redirect()->back();
+    }
+
+    public function destroy($id){
+
+        Comment::find($id)->remove();
+        return redirect()->back();
+    }
 }

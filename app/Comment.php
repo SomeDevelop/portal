@@ -42,4 +42,6 @@ class Comment extends Model
     {
         $this->delete();
     }
+
+
 }

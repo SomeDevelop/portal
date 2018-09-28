@@ -305,4 +305,5 @@ class Course extends Model
             ->where('course_id', $this->id)
             ->first();
     }
+
 }
