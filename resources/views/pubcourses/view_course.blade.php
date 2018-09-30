@@ -176,7 +176,7 @@
                 @endif
                 @if(Auth::check())
                     <div class="leave-comment"><!--leave comment-->
-                        <h4>Залишити коментарій</h4>
+                        <h4>Залишити коментар</h4>
 
 
                         <form class="form-horizontal contact-form" role="form" method="post" action="/comment">
