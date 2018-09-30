@@ -2,14 +2,41 @@
 
 @section('content')
     <!--main content start-->
-    <div class="main-content">
+    <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="leave-comment mr0"><!--leave comment-->
+                <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                    <h3>
+                        <a href="{{route('main')}}">{{ __('messages.HOME') }}</a>
+                        <span class="castom-a"> > {{ __('messages.teachers') }}</span>
+                    </h3>
+                </div>
+                <div class="col-lg-8">
+                    <!--leave comment-->
+
+                        @forelse($authors as $author)
+                        <div class="leave-comment mr0">
+                            <a class="float-right" href="{{route('author.id',$author->id )}}">
+                                <img src="{{$author->getAvatar()}}" alt="" height="100">
+                            </a>
+                            <a href="{{route('author.id',$author->id )}}"><span>{{$author->name}}</span></a>
+                                <p>Всього курсів: {{$author_courses->where('user_id',$author->id)->count()}} </p>
+                            <?php $p = 0; ?>
+                            @foreach($author_courses->where('user_id',$author->id) as $course)
+                                <?php
+
+                                $p = $p + $course->likers()->get()->count() ?>
 
 
-                    </div>
+                            @endforeach
+                            <p>Рейтинг: {{$p+$author_courses->where('user_id',$author->id)->count()*10}}</p>
+
+                            </div>
+                            @empty
+                            <p>Викладачі відсутні</p>
+                        @endforelse
+
+
 
                 </div>
 

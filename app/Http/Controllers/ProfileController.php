@@ -13,8 +13,9 @@ use Overtrue\LaravelFollow\FollowRelation;
 class ProfileController extends Controller
 {
     public function index(){
-        $courses = Course::latest()->paginate(3);
+        $courses = Course::latest()->where('status',1)->paginate(3);
         $populars = FollowRelation::popular('course')->paginate(3)->items();
+//        dd($populars);
         $categories = Category::all();
         $user = Auth::user();
 //        dd($user);
@@ -53,5 +54,46 @@ class ProfileController extends Controller
         $user->uploadAvatar($request->file('avatar'));
 
         return redirect()->back()->with('status', 'Профіль успішно оновлено');
+    }
+
+    public function show($id){
+//        dd($id);
+        $author = User::find($id);
+        $author_courses = Course::all()->where('user_id',$id);
+        $courses = Course::latest()->where('status',1)->paginate(3);
+        $populars = FollowRelation::popular('course')->paginate(3)->items();
+
+//        dd($populars);
+        $categories = Category::all();
+        return view('profile.public_profile',[
+
+            'categories' => $categories,
+            'courses' => $courses,
+            'populars' => $populars,
+            'author' => $author,
+            'author_courses' => $author_courses,
+        ]);
+    }
+
+    public function authors(){
+//        dd($id);
+        $authors = User::leftJoin('role_user', 'users.id', '=', 'role_user.user_id')->where('role_id',25)
+            ->get();;
+//        dd($authors);
+        $author_courses = Course::all();
+        $courses = Course::latest()->where('status',1)->paginate(3);
+        $populars = FollowRelation::popular('course')->paginate(3)->items();
+
+//        dd($populars);
+        $categories = Category::all();
+        return view('student.owners',[
+
+            'categories' => $categories,
+            'courses' => $courses,
+            'populars' => $populars,
+            'authors' => $authors,
+            'author_courses' => $author_courses,
+
+        ]);
     }
 }

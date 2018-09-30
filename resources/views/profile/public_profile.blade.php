@@ -2,57 +2,62 @@
 
 @section('content')
     <!--main content start-->
-    <div class="main-content">
+    <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-
-                    <div class="leave-comment mr0"><!--leave comment-->
-                        @if(session('status'))
-                            <div class="alert alert-success">
-                                {{session('status')}}
-                            </div>
-                        @endif
-                        <h3 class="text-uppercase">Мій Профіль</h3>
-                        @include('admin.errors')
-                        <br>
-                        <img src="{{$user->getAvatar()}}" alt="" class="profile-image">
-                        <form class="form-horizontal contact-form" role="form" method="post" action="/profile" enctype="multipart/form-data">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" id="name" name="name"
-                                           placeholder="Name" value="{{$user->name}}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input type="email" class="form-control" id="email" name="email"
-                                           placeholder="Email" value="{{$user->email}}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input type="password" class="form-control" id="password" name="password"
-                                           value="">
-                                </div>
-                            </div>
-                            {{--<div class="form-group">--}}
-                                {{--<div class="col-md-12">--}}
-                                    {{--{{ Form::label('password', 'Password') }}<br>--}}
-                                    {{--{{ Form::password('password', array('class' => 'form-control')) }}--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input type="file" class="form-control" id="image" name="avatar">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn send-btn">Update</button>
-
-                        </form>
-                    </div><!--end leave comment-->
+                <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                    <h3>
+                        <a href="{{route('main')}}">{{ __('messages.HOME') }}</a>
+                        <span class="castom-a"> > </span>
+                        <a href="{{route('authors')}}">{{ __('messages.teachers') }}</a>
+                        <span class="castom-a"> > {{$author->name}}</span>
+                    </h3>
                 </div>
+                <div class="col-md-8">
+                    <div class="leave-comment mr0"><!--leave comment-->
+                        <img src="{{$author->getAvatar()}}" alt="" class="profile-image pull-right" height="150">
+
+                        <h5 class="text-uppercase">{{$author->name}}</h5>
+
+                        <br>
+                        <br>
+                        <div>
+                            Всего курсов: {{$author_courses->count()}}
+
+                            <br>
+                            <?php $p =0; ?>
+                            @foreach($author_courses as $course)
+                                <?php
+
+                                $p = $p + $course->likers()->get()->count() ?>
+
+
+                                @endforeach
+
+                        </div>
+                        <div>
+                            Рейтинг: {{$p+$author_courses->count()*10}}
+                            <br>
+                            <br>
+                        </div>
+
+                    </div>
+                    <div class="leave-comment mr0">
+                        Курси автора:
+                        <br><br>
+                        @forelse($author_courses->where('status',1) as $author_course)
+                            <div>
+                                <a href="{{route('show_course.slug', $author_course->slug)}}">{{$author_course->title}}</a>
+                                <span class="badge badge-secondary">рейтинг {{$author_course->likers()->get()->count()}}</span>
+                            </div>
+                            <br>
+                            @empty
+                            <p>У автора ще не має курсів</p>
+                        @endforelse
+                    </div>
+                </div>
+
+
                 <div class="col-lg-4" data-sticky_column>
                     <div class="primary-sidebar">
 
@@ -60,12 +65,15 @@
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.POPULAR POSTS')}}</h3>
 
                             @forelse($populars as $popular)
+                                @if($popular->followable->status == 1)
+
                                 <div class="popular-post">
                                     <div class="p-content">
                                         <a href="{{route('show_course.slug', $popular->followable->slug)}}" class="text-uppercase">{{ $popular->followable->title }}</a>
                                         <span class="p-date">Рейтинг: {{$popular->count}}</span>
                                     </div>
                                 </div>
+                                @endif
                             @empty
                                 <p>No course created.</p>
                             @endforelse
@@ -75,7 +83,7 @@
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.Recent Posts')}}</h3>
 
                             <div class="thumb-latest-posts">
-                                @forelse($courses as $course)
+                                @forelse($courses->where('status',1) as $course)
                                     <div class="media text-c">
 
                                         <div class="p-content">
@@ -102,6 +110,7 @@
                                     <li>
                                         <a href="{{route('category.slug', $category->slug)}}">{{$category->title}}</a>
                                         <span class="post-count pull-right"> {{$category->courses()->where('status',1)->count()}}</span>
+
                                     </li>
                                 @endforeach
 

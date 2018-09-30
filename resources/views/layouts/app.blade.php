@@ -189,7 +189,7 @@
                 <a href="{{route('publiccourses')}}" class="menu-item">
                 <span class="js-blur">{{ __('messages.Categories') }}</span>
                 </a>
-                <a href="#" class="menu-item">
+                <a href="{{route('authors')}}" class="menu-item">
                     <span class="js-blur">{{ __('messages.teachers') }}</span>
                 </a>
                 <a href="#" class="menu-item">
