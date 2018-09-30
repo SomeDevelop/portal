@@ -143,15 +143,17 @@
                     </div>
                 </article>
                 <div class="top-comment"><!--top comment-->
-                    <img src="{{$course->getAuthorAvatar()}}" class="pull-left rounded-circle" alt="" height="75">
-                    <h5> Автор: {{ $course->getAuthorName()}}</h5>
+                    <a href="{{route('author.id',$course->getAuthorId() )}}" class="pull-right">
+                        <img src="{{$course->getAuthorAvatar()}}" class="rounded-circle" alt="" height="75">
+                    </a>
+                    <h5> Автор: <a href="{{route('author.id',$course->getAuthorId() )}}"> {{ $course->getAuthorName()}}</a></h5>
 
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
                         invidunt ut labore et dolore magna aliquyam erat.</p>
                 </div><!--top comment end-->
                 @if(!$course->comments->isEmpty())
                     @foreach($course->getComments() as $comment)
-                    <div class="bottom-comment"><!--bottom comment-->
+                    <div class="bottom-comment comments-bg"><!--bottom comment-->
 
                         <div class="comment-img">
                             <img class="rounded-circle" src="{{$comment->author->getAvatar()}}" alt="" height="50">
@@ -193,8 +195,11 @@
             </div>
             <div class="col-lg-4" data-sticky_column>
                 <div class="primary-sidebar">
-
-                    <aside class="widget">
+                    <aside class="widget border pos-padding moderator-bg text-center">
+                        <img src="/img/advee.png" alt="" height="100">
+                        <p class="moderator-text">Тут може бути ваше оголошення</p>
+                    </aside>
+                    <aside class="widget moderator-bg">
                         <h3 class="widget-title text-uppercase text-center">{{__('messages.POPULAR POSTS')}}</h3>
 
                         @forelse($populars as $popular)
@@ -210,7 +215,7 @@
                         @endforelse
                     </aside>
 
-                    <aside class="widget pos-padding">
+                    <aside class="widget pos-padding moderator-bg">
                         <h3 class="widget-title text-uppercase text-center">{{__('messages.Recent Posts')}}</h3>
 
                         <div class="thumb-latest-posts">
@@ -234,7 +239,7 @@
                         </div>
 
                     </aside>
-                    <aside class="widget border pos-padding">
+                    <aside class="widget border pos-padding moderator-bg">
                         <h3 class="widget-title text-uppercase text-center">{{__('messages.Categories')}}</h3>
                         <ul>
                             @foreach($categories as $category)
@@ -246,6 +251,8 @@
 
                         </ul>
                     </aside>
+
+
 
                 </div>
             </div>

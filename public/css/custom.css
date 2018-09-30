@@ -582,13 +582,13 @@ popular post
 =============*/
 
 .popular-post {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(0,0,0,.2);
     padding: 25px 0 20px;
 
 }
 
 .popular-post:last-child {
-    border-bottom: 0 solid #eee;
+    border-bottom: 0 solid rgba(0,0,0,.2);
     padding-bottom: 0;
 
 }
@@ -742,7 +742,7 @@ owl carousel
 recent post
 ========*/
 .thumb-latest-posts {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(0,0,0,.2);
     padding: 12px 0;
 }
 
@@ -751,7 +751,7 @@ recent post
 }
 
 .thumb-latest-posts:last-child {
-    border-bottom: 0 solid #eee;
+    border-bottom: 0 solid rgba(0,0,0,.2);
     padding: 12px 0 0;
 }
 
@@ -790,7 +790,7 @@ Categories
 }
 
 .widget.border ul li {
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid rgba(0,0,0,.3);
     padding: 6px 0 6px 12px;
     position: relative;
 }
@@ -1946,5 +1946,21 @@ nav.menu-items a:hover{
 
     margin-top: -13px;
     color: #e74c3c;
-
 }
+
+.moderator-bg{
+    background-color: rgba(246,250,40,.2);
+}
+
+.comments-bg{
+    background-color: rgba(40,100,250,.07);
+}
+
+.moderator-text{
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+}
+
+
+

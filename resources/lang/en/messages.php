@@ -47,6 +47,8 @@ return array(
     'POPULAR POSTS' => 'POPULAR courses',
     'Recent Posts' => 'Recent courses',
     'Profile' => 'Profile',
+    'enter' => 'ENTER',
+
 
 
 

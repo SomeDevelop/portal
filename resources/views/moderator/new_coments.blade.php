@@ -13,17 +13,17 @@
             <!-- Default box -->
             <div class="col-lg-12">
 
-                    <div class="col-md-4 float-left">
+                    <div class="col-lg-4 float-left">
 
                         <h5><span class="fa fa-lock"></span><span class="text-body"> - блокуємо</span></h5>
 
                     </div>
-                <div class="col-md-4 float-left">
+                <div class="col-lg-4 float-left">
 
                     <h5><span class="fa fa-thumbs-o-up"></span><span class="text-body"> - дозволяємо</span></h5>
 
                 </div>
-                <div class="col-md-4 float-left">
+                <div class="col-lg-4 float-left">
 
                     <h5><span class="fa fa-remove"></span><span class="text-body"> - видаляємо</span></h5>
 
@@ -63,7 +63,7 @@
 
                                 @endif
                                 {{Form::open(['route' => ['comments.destroy', $comment->id], 'method'=>'delete'])}}
-                                    <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
+                                    <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-1 moderator-btn">
                                         <i class="fa fa-remove"></i>
                                     </button>
 
@@ -71,7 +71,7 @@
                                 {{Form::close()}}
 
                                     @if($comment->status == 0)
-                                        <span class="moderator-new pl-3 float-left">NEW</span>
+                                        {{--<span class="moderator-new pl-3 float-left">NEW</span>--}}
                                     @endif
                             </td>
                         </tr>

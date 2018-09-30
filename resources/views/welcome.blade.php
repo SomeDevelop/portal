@@ -64,6 +64,12 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            a{
+                text-decoration: none !important;
+            }
+            h5{
+                color: grey;
+            }
         </style>
     </head>
     <body>
@@ -103,6 +109,7 @@
 
                                     <a href="{{ route('publiccourses') }}">
                                         <img src="/img/logo.jpg" alt="WeCode">
+                                        <h5>{{__('messages.enter')}}</h5>
                                     </a>
                                     <h4>{{__('messages.welcome')}}</h4>
                                 </div>

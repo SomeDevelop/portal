@@ -218,6 +218,13 @@ class Course extends Model
         $date = Carbon::createFromFormat('Y-m-d', $value)->format('d/m/y');
         return $date;
     }
+    public function getAuthorId(){
+        $name = User::find($this->user_id);
+        return ($this->category_id != null)
+            ?   $name->id
+            :   '--?';
+    }
+
     public function getAuthorName(){
         $name = User::find($this->user_id);
         return ($this->category_id != null)

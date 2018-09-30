@@ -7,14 +7,14 @@
 
             <div class="row">
 
-                <div class="col-lg-12 bg-white mb-3 pl-5 p-2">
+                <div class="col-lg-12 moderator-bg mb-3 pl-5 p-2">
                     <h3>
                         <a href="{{route('main')}}">{{ __('messages.HOME') }}</a>
                         <span class="castom-a"> > {{ __('messages.moderator_panel') }}</span>
                     </h3>
                 </div>
 
-            <ul class="nav nav-pills mb-3 moderator col-lg-12 bg-white" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mb-3 moderator col-lg-12 moderator-bg" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link " href="{{route('moderator')}}">Преподаватели</a>
                 </li>

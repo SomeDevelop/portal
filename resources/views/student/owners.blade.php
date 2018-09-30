@@ -44,7 +44,11 @@
                 <div class="col-lg-4" data-sticky_column>
                     <div class="primary-sidebar">
 
-                        <aside class="widget">
+                        <aside class="widget border pos-padding moderator-bg text-center">
+                            <img src="/img/advee.png" alt="" height="100">
+                            <p class="moderator-text">Тут може бути ваше оголошення</p>
+                        </aside>
+                        <aside class="widget moderator-bg">
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.POPULAR POSTS')}}</h3>
 
                             @forelse($populars as $popular)
@@ -62,7 +66,7 @@
                             @endforelse
                         </aside>
 
-                        <aside class="widget pos-padding">
+                        <aside class="widget pos-padding moderator-bg">
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.Recent Posts')}}</h3>
 
                             <div class="thumb-latest-posts">
@@ -86,7 +90,7 @@
                             </div>
 
                         </aside>
-                        <aside class="widget border pos-padding">
+                        <aside class="widget border pos-padding moderator-bg">
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.Categories')}}</h3>
                             <ul>
                                 @foreach($categories as $category)

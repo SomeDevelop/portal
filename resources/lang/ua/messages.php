@@ -47,6 +47,7 @@ return [
     'POPULAR POSTS' => 'Популярні курси',
     'Recent Posts' => 'недавно добавлені',
     'Profile' => 'Профіль',
+    'enter' => 'ВХІД',
 
 
 

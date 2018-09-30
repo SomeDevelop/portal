@@ -16,31 +16,31 @@
                 <div class="col-md-8">
                     <div class="leave-comment mr0"><!--leave comment-->
                         <img src="{{$author->getAvatar()}}" alt="" class="profile-image pull-right" height="150">
-
-                        <h5 class="text-uppercase">{{$author->name}}</h5>
-
-                        <br>
-                        <br>
                         <div>
-                            Всего курсов: {{$author_courses->count()}}
+                            <h5 class="text-uppercase">{{$author->name}}</h5>
 
                             <br>
-                            <?php $p =0; ?>
-                            @foreach($author_courses as $course)
-                                <?php
+                            <br>
+                            <div>
+                                Всього курсів: {{$author_courses->count()}}
 
-                                $p = $p + $course->likers()->get()->count() ?>
+                                <br>
+                                <?php $p = 0; ?>
+                                @foreach($author_courses as $course)
+                                    <?php
+
+                                    $p = $p + $course->likers()->get()->count() ?>
 
 
                                 @endforeach
 
+                            </div>
+                            <div>
+                                Рейтинг: {{$p+$author_courses->count()*10}}
+                                <br>
+                                <br>
+                            </div>
                         </div>
-                        <div>
-                            Рейтинг: {{$p+$author_courses->count()*10}}
-                            <br>
-                            <br>
-                        </div>
-
                     </div>
                     <div class="leave-comment mr0">
                         Курси автора:
@@ -51,7 +51,7 @@
                                 <span class="badge badge-secondary">рейтинг {{$author_course->likers()->get()->count()}}</span>
                             </div>
                             <br>
-                            @empty
+                        @empty
                             <p>У автора ще не має курсів</p>
                         @endforelse
                     </div>
@@ -60,26 +60,30 @@
 
                 <div class="col-lg-4" data-sticky_column>
                     <div class="primary-sidebar">
-
-                        <aside class="widget">
+                        <aside class="widget border pos-padding moderator-bg text-center">
+                            <img src="/img/advee.png" alt="" height="100">
+                            <p class="moderator-text">Тут може бути ваше оголошення</p>
+                        </aside>
+                        <aside class="widget moderator-bg">
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.POPULAR POSTS')}}</h3>
 
                             @forelse($populars as $popular)
                                 @if($popular->followable->status == 1)
 
-                                <div class="popular-post">
-                                    <div class="p-content">
-                                        <a href="{{route('show_course.slug', $popular->followable->slug)}}" class="text-uppercase">{{ $popular->followable->title }}</a>
-                                        <span class="p-date">Рейтинг: {{$popular->count}}</span>
+                                    <div class="popular-post">
+                                        <div class="p-content">
+                                            <a href="{{route('show_course.slug', $popular->followable->slug)}}"
+                                               class="text-uppercase">{{ $popular->followable->title }}</a>
+                                            <span class="p-date">Рейтинг: {{$popular->count}}</span>
+                                        </div>
                                     </div>
-                                </div>
                                 @endif
                             @empty
                                 <p>No course created.</p>
                             @endforelse
                         </aside>
 
-                        <aside class="widget pos-padding">
+                        <aside class="widget pos-padding moderator-bg">
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.Recent Posts')}}</h3>
 
                             <div class="thumb-latest-posts">
@@ -103,7 +107,7 @@
                             </div>
 
                         </aside>
-                        <aside class="widget border pos-padding">
+                        <aside class="widget border pos-padding moderator-bg">
                             <h3 class="widget-title text-uppercase text-center">{{__('messages.Categories')}}</h3>
                             <ul>
                                 @foreach($categories as $category)
