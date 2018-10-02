@@ -50,7 +50,7 @@
                     <p>{{$lesson->description}}</p>
                 </div>
                 <div class="col-md-5 mt-5">
-                    <img class="popular-img"src="../assets/images/p1.jpg">
+                    <a href="{{route('course_lesson.lesson', $lesson->slug)}}"><img class="popular-img" src="{{asset('img/folder1.png')}}"></a>
                 </div>
             </div>
 

@@ -45,6 +45,8 @@
                         </thead>
                         <tbody>
                         @forelse($courses as $course)
+
+
                             <tr>
                                 @if($course->status == 0)
                                     <td class="moderator-big">
@@ -82,6 +84,8 @@
                                                 <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-thumbs-o-up float-left mt-auto"></a></h5>
 
                                             @endif
+                                            <h5><a href="{{route('message.id', $course->id)}}" class="fa fa-comment float-left comment-btn ml-3"></a></h5>
+
                                             {{Form::open(['route' => ['courses.destr', $course->id], 'method'=>'delete'])}}
                                             <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
                                                 <i class="fa fa-remove"></i>
@@ -103,13 +107,14 @@
                                                 <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-thumbs-o-up float-left mt-auto"></a></h5>
 
                                             @endif
+                                            <h5><a href="{{route('message.id',$course->id)}}" class="fa fa-comment float-left ml-3 comment-btn"></a></h5>
+
                                             {{Form::open(['route' => ['courses.destr', $course->id], 'method'=>'delete'])}}
                                             <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
                                                 <i class="fa fa-remove"></i>
                                             </button>
 
                                             {{Form::close()}}
-
 
                                         </td>
                                     @endif
@@ -133,6 +138,7 @@
         </section>
         <!-- /.content -->
     </div>
+    <!-- Модальное окно -->
     {{ $comments->links() }}
     <!-- /.content-wrapper -->
 

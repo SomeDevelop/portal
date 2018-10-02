@@ -338,4 +338,14 @@ class Course extends Model
         $this->status = 0;
         $this->save();
     }
+
+    public function send_message($message){
+//        dd($message);
+        $this->comment = $message;
+        $this->save();
+
+    }
+
+
+
 }

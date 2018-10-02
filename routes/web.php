@@ -67,6 +67,9 @@ Route::middleware(['ability:Student,'])->group(function (){
     Route::get('/student', 'UsersController@myFavorites')->name('student');
     Route::get('/become', 'BecomeController@index')->name('become');
     Route::resource('student_courses','BecomeController');
+//    Route::get('/open_message/{$id}', 'UsersController@open_message')->name('open_message.id');
+
+
 
 
 });
@@ -81,7 +84,8 @@ Route::middleware(['ability:Moderator,'])->group(function (){
     Route::get('/moderator/courses/toggle/{id}', 'CoursesController@toggle');
     Route::delete('/courses/{id}/destroy', 'CoursesController@destr')->name('courses.destr');
     Route::get('/moderator/show/{id}','ModeratorController@show')->name('moderator.show');
-
+    Route::get('/message/{id}', 'ModeratorController@message')->name('message.id');
+    Route::post('/moderator/message/{id}', 'ModeratorController@add_message')->name('moderator.message.id');
 
 
 

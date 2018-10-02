@@ -16,12 +16,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet'
+          type='text/css'>
     <!-- Styles -->
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     {{--<script--}}
@@ -29,11 +30,11 @@
     {{--integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="--}}
     {{--crossorigin="anonymous"></script>--}}
 
-    <?php if (preg_match('/owner/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/owner_courses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
+    <?php if (preg_match('/owner/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/owner_courses/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1 ||
 
-    preg_match('/course_lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-    preg_match('/lessons/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+    preg_match('/course_lessons/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1 ||
+    preg_match('/lessons/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1
     ){?>
 
     <link href="{{ asset('css/owner.css') }}" rel="stylesheet">
@@ -60,18 +61,13 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 
-
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/card.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pattern.css') }}" rel="stylesheet">
     <link href="{{ asset('css/icons.css') }}" rel="stylesheet">
 
 
-
-
-
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
-
 
 
     <link rel="stylesheet" href="{{asset('css/birds/main.css')}}">
@@ -80,7 +76,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
     <defs>
         <filter id="blur" x="-20%" y="0" width="140%" height="100%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0,0"/>
         </filter>
     </defs>
 </svg>
@@ -93,12 +89,14 @@
         <div class="container">
 
             <a class="navbar-brand" href="{{ route('main') }}">
-                <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="" width="35" height="35">
+                <img class="bg-white rounded-circle" src="/img/logo1.png" alt="" width="35" height="35">
                 edPORTAL
 
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -114,17 +112,25 @@
                         @endrole
 
                         @role('Owner')
-                        <li><a class="nav-link" href="{{ route('owner_courses.index') }}">{{__('messages.teacher_panel')}}</a></li>
+                        <li><a class="nav-link"
+                               href="{{ route('owner_courses.index') }}">{{__('messages.teacher_panel')}}</a></li>
                         @endrole
 
                         @role('Student')
                         <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.student_panel')}}</a></li>
-                        <li><a class="nav-link" href="{{ route('become') }}">{{__('messages.become a teacher')}}</a></li>
+                        @if(auth()->user()->can('Create'))
+
+                        @else
+                            <li><a class="nav-link" href="{{ route('become') }}">{{__('messages.become a teacher')}}</a>
+                            </li>
+
+                        @endif
 
                         @endrole
 
                         @role('Moderator')
-                        <li><a class="nav-link" href="{{ route('moderator') }}">{{__('messages.moderator_panel')}}</a></li>
+                        <li><a class="nav-link" href="{{route('new-courses')}}">{{__('messages.moderator_panel')}}</a>
+                        </li>
                         @endrole
                     </ul>
                 </div>
@@ -132,8 +138,10 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item"><a class="nav-link" href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('language.locale', ['locale' => 'ua']) }}">UA</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ route('language.locale', ['locale' => 'ua']) }}">UA</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                         </li>
@@ -141,17 +149,20 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
                         </li>
                     @else
-                        <li class="nav-item"><a class="nav-link" href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('language.locale', ['locale' => 'ua']) }}">UA</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ route('language.locale', ['locale' => 'en']) }}">EN</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ route('language.locale', ['locale' => 'ua']) }}">UA</a></li>
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-info" href="{{route('profile')}}">{{ __('messages.Profile') }}</a>
-
+                                <a class="dropdown-item text-info"
+                                   href="{{route('profile')}}">{{ __('messages.Profile') }}</a>
 
 
                                 <a class="dropdown-item text-info" href="{{ route('logout') }}"
@@ -176,82 +187,87 @@
         <div class="container">
             <div class="row justify-content-center">
 
-                <div class="col-md-6 col-lg-3 mb-3 mt-5" >
-                    <a class="btn btn-md btn-info add-course" href="{{route('student_courses.create')}}">Створити курс</a>
+                <div class="col-md-6 col-lg-3 mb-3 mt-5">
+                    <a class="btn btn-md btn-info add-course" href="{{route('student_courses.create')}}">Створити
+                        курс</a>
                     {{--<a class="btn btn-md btn-info add-course" href="#">Створити курс</a>--}}
                 </div>
 
-                <div class="col-md-6 col-lg-3 mb-3 mt-5" style="align-items: center;
-                        display: flex;
-                        justify-content: center;">
-{{--                    <a class="btn btn-md btn-info add-course" href="{{route('student_courses.create')}}">Створити Клас</a>--}}
-                    <a class="btn btn-md btn-info add-course" href="#">Створити Клас</a>
-                </div>
+
             </div>
 
         </div>
         @if($courses->count())
-        <div class="container moderator-bg mt-3 pb-3">
-            <div class="col-md-6 float-left pt-3">
+            <div class="container student-bg mt-3 pb-3">
+                <div class="col-md-6 float-left pt-3">
 
-                <h5><span class="fa fa-thumbs-o-up"></span><span class="text-body"> - одобрено</span></h5>
+                    <h5><span class="fa fa-thumbs-o-up"></span><span class="text-body"> - одобрено</span></h5>
 
-            </div>
-            <div class="col-md-6 float-left pt-3">
+                </div>
+                <div class="col-md-6 float-left pt-3">
 
-                <h5><span class="fa fa-remove"></span><span class="text-body"> - не одобрено</span></h5>
+                    <h5><span class="fa fa-thumbs-o-down"></span><span class="text-body"> - ще не одобрено</span></h5>
 
-            </div>
-            <div class="form-group col-lg-12">
+                </div>
+                <div class="form-group col-lg-12">
 
-                <table id="example1" class="table table-bordered table-striped bg-white">
-                    <thead>
-                    <tr>
+                    <table id="example1" class="table table-bordered table-striped bg-white">
+                        <thead>
+                        <tr>
 
-                        <th class="text-center">Курс</th>
-                        <th class="text-center">Чи одобрено</th>
-                    </tr>
-                    </thead>
-                    <tbody >
-                    @forelse($courses as $course)
-                        <tr >
+                            <th class="text-center">Курс</th>
+                            <th class="text-center">Повідомлення від модератора</th>
+                            <th class="text-center"></th>
 
-
-
+                            <th class="text-center">Дія</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($courses as $course)
+                            <tr>
                                 <td>
-                                    <a href="{{route('moderator.show', $course->id)}}">{{$course->title}}</a>
+                                    <a href="{{route('moderator.show', $course->id)}}"
+                                       title="Відкрити">{{$course->title}}</a>
                                 </td>
-
-
-
                                 <td>
-                                    {{--@if($course->status == 0)--}}
-                                    {{--<h5 class="moderator-new float-left mt-auto">!!!</h5>--}}
-                                    {{--@endif--}}
+                                    @if($course->comment != null)
+                                        {{$course->comment}}
+                                        @else
+                                        У вас не має повідомлень
+                                    @endif
+                                </td>
+                                <td>
+
                                     @if($course->status == 1)
-                                        <h5><i class="fa fa-thumbs-o-up"></i></h5>
+                                        <span><i class="fa fa-thumbs-o-up"></i></span>
 
                                     @else
-                                        <h5><i class="fa fa-remove"></i></h5>
+                                        <span><i class="fa fa-thumbs-o-down"></i></span>
 
                                     @endif
 
+                                </td>
+                                <td>
+                                    {{Form::open(['route' => ['student_courses.destroy', $course->slug], 'method'=>'delete'])}}
+                                    <button onclick="return confirm('Ти впевнений?')" type="submit"
+                                            class="delete float-left ml-3 moderator-btn mt-auto" title="Видалити">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
 
-
+                                    {{Form::close()}}
                                 </td>
 
+                            </tr>
 
-                        </tr>
+                        @empty
+                            <p>У Вас ще не має курсів</p>
+                        @endforelse
+                        </tfoot>
+                    </table>
 
-                    @empty
-                        <p>У Вас ще не має курсів</p>
-                    @endforelse
-                    </tfoot>
-                </table>
+                </div>
 
             </div>
-
-        </div>
         @endif
 
         <div class="menu">
@@ -275,7 +291,7 @@
                     </a>
                 @endif
                 {{--<a href="#" class="menu-item">--}}
-                    {{--<span class="js-blur">{{ __('messages.about') }}</span>--}}
+                {{--<span class="js-blur">{{ __('messages.about') }}</span>--}}
                 {{--</a>--}}
             </nav>
         </div>
@@ -290,16 +306,14 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-
-
 {{--<script src="{{ asset('js/vendors/trianglify.min.js') }}" defer></script>--}}
 <script src="{{ asset('js/vendors/TweenMax.min.js') }}" defer></script>
 {{--<script src="{{ asset('js/vendors/ScrollToPlugin.min.js') }}" defer></script>--}}
 
 
-<?php if (preg_match('/publiccourses/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-preg_match('/category/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1 ||
-preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE) == 1
+<?php if (preg_match('/publiccourses/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/category/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1 ||
+preg_match('/show_course/', $_SERVER['REQUEST_URI'], $matches, PREG_OFFSET_CAPTURE) == 1
 
 ){?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -311,19 +325,19 @@ preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE
 {{--<script src="{{ asset('js/like.js') }}" defer></script>--}}
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){
+        $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function () {
             console.log('click');
             var id = $(this).parents(".post").data('id');
             console.log(id);
-            var c = $('#'+this.id+'-bs3').html();
-            console.log('C => '+c);
+            var c = $('#' + this.id + '-bs3').html();
+            console.log('C => ' + c);
 
 
             var cObjId = this.id;
@@ -333,11 +347,10 @@ preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE
             // console.log(cObj);
 
 
-
             $.ajax({
-                type:'POST',
-                url:'/ajaxRequest',
-                data:{id:id},
+                type: 'POST',
+                url: '/ajaxRequest',
+                data: {id: id},
                 success: function (data) {
                     if (jQuery.isEmptyObject(data.success.attached)) {
                         $('#' + cObjId + '-bs3').html(parseInt(c) - 1);
@@ -353,7 +366,7 @@ preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE
                 }
             });
         });
-        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
             event.preventDefault();
             $(this).ekkoLightbox();
             console.log('ok');

@@ -71,4 +71,8 @@ class UsersController extends Controller
         $data= auth()->user()->toggleFollow($user);
         return response()->json(['success'=>$data]);
     }
+
+    public function open_message($id){
+        dd($id);
+    }
 }

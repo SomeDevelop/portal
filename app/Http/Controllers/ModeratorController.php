@@ -56,4 +56,24 @@ class ModeratorController extends Controller
 
         ]);
     }
+
+    public function add_message(Request $request,$id){
+//    dd($request->all());
+        $course = Course::find($id);
+        $course->send_message($request->message);
+        return redirect()->route('new-courses');
+    }
+    public function message($id){
+        $course = Course::find($id);
+        $courses = Course::latest();
+
+        $comments = Comment::latest();
+        return view('moderator.message', [
+
+            'courses' => $courses,
+            'comments' => $comments,
+            'course' => $course
+
+        ]);
+    }
 }

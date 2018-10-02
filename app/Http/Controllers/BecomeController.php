@@ -54,4 +54,17 @@ class BecomeController extends Controller
 
         return redirect()->route('student_courses.index');
     }
+
+
+
+    public function destroy($slug)
+    {
+        $course = Course::whereSlug($slug)->first();
+//                dd($course);
+
+        $course->remove();
+        flash('Курс '. $course->title.' видалено! ')->important();
+
+        return redirect()->route('student_courses.index');
+    }
 }

@@ -99,7 +99,8 @@
         <div class="container">
 
             <a class="navbar-brand" href="{{ route('main') }}">
-                <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="" width="35" height="35">
+                <img class="bg-white rounded-circle" src="/img/logo1.png" alt="" width="35" height="35">
+
                 edPORTAL
 
             </a>
@@ -125,12 +126,18 @@
 
                         @role('Student')
                         <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.student_panel')}}</a></li>
-                        <li><a class="nav-link" href="{{ route('become') }}">{{__('messages.become a teacher')}}</a></li>
+                        @if(auth()->user()->can('Create'))
+
+                        @else
+                            <li><a class="nav-link" href="{{ route('become') }}">{{__('messages.become a teacher')}}</a></li>
+
+                        @endif
+
 
                         @endrole
 
                         @role('Moderator')
-                        <li><a class="nav-link" href="{{ route('moderator') }}">{{__('messages.moderator_panel')}}</a></li>
+                        <li><a class="nav-link" href="{{route('new-courses')}}">{{__('messages.moderator_panel')}}</a></li>
                         @endrole
                     </ul>
                 </div>

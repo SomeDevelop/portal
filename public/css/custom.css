@@ -1942,6 +1942,10 @@ nav.menu-items a:hover{
 .moderator-btn{
     margin-top: -13px;
 }
+
+.comment-btn{
+    margin-top: -8px;
+}
 .moderator-new{
 
     margin-top: -13px;
@@ -1950,6 +1954,10 @@ nav.menu-items a:hover{
 
 .moderator-bg{
     background-color: rgba(246,250,40,.2);
+}
+.student-bg{
+    background-color: rgba(1,122,43,.3);
+
 }
 
 .moderator-big{
@@ -1979,3 +1987,6 @@ nav.menu-items a:hover{
     z-index: 101;
 }
 
+.delete::after{
+    content: attr(data-title);
+}
