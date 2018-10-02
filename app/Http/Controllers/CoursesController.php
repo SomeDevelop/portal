@@ -25,6 +25,7 @@ class CoursesController extends Controller
 //        $posts = Post::find(3);
 //        dd($posts->likers()->get()->count());
 //        dd($course1->likers);
+//        dd('kjhnkjhn');
         $categories = Category::get()->all();
         return view('pubcourses.index', ['courses' => $courses, 'categories' => $categories]);
     }

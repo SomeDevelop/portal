@@ -40,7 +40,7 @@
                                         </a>
 
                                     </div>
-                                    <span class="text-muted text-right pr-3">{{$cours->date}}</span>
+                                    <span class="text-muted text-right pr-3">{{$cours->created_at->format('d-m-y')}}</span>
                                 </div>
                             </div>
                             </div>

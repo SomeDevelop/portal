@@ -66,6 +66,8 @@ Route::middleware(['ability:Student,'])->group(function (){
     Route::get('/course_lesson/{lesson}', 'UsersController@openLesson')->name('course_lesson.lesson');
     Route::get('/student', 'UsersController@myFavorites')->name('student');
     Route::get('/become', 'BecomeController@index')->name('become');
+    Route::resource('student_courses','BecomeController');
+
 
 });
 

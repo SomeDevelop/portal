@@ -313,5 +313,7 @@ preg_match('/show_course/',$_SERVER['REQUEST_URI'],$matches, PREG_OFFSET_CAPTURE
 <? }?>
 <script src="{{ asset('js/motionblur.js') }}" defer></script>
 <script src="{{ asset('js/menu.js') }}" defer></script>
+
+
 </body>
 </html>

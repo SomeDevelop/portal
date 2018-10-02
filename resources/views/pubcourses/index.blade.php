@@ -65,34 +65,9 @@
 
                                         <div class="social-share">
                                             <span class="social-share-title pull-left text-capitalize">Автор: {{$course->getAuthorName()}}</span>
-                                            <span class="float-right text-capitalize">{{$course->date}}</span>
+                                            <span class="float-right text-capitalize">{{$course->created_at->format('d-m-y')}}</span>
                                         </div>
-                                        {{--@if (Auth::check())--}}
-                                            {{--@role('Student')--}}
-                                            {{--<div class="card__subtitle float-right">--}}
-                                                {{--<favorite--}}
-                                                        {{--:course={{$course->id}}--}}
-                                                                {{--:favorited={{ $course->favorited() ? 'true' : 'false' }}--}}
-                                                {{--></favorite>--}}
-                                            {{--</div>--}}
-                                            {{--@endrole--}}
-                                        {{--@else--}}
-                                            {{--<div class="card__subtitle float-right">--}}
-                                                {{--<a href="{{ route('login') }}">Записатися</a>--}}
-                                            {{--</div>--}}
-                                        {{--@endif--}}
-                                        {{--<div class="float-left">--}}
-                                            {{--<h4><a href="#" title="Nature Portfolio">{{ $course->title }}</a></h4>--}}
-                                            {{--<span class="pull-right">--}}
-                                                {{--<span class="like-btn">--}}
-                                                    {{--<i class="fa fa-thumbs-up"></i>--}}
-                                                    {{--<span--}}
-                                                            {{--id="like{{$course->id}}-bs3">{{ " ".$course->likers()->get()->count() }}--}}
-                                                    {{--</span>--}}
-                                                {{--</span>--}}
-                                            {{--</span>--}}
 
-                                        {{--</div>--}}
 
                                     </div>
                                 </div>

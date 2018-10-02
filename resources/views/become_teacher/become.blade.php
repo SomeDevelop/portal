@@ -171,27 +171,88 @@
         </div>
     </nav>
 
-    <main class="py-4 birds">
+    <main class="py-4 birds mt-5">
 
         <div class="container">
-            <div class="row justify-content-center" style="height: 80vh;">
+            <div class="row justify-content-center">
 
-                <div class="col-md-6 col-lg-3" style="align-items: center;
-                        display: flex;
-                        justify-content: center;">
-                    {{--<a class="btn btn-md btn-info add-course" href="{{route('owner_courses.create')}}">Створити курс</a>--}}
-                    <a class="btn btn-md btn-info add-course" href="#">Створити курс</a>
+                <div class="col-md-6 col-lg-3 mb-3 mt-5" >
+                    <a class="btn btn-md btn-info add-course" href="{{route('student_courses.create')}}">Створити курс</a>
+                    {{--<a class="btn btn-md btn-info add-course" href="#">Створити курс</a>--}}
                 </div>
 
-                <div class="col-md-6 col-lg-3" style="align-items: center;
+                <div class="col-md-6 col-lg-3 mb-3 mt-5" style="align-items: center;
                         display: flex;
                         justify-content: center;">
-                    {{--<a class="btn btn-md btn-info add-course" href="{{route('owner_courses.create')}}">Створити Клас</a>--}}
+{{--                    <a class="btn btn-md btn-info add-course" href="{{route('student_courses.create')}}">Створити Клас</a>--}}
                     <a class="btn btn-md btn-info add-course" href="#">Створити Клас</a>
                 </div>
             </div>
 
         </div>
+        @if($courses->count())
+        <div class="container moderator-bg mt-3 pb-3">
+            <div class="col-md-6 float-left pt-3">
+
+                <h5><span class="fa fa-thumbs-o-up"></span><span class="text-body"> - одобрено</span></h5>
+
+            </div>
+            <div class="col-md-6 float-left pt-3">
+
+                <h5><span class="fa fa-remove"></span><span class="text-body"> - не одобрено</span></h5>
+
+            </div>
+            <div class="form-group col-lg-12">
+
+                <table id="example1" class="table table-bordered table-striped bg-white">
+                    <thead>
+                    <tr>
+
+                        <th class="text-center">Курс</th>
+                        <th class="text-center">Чи одобрено</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    @forelse($courses as $course)
+                        <tr >
+
+
+
+                                <td>
+                                    <a href="{{route('moderator.show', $course->id)}}">{{$course->title}}</a>
+                                </td>
+
+
+
+                                <td>
+                                    {{--@if($course->status == 0)--}}
+                                    {{--<h5 class="moderator-new float-left mt-auto">!!!</h5>--}}
+                                    {{--@endif--}}
+                                    @if($course->status == 1)
+                                        <h5><i class="fa fa-thumbs-o-up"></i></h5>
+
+                                    @else
+                                        <h5><i class="fa fa-remove"></i></h5>
+
+                                    @endif
+
+
+
+                                </td>
+
+
+                        </tr>
+
+                    @empty
+                        <p>У Вас ще не має курсів</p>
+                    @endforelse
+                    </tfoot>
+                </table>
+
+            </div>
+
+        </div>
+        @endif
 
         <div class="menu">
             <div class="menu-bg js-blur"></div>

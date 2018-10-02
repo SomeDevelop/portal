@@ -51,7 +51,7 @@ class OwnerController extends Controller
         $this->validate($request, [
             'title' =>'required',
             'content'   =>  'required',
-            'date'  =>  'required',
+
             'image' =>  'nullable|image'
         ]);
 //        dd('111');

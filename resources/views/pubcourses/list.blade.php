@@ -63,7 +63,8 @@
 
                                                 <div class="social-share">
                                                     <span class="social-share-title pull-left text-capitalize">Автор: {{$course->getAuthorName()}}</span>
-                                                    <span class="float-right text-capitalize">{{$course->date}}</span>
+                                                    <span class="float-right text-capitalize">{{$course->created_at->format('d-m-y')}}</span>
+
                                                 </div>
 
                                             </div>
