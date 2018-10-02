@@ -46,34 +46,74 @@
                         <tbody>
                         @forelse($courses as $course)
                             <tr>
+                                @if($course->status == 0)
+                                    <td class="moderator-big">
 
-                                <td>
+                                        {{$course->AuthorName()}}
 
-                                    {{$course->AuthorName()}}
+                                    </td>
+                                @else
+                                    <td>
 
-                                </td>
-                                <td>{{$course->title}}
-                                </td>
-                                <td>
-                                    @if($course->status == 1)
-                                        <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-lock float-left"></a></h5>
+                                        {{$course->AuthorName()}}
 
-                                    @else
-                                        <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-thumbs-o-up float-left"></a></h5>
+                                    </td>
+                                @endif
 
-                                    @endif
-                                    {{Form::open(['route' => ['courses.destr', $course->id], 'method'=>'delete'])}}
-                                    <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
-                                        <i class="fa fa-remove"></i>
-                                    </button>
-
-                                    {{--<a href="#" class=""></a>--}}
-                                    {{Form::close()}}
+                                @if($course->status == 0)
+                                    <td class="moderator-big">
+                                        <a href="{{route('moderator.show', $course->id)}}">{{$course->title}}</a>
+                                    </td>
+                                @else
+                                    <td>
+                                        <a href="{{route('moderator.show', $course->id)}}">{{$course->title}}</a>
+                                    </td>
+                                @endif
 
                                     @if($course->status == 0)
-                                        <span class="moderator-new pl-3 float-left">NEW</span>
+                                        <td class="moderator-big">
+                                            {{--@if($course->status == 0)--}}
+                                            {{--<h5 class="moderator-new float-left mt-auto">!!!</h5>--}}
+                                            {{--@endif--}}
+                                            @if($course->status == 1)
+                                                <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-lock float-left mt-auto"></a></h5>
+
+                                            @else
+                                                <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-thumbs-o-up float-left mt-auto"></a></h5>
+
+                                            @endif
+                                            {{Form::open(['route' => ['courses.destr', $course->id], 'method'=>'delete'])}}
+                                            <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
+                                                <i class="fa fa-remove"></i>
+                                            </button>
+
+                                            {{Form::close()}}
+
+
+                                        </td>
+                                    @else
+                                        <td>
+                                            {{--@if($course->status == 0)--}}
+                                            {{--<h5 class="moderator-new float-left mt-auto">!!!</h5>--}}
+                                            {{--@endif--}}
+                                            @if($course->status == 1)
+                                                <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-lock float-left mt-auto"></a></h5>
+
+                                            @else
+                                                <h5><a href="/moderator/courses/toggle/{{$course->id}}" class="fa fa-thumbs-o-up float-left mt-auto"></a></h5>
+
+                                            @endif
+                                            {{Form::open(['route' => ['courses.destr', $course->id], 'method'=>'delete'])}}
+                                            <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
+                                                <i class="fa fa-remove"></i>
+                                            </button>
+
+                                            {{Form::close()}}
+
+
+                                        </td>
                                     @endif
-                                </td>
+
                             </tr>
 
                         @empty

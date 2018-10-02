@@ -125,7 +125,7 @@
 
                         @role('Student')
                         <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.student_panel')}}</a></li>
-                        <li><a class="nav-link" href="{{ route('student') }}">{{__('messages.become a teacher')}}</a></li>
+                        <li><a class="nav-link" href="{{ route('become') }}">{{__('messages.become a teacher')}}</a></li>
 
                         @endrole
 
@@ -200,9 +200,9 @@
                     <span class="js-blur">Messenger (Pre-Alpha)</span>
                 </a>
                 @endif
-                <a href="#" class="menu-item">
-                    <span class="js-blur">{{ __('messages.about') }}</span>
-                </a>
+                {{--<a href="#" class="menu-item">--}}
+                    {{--<span class="js-blur">{{ __('messages.about') }}</span>--}}
+                {{--</a>--}}
             </nav>
         </div>
         <button class="menu-toggle"><span>Open Menu</span></button>

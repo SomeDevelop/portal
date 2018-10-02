@@ -41,6 +41,7 @@ Route::get('/authors', 'ProfileController@authors')->name('authors');
 
 
 
+
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
@@ -64,6 +65,8 @@ Route::middleware(['ability:Student,'])->group(function (){
     Route::get('/my_favorites', 'UsersController@myFavorites');
     Route::get('/course_lesson/{lesson}', 'UsersController@openLesson')->name('course_lesson.lesson');
     Route::get('/student', 'UsersController@myFavorites')->name('student');
+    Route::get('/become', 'BecomeController@index')->name('become');
+
 });
 
 Route::middleware(['ability:Moderator,'])->group(function (){
@@ -75,6 +78,8 @@ Route::middleware(['ability:Moderator,'])->group(function (){
     Route::delete('/comments/{id}/destroy', 'CommentsController@destroy')->name('comments.destroy');
     Route::get('/moderator/courses/toggle/{id}', 'CoursesController@toggle');
     Route::delete('/courses/{id}/destroy', 'CoursesController@destr')->name('courses.destr');
+    Route::get('/moderator/show/{id}','ModeratorController@show')->name('moderator.show');
+
 
 
 

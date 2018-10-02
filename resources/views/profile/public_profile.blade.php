@@ -22,11 +22,11 @@
                             <br>
                             <br>
                             <div>
-                                Всього курсів: {{$author_courses->count()}}
+                                Всього курсів: {{$author_courses->where('status',1)->count()}}
 
                                 <br>
                                 <?php $p = 0; ?>
-                                @foreach($author_courses as $course)
+                                @foreach($author_courses->where('status',1) as $course)
                                     <?php
 
                                     $p = $p + $course->likers()->get()->count() ?>
@@ -36,7 +36,7 @@
 
                             </div>
                             <div>
-                                Рейтинг: {{$p+$author_courses->count()*10}}
+                                Рейтинг: {{$p+$author_courses->where('status',1)->count()*10}}
                                 <br>
                                 <br>
                             </div>

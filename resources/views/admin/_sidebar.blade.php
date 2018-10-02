@@ -1,7 +1,7 @@
 <ul class="sidebar-menu">
     <li class="header">Головна навігація</li>
     <li class="treeview">
-        <a href="{{route('home')}}">
+        <a href="{{route('main')}}">
             <i class="fa fa-dashboard"></i> <span>На Сайт</span>
         </a>
     </li>

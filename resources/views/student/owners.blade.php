@@ -20,16 +20,16 @@
                                 <img src="{{$author->getAvatar()}}" alt="" height="100">
                             </a>
                             <a href="{{route('author.id',$author->id )}}"><span>{{$author->name}}</span></a>
-                                <p>Всього курсів: {{$author_courses->where('user_id',$author->id)->count()}} </p>
+                                <p>Всього курсів: {{$author_courses->where('user_id',$author->id)->where('status',1)->count()}} </p>
                             <?php $p = 0; ?>
-                            @foreach($author_courses->where('user_id',$author->id) as $course)
+                            @foreach($author_courses->where('user_id',$author->id)->where('status',1) as $course)
                                 <?php
 
                                 $p = $p + $course->likers()->get()->count() ?>
 
 
                             @endforeach
-                            <p>Рейтинг: {{$p+$author_courses->where('user_id',$author->id)->count()*10}}</p>
+                            <p>Рейтинг: {{$p+$author_courses->where('user_id',$author->id)->where('status',1)->count()*10}}</p>
 
                             </div>
                             @empty

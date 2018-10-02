@@ -1072,9 +1072,9 @@ window.particlesJS = function(tag_id, params){
     var canvass = document.getElementById(tag_id).appendChild(canvas_el);
 
     /* launch particle.js */
-    if(canvass != null){
-        pJSDom.push(new pJS(tag_id, params));
-    }
+    // if(canvass != null){
+    //     pJSDom.push(new pJS(tag_id, params));
+    // }
 
 };
 

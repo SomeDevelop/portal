@@ -46,15 +46,19 @@
                         <tbody>
                         @forelse($comments as $comment)
                         <tr>
+                            @if($comment->status == 0)
+                                <td class="moderator-big">{{$comment->getAuthorName()}}</td>
+                            @else
+                                <td>{{$comment->getAuthorName()}}</td>
+                            @endif
 
-                            <td>
-
-                                {{$comment->getAuthorName()}}
-
-                            </td>
-                            <td>{{$comment->text}}
-                            </td>
-                            <td>
+                                @if($comment->status == 0)
+                                    <td class="moderator-big">{{$comment->text}} </td>
+                                @else
+                                    <td>{{$comment->text}} </td>
+                                @endif
+                                @if($comment->status == 0)
+                                    <td class="moderator-big">
                                 @if($comment->status == 1)
                                     <h5><a href="/moderator/comments/toggle/{{$comment->id}}" class="fa fa-lock float-left"></a></h5>
 
@@ -63,7 +67,7 @@
 
                                 @endif
                                 {{Form::open(['route' => ['comments.destroy', $comment->id], 'method'=>'delete'])}}
-                                    <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-1 moderator-btn">
+                                    <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
                                         <i class="fa fa-remove"></i>
                                     </button>
 
@@ -74,6 +78,28 @@
                                         {{--<span class="moderator-new pl-3 float-left">NEW</span>--}}
                                     @endif
                             </td>
+                                @else
+                                    <td>
+                                        @if($comment->status == 1)
+                                            <h5><a href="/moderator/comments/toggle/{{$comment->id}}" class="fa fa-lock float-left"></a></h5>
+
+                                        @else
+                                            <h5><a href="/moderator/comments/toggle/{{$comment->id}}" class="fa fa-thumbs-o-up float-left"></a></h5>
+
+                                        @endif
+                                        {{Form::open(['route' => ['comments.destroy', $comment->id], 'method'=>'delete'])}}
+                                        <button onclick="return confirm('Ти впевнений?')" type="submit" class="delete float-left ml-3 moderator-btn">
+                                            <i class="fa fa-remove"></i>
+                                        </button>
+
+                                        {{--<a href="#" class=""></a>--}}
+                                        {{Form::close()}}
+
+                                        @if($comment->status == 0)
+                                            {{--<span class="moderator-new pl-3 float-left">NEW</span>--}}
+                                        @endif
+                                    </td>
+                                @endif
                         </tr>
 
                         @empty

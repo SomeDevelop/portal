@@ -25,7 +25,6 @@
 
                                     <h6>{{$cours->title}}</h6>
 
-
                                 </header>
 
                                 <div class="d-flex justify-content-between align-items-center bg-white">

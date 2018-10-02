@@ -1952,6 +1952,15 @@ nav.menu-items a:hover{
     background-color: rgba(246,250,40,.2);
 }
 
+.moderator-big{
+    background-color: rgba(246,50,50,.2);
+    color: black;
+}
+.moderator-big a{
+    color: black;
+
+}
+
 .comments-bg{
     background-color: rgba(40,100,250,.07);
 }
