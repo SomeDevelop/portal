@@ -199,9 +199,9 @@
                 <a href="{{route('authors')}}" class="menu-item">
                     <span class="js-blur">{{ __('messages.teachers') }}</span>
                 </a>
-                <a href="#" class="menu-item">
-                    <span class="js-blur">{{ __('messages.Students') }}</span>
-                </a>
+                {{--<a href="#" class="menu-item">--}}
+                    {{--<span class="js-blur">{{ __('messages.Students') }}</span>--}}
+                {{--</a>--}}
                 @if (!Auth::guest())
                 <a href="{{ route('chat') }}" class="menu-item">
                     <span class="js-blur">Messenger (Pre-Alpha)</span>

@@ -67,6 +67,10 @@ Route::middleware(['ability:Student,'])->group(function (){
     Route::get('/student', 'UsersController@myFavorites')->name('student');
     Route::get('/become', 'BecomeController@index')->name('become');
     Route::resource('student_courses','BecomeController');
+    Route::get('/student_course/{slug}/show','UsersController@show_course')->name('student_course.slug');
+    Route::resource('students_lessons','StudentsLessonController');
+
+
 //    Route::get('/open_message/{$id}', 'UsersController@open_message')->name('open_message.id');
 
 

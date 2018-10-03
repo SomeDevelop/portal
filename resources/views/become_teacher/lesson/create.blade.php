@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('owner.layout')
 
-@section('content')
-    <div class="container">
-        <div class="content-wrapper text-center">
+@section('content-1')
+    <div class="content-wrapper text-center">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -14,7 +13,7 @@
         <!-- Main content -->
         <section class="content text-center">
         {{Form::open([
-            'route' => 'students_lessons.store','files' => 'true'
+            'route' => 'lessons.store','files' => 'true'
         ])}}
         <!-- Default box -->
             <div class="box text-center">
@@ -43,7 +42,7 @@
                         </div>
                     </div>
 
-                    <input name="course_slug" type="hidden" value="{{$course->slug}}">
+                    <input name="course_id" type="hidden" value="{{$course->id}}">
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
@@ -57,6 +56,6 @@
         <!-- /.content -->
     </div>
 
-    </div>
+
 
 @endsection

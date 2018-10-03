@@ -42,7 +42,9 @@ class Lesson extends Model
 
         $lesson->fill($fields);
         $lesson->content = $detail;
-        $lesson->course_id =$fields["course_id"];
+        $course=Course::whereSlug($fields["course_slug"])->first();
+//        dd($course->id);
+        $lesson->course_id =$course->id;
         $lesson->save();
         return $lesson;
     }

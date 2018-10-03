@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="content">
     <div class="container">
+        <div class="container bg-white col-lg-10 m-auto">
         <div class="content-wrapper text-center">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -97,6 +99,8 @@
             {{Form::close()}}
         </section>
         <!-- /.content -->
+    </div>
+        </div>
     </div>
     </div>
 @endsection

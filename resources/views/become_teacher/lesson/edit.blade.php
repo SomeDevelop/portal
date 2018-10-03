@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('owner.layout')
 
-@section('content')
+@section('content-1')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">

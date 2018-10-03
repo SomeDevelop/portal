@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('owner.layout')
 
-@section('content')
+@section('content-1')
     <div class="container">
         <h2 class="text-center">{{$course->title}}</h2>
         <div class="row">

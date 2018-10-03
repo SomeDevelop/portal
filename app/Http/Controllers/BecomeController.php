@@ -27,10 +27,11 @@ class BecomeController extends Controller
 //            ,'tags'
         ));
     }
-    public function show(){
-        $courses = Course::all()->where('user_id',Auth()->user()->getAuthIdentifier())->get();
-        dd($courses);
-        return view('become_teacher.become', ['courses'=>$courses]);
+    public function show($id){
+        dd($id);
+        $course = Course::find($id);
+        dd($course);
+        return view('become_teacher.become', ['course'=>$course]);
     }
     public function store(Request $request)
     {
@@ -55,7 +56,45 @@ class BecomeController extends Controller
         return redirect()->route('student_courses.index');
     }
 
+    public function edit($slug)
+    {
 
+        $course = Course::whereSlug($slug)->first();
+
+        $categories = Category::pluck('title', 'id')->all();
+//        dd($categories);
+
+//        $tags = Tag::pluck('title', 'id')->all();
+//        $selectedTags = $post->tags->pluck('id')->all();
+        return view('become_teacher.edit', compact(
+            'categories',
+            'course'
+//            'selectedTags'
+        ));
+    }
+    public function update(Request $request, $slug)
+    {
+//        dd('6');
+        $this->validate($request, [
+            'title' =>'required',
+            'content'   =>  'required',
+
+            'image' =>  'nullable|image'
+        ]);
+        $course = Course::whereSlug($slug)->first();
+        $course->edit($request->all());
+
+        $course->uploadImage($request->file('image'));
+        $course->setCategory($request->get('category_id'));
+//        $post->setTags($request->get('tags'));
+//        $course->toggleStatus($request->get('status'));
+
+
+        flash('Курс '. $course->title.' успішно оновлено! ')->important();
+
+        return redirect()->route('student_courses.index');
+    }
+//
 
     public function destroy($slug)
     {

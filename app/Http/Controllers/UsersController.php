@@ -75,4 +75,13 @@ class UsersController extends Controller
     public function open_message($id){
         dd($id);
     }
+
+    public function show_course($slug){
+        $course = Course::whereSlug($slug)->first();
+
+
+        $lessons = Lesson::all()->where('course_id',$course->id);
+//        dd($lessons);
+        return view ('become_teacher.show', ['course' => $course, 'lessons'=>$lessons]);
+    }
 }
